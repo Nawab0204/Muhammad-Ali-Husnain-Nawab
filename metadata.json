@@ -1,0 +1,6 @@
+{
+  "name": "BOTLYTICES | Digital Technology, Web & AI Automation Studio",
+  "description": "BOTLYTICES helps modern businesses build high-performance websites, maintain IT hardware & networks, amplify digital search presence, and automate workflows with 24/7 AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

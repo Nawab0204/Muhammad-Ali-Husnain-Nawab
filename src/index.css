@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* BOTLYTICES Brand Color System */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F7F9FC;
+  --color-bg-soft: #F3F7FC;
+  --color-text-primary: #0A1020;
+  --color-text-secondary: #5D687A;
+  --color-brand-blue: #006BFF;
+  --color-bright-blue: #087CFF;
+  --color-cyan-accent: #00C8FF;
+  --color-dark-navy: #07152E;
+  --color-border-subtle: #E6EBF2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FFFFFF;
+  color: #0A1020;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Brand Blue -> Cyan Gradient Text */
+.text-brand-gradient {
+  background: linear-gradient(135deg, #006BFF 0%, #087CFF 50%, #00C8FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Primary Blue Gradient Button */
+.btn-primary-gradient {
+  background: linear-gradient(135deg, #006BFF 0%, #087CFF 60%, #00B8FF 100%);
+  color: #FFFFFF;
+  border-radius: 9999px;
+  box-shadow: 0 8px 24px -4px rgba(0, 107, 255, 0.28), 0 2px 6px -1px rgba(0, 107, 255, 0.15);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -4px rgba(0, 107, 255, 0.38), 0 4px 12px -2px rgba(0, 200, 255, 0.25);
+}
+
+.btn-primary-gradient:active {
+  transform: translateY(0);
+}
+
+/* Secondary White Button with Blue Border */
+.btn-secondary-outline {
+  background-color: #FFFFFF;
+  color: #0A1020;
+  border: 1px solid #006BFF;
+  border-radius: 9999px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary-outline:hover {
+  background-color: #F3F7FC;
+  border-color: #087CFF;
+  color: #006BFF;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(0, 107, 255, 0.12);
+}
+
+/* Premium Service & Feature Card Hover System */
+.bot-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E6EBF2;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px -4px rgba(10, 16, 32, 0.03);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bot-card:hover {
+  transform: translateY(-4px);
+  border-color: #006BFF;
+  box-shadow: 0 20px 40px -12px rgba(0, 107, 255, 0.12), 0 0 0 1px rgba(0, 107, 255, 0.1);
+}
+
+/* Navigation Link Underline Micro-Interaction */
+.nav-link-hover {
+  position: relative;
+}
+
+.nav-link-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #006BFF, #00C8FF);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.nav-link-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Subtle animated flow line */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F9FC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #006BFF;
+}
