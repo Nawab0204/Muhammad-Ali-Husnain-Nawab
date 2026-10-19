@@ -1,0 +1,65 @@
+/**
+ * Global application constants and domain configuration values.
+ * Follows DRY principles so copy, thresholds, and options are defined in a single source.
+ */
+
+export const APP_CONSTANTS = {
+  BRAND: {
+    NAME: 'BOTLYTICES',
+    TAGLINE: 'Technology That Builds, Connects, Automates & Protects Your Business.',
+    LEGAL_NAME: 'Botlytices Solutions Inc.',
+    ESTABLISHED_YEAR: 2021,
+    RATING: 4.9,
+    REVIEW_COUNT: 148,
+    SUPPORT_HOURS: '24/7/365 Dedicated Tech Support',
+    GUARANTEED_SLA: '100% Guaranteed SLA & Rapid Response',
+  },
+  TIMING: {
+    HERO_AUTOPLAY_MS: 7000,
+    TOAST_DURATION_MS: 5000,
+    DEBOUNCE_DELAY_MS: 300,
+    API_TIMEOUT_MS: 10000,
+  },
+  CONTACT_SERVICES: [
+    'Web Development',
+    'Web Design & UI/UX',
+    'Custom Web Development',
+    'E-commerce & Web Applications',
+    'SEO, Hosting & Website Care',
+    'IT Support & Infrastructure',
+    'Hardware & Device Support',
+    'Software & System Support',
+    'Networking & Wi-Fi',
+    'Cybersecurity & IT Security',
+    'Digital Presence & Branding',
+    'Brand Identity & Logo Design',
+    'Social Media & Content',
+    'Business Profiles & Local Presence',
+    'Digital Marketing & Growth',
+    'AI Automation',
+    'AI Voice Assistants',
+    'WhatsApp & Chat Automation',
+    'AI Lead Generation',
+    'Workflow & Business Automation',
+    'Security & Surveillance',
+    'CCTV & Video Surveillance',
+    'Access Control & Biometrics',
+    'Remote Monitoring & Security Systems',
+    'Security Maintenance & Upgrades',
+    'Not Sure — Need Technical Consultation',
+  ] as const,
+  BUDGET_TIERS: [
+    'Under $5,000',
+    '$5,000 - $15,000',
+    '$15,000 - $35,000',
+    '$35,000 - $75,000',
+    '$75,000+',
+    'Retainer / Ongoing SLA',
+  ] as const,
+  TIMELINE_OPTIONS: [
+    'Urgent (Under 2 weeks)',
+    '1 - 2 Months',
+    '3 - 6 Months',
+    'Planning Phase / Flexible',
+  ] as const,
+} as const;

@@ -1,0 +1,8 @@
+# Robots.txt for BOTLYTICES Digital Solutions
+# Allows full indexing for Google Search Console, Googlebot, Bingbot, and AI Search Crawlers
+
+User-agent: *
+Allow: /
+
+# Direct Google Search Console to complete XML sitemap
+Sitemap: https://botlytices.com/sitemap.xml

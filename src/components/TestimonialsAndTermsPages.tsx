@@ -16,10 +16,11 @@ import {
 } from 'lucide-react';
 import { VERIFIED_TESTIMONIALS, TestimonialItem } from '../data/portfolioAndFaqs';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
+import { useApp } from '../context/AppContext';
 
 interface PageProps {
-  onNavigate: (path: string) => void;
-  onOpenQuote: (service?: string) => void;
+  onNavigate?: (path: string) => void;
+  onOpenQuote?: (service?: string) => void;
 }
 
 const TESTIMONIAL_FILTERS = [
@@ -34,7 +35,10 @@ const TESTIMONIAL_FILTERS = [
 // ============================================================================
 // 5. TESTIMONIALS PAGE (/testimonials)
 // ============================================================================
-export const TestimonialsPage: React.FC<PageProps> = ({ onNavigate }) => {
+export const TestimonialsPage: React.FC<PageProps> = ({ onNavigate: propNavigate, onOpenQuote: propOpenQuote }) => {
+  const appContext = useApp();
+  const onNavigate = propNavigate || appContext.navigate;
+  const onOpenQuote = propOpenQuote || appContext.openQuoteModal;
   const [activeFilter, setActiveFilter] =
     useState<(typeof TESTIMONIAL_FILTERS)[number]>('All');
 
@@ -387,9 +391,11 @@ const TERMS_SECTIONS = [
   },
 ];
 
-export const TermsPage: React.FC<{ onNavigate: (path: string) => void }> = ({
-  onNavigate,
+export const TermsPage: React.FC<{ onNavigate?: (path: string) => void }> = ({
+  onNavigate: propNavigate,
 }) => {
+  const appContext = useApp();
+  const onNavigate = propNavigate || appContext.navigate;
   return (
     <div className="bg-[#FFFFFF]">
       <SeoAndBreadcrumb

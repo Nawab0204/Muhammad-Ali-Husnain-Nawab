@@ -19,12 +19,14 @@ import {
   Scale,
 } from 'lucide-react';
 import { DIVISIONS } from '../data/siteArchitecture';
+import { REGIONS_DATA, getRegionStats } from '../data/locationsData';
 import mainLogo from '../assets/images/botlytices-logo.png';
+import { useApp } from '../context/AppContext';
 
 interface NavbarProps {
-  currentPath: string;
-  onNavigate: (path: string) => void;
-  onOpenQuote: (service?: string) => void;
+  currentPath?: string;
+  onNavigate?: (path: string) => void;
+  onOpenQuote?: (service?: string) => void;
 }
 
 const DIVISION_ICONS = {
@@ -110,14 +112,21 @@ const ABOUT_MEGA_GROUPS = [
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
-  currentPath,
-  onNavigate,
+  currentPath: propPath,
+  onNavigate: propNavigate,
+  onOpenQuote: propOpenQuote,
 }) => {
+  const appContext = useApp();
+  const currentPath = propPath || appContext.currentPath;
+  const onNavigate = propNavigate || appContext.navigate;
+  const onOpenQuote = propOpenQuote || appContext.openQuoteModal;
+
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<'services' | 'about' | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<'services' | 'locations' | 'about' | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileSection, setMobileSection] = useState<'services' | 'about' | null>('services');
+  const [mobileSection, setMobileSection] = useState<'services' | 'locations' | 'about' | null>('services');
   const [expandedMobileDivision, setExpandedMobileDivision] = useState<string | null>('web-development');
+  const [expandedMobileRegion, setExpandedMobileRegion] = useState<string | null>('europe');
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -148,6 +157,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const isServicesActive =
     activeDropdown === 'services' || currentPath.startsWith('/services');
+
+  const isLocationsActive =
+    activeDropdown === 'locations' || currentPath.startsWith('/locations');
 
   const isAboutActive =
     activeDropdown === 'about' ||
@@ -214,6 +226,29 @@ export const Navbar: React.FC<NavbarProps> = ({
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-200 ${
                   activeDropdown === 'services' ? 'rotate-180 text-[#006BFF]' : ''
+                }`}
+              />
+            </button>
+          </div>
+
+          <div
+            className="relative"
+            onMouseEnter={() => setActiveDropdown('locations')}
+          >
+            <button
+              onClick={() =>
+                setActiveDropdown(activeDropdown === 'locations' ? null : 'locations')
+              }
+              className={`flex items-center gap-1.5 py-2 px-1 transition-colors cursor-pointer whitespace-nowrap nav-link-hover ${
+                isLocationsActive
+                  ? 'text-[#006BFF] font-semibold'
+                  : 'hover:text-[#0A1020]'
+              }`}
+            >
+              <span>Locations</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  activeDropdown === 'locations' ? 'rotate-180 text-[#006BFF]' : ''
                 }`}
               />
             </button>
@@ -353,7 +388,130 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       )}
 
-      {/* DESKTOP 2: ABOUT THE COMPANY MEGA-MENU (01–08) */}
+      {/* DESKTOP 2: GLOBAL LOCATIONS MEGA-MENU */}
+      {activeDropdown === 'locations' && (
+        <div
+          onMouseLeave={() => setActiveDropdown(null)}
+          className="hidden lg:block absolute top-full left-0 w-full bg-white border-b border-[#E6EBF2] shadow-[0_24px_50px_-12px_rgba(10,16,32,0.1)] z-50"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#E6EBF2]">
+              <div>
+                <div className="text-[11px] font-mono-code font-bold text-[#006BFF] uppercase tracking-wider">
+                  International Service Coverage
+                </div>
+                <h3 className="text-lg font-extrabold text-[#0A1020] font-display mt-0.5">
+                  Global Service Locations
+                </h3>
+              </div>
+              <button
+                onClick={() => handleRoute('/locations')}
+                className="text-xs font-semibold text-[#006BFF] hover:underline inline-flex items-center gap-1.5 cursor-pointer"
+              >
+                <span>View Full Locations Directory</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-12 gap-8">
+              {/* 3 Regional Hubs */}
+              <div className="col-span-8 grid grid-cols-3 gap-6 border-r border-[#E6EBF2] pr-8">
+                {REGIONS_DATA.map((reg) => {
+                  const rStats = getRegionStats(reg.id);
+                  return (
+                    <div key={reg.id} className="space-y-3">
+                      <button
+                        onClick={() => handleRoute(reg.path)}
+                        className="group w-full text-left cursor-pointer"
+                      >
+                        <div className="flex items-center justify-between pb-2 border-b border-[#E6EBF2]">
+                          <span className="text-sm font-extrabold text-[#0A1020] group-hover:text-[#006BFF] transition-colors">
+                            {reg.name}
+                          </span>
+                          <ArrowRight className="w-3.5 h-3.5 text-[#006BFF] opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                        <div className="text-[11px] text-[#5D687A] mt-1.5">
+                          {rStats.countriesCount} Countries · {rStats.citiesCount} Cities
+                        </div>
+                      </button>
+
+                      <ul className="space-y-1.5">
+                        {reg.countries.map((c) => (
+                          <li key={c.id}>
+                            <button
+                              onClick={() => handleRoute(c.path)}
+                              className="w-full text-left py-1 px-2 rounded-lg hover:bg-[#F8FAFC] text-xs text-[#5D687A] hover:text-[#006BFF] flex items-center justify-between transition-colors cursor-pointer"
+                            >
+                              <span>{c.name}</span>
+                              <span className="text-[10px] text-[#94A3B8]">
+                                {c.divisions.length} div
+                              </span>
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Featured Key Cities Column */}
+              <div className="col-span-4 space-y-3">
+                <div className="text-xs font-bold text-[#0A1020] uppercase tracking-wider">
+                  Featured Metropolitan Hubs
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {[
+                    { name: 'London', path: '/locations/europe/united-kingdom/england/london' },
+                    { name: 'New York', path: '/locations/americas/united-states/new-york/new-york-city' },
+                    { name: 'Sydney', path: '/locations/oceania/australia/new-south-wales/sydney' },
+                    { name: 'Venice', path: '/locations/europe/italy/veneto/venice' },
+                    { name: 'Toronto', path: '/locations/americas/canada/ontario/toronto' },
+                    { name: 'Auckland', path: '/locations/oceania/new-zealand/auckland-region/auckland' },
+                    { name: 'Rome', path: '/locations/europe/italy/lazio/rome' },
+                    { name: 'Melbourne', path: '/locations/oceania/australia/victoria/melbourne' },
+                  ].map((city) => (
+                    <button
+                      key={city.name}
+                      onClick={() => handleRoute(city.path)}
+                      className="text-left p-2 rounded-xl bg-[#F8FAFC] hover:bg-[#F3F7FC] border border-[#E6EBF2] hover:border-[#006BFF] text-xs font-semibold text-[#0A1020] hover:text-[#006BFF] transition-all flex items-center justify-between cursor-pointer"
+                    >
+                      <span>{city.name}</span>
+                      <ArrowRight className="w-3 h-3 text-[#006BFF]" />
+                    </button>
+                  ))}
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    onClick={() => handleRoute('/locations')}
+                    className="w-full py-2.5 px-3 rounded-xl bg-[#006BFF] text-white text-xs font-bold hover:bg-[#0052CC] transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                  >
+                    <span>Browse All 39 Global Locations</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="mt-6 pt-4 border-t border-[#E6EBF2] flex items-center justify-between text-xs text-[#5D687A]">
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-[#0A1020]">Verified Global Network:</span>
+                <span>3 Hubs · 11 Countries · 25 Divisions · 39 Cities</span>
+              </div>
+              <button
+                onClick={() => handleRoute('/contact')}
+                className="font-semibold text-[#006BFF] hover:underline cursor-pointer"
+              >
+                Discuss Local Requirements →
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* DESKTOP 3: ABOUT THE COMPANY MEGA-MENU (01–08) */}
       {activeDropdown === 'about' && (
         <div
           onMouseLeave={() => setActiveDropdown(null)}

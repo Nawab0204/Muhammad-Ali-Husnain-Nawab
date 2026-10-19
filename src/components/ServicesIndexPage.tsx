@@ -2,16 +2,20 @@ import React from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { DIVISIONS } from '../data/siteArchitecture';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
+import { useApp } from '../context/AppContext';
 
 interface ServicesIndexPageProps {
-  onNavigate: (path: string) => void;
-  onOpenQuote: (service?: string) => void;
+  onNavigate?: (path: string) => void;
+  onOpenQuote?: (service?: string) => void;
 }
 
 export const ServicesIndexPage: React.FC<ServicesIndexPageProps> = ({
-  onNavigate,
-  onOpenQuote,
+  onNavigate: propNavigate,
+  onOpenQuote: propOpenQuote,
 }) => {
+  const appContext = useApp();
+  const onNavigate = propNavigate || appContext.navigate;
+  const onOpenQuote = propOpenQuote || appContext.openQuoteModal;
   return (
     <div className="bg-[#FFFFFF]">
       <SeoAndBreadcrumb

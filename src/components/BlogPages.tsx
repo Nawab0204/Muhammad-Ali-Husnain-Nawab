@@ -19,18 +19,22 @@ import {
   BlogCategory,
 } from '../data/blogArticles';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
+import { useApp } from '../context/AppContext';
 
 interface BlogPagesProps {
   selectedSlug?: string;
-  onNavigate: (path: string) => void;
-  onOpenQuote: (service?: string) => void;
+  onNavigate?: (path: string) => void;
+  onOpenQuote?: (service?: string) => void;
 }
 
 export const BlogPages: React.FC<BlogPagesProps> = ({
   selectedSlug,
-  onNavigate,
-  onOpenQuote,
+  onNavigate: propNavigate,
+  onOpenQuote: propOpenQuote,
 }) => {
+  const appContext = useApp();
+  const onNavigate = propNavigate || appContext.navigate;
+  const onOpenQuote = propOpenQuote || appContext.openQuoteModal;
   const [activeCategory, setActiveCategory] = useState<'All' | BlogCategory>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [copiedShare, setCopiedShare] = useState(false);

@@ -16,12 +16,13 @@ import {
   PortfolioFilterTag,
 } from '../data/portfolioAndFaqs';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
+import { useApp } from '../context/AppContext';
 
 interface PortfolioPageProps {
   mode: 'portfolio' | 'case-studies';
   selectedSlug?: string;
-  onNavigate: (path: string) => void;
-  onOpenQuote: (service?: string) => void;
+  onNavigate?: (path: string) => void;
+  onOpenQuote?: (service?: string) => void;
 }
 
 const FILTER_CATEGORIES: ('All' | PortfolioFilterTag)[] = [
@@ -39,9 +40,12 @@ const FILTER_CATEGORIES: ('All' | PortfolioFilterTag)[] = [
 export const PortfolioAndCaseStudiesPage: React.FC<PortfolioPageProps> = ({
   mode,
   selectedSlug,
-  onNavigate,
-  onOpenQuote,
+  onNavigate: propNavigate,
+  onOpenQuote: propOpenQuote,
 }) => {
+  const appContext = useApp();
+  const onNavigate = propNavigate || appContext.navigate;
+  const onOpenQuote = propOpenQuote || appContext.openQuoteModal;
   const [activeFilter, setActiveFilter] = useState<'All' | PortfolioFilterTag>('All');
 
   // ============================================================================

@@ -1,10 +1,11 @@
 import React from 'react';
 import { ArrowUp, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import mainLogo from '../assets/images/botlytices-logo.png';
+import { useApp } from '../context/AppContext';
 
 interface FooterProps {
-  onNavigate: (path: string) => void;
-  onOpenQuote: (service?: string) => void;
+  onNavigate?: (path: string) => void;
+  onOpenQuote?: (service?: string) => void;
 }
 
 const ABOUT_FOOTER_LINKS = [
@@ -18,7 +19,10 @@ const ABOUT_FOOTER_LINKS = [
   { number: '08', label: 'Terms & Conditions', path: '/terms' },
 ];
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpenQuote: propOpenQuote }) => {
+  const appContext = useApp();
+  const onNavigate = propNavigate || appContext.navigate;
+  const onOpenQuote = propOpenQuote || appContext.openQuoteModal;
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -109,6 +113,136 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
         </div>
 
+        {/* Global Service Locations Section */}
+        <div className="py-8 border-b border-[#E6EBF2]">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+            <div>
+              <span className="text-xs font-mono-code font-bold text-[#006BFF] uppercase tracking-wider">
+                International Presence
+              </span>
+              <h4 className="text-sm font-extrabold text-[#0A1020] mt-0.5">
+                Global Service Locations
+              </h4>
+            </div>
+            <button
+              onClick={() => onNavigate('/locations')}
+              className="text-xs font-semibold text-[#006BFF] hover:underline inline-flex items-center gap-1 cursor-pointer"
+            >
+              <span>Explore All Locations</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs">
+            <div>
+              <button
+                onClick={() => onNavigate('/locations/americas')}
+                className="font-bold text-[#0A1020] hover:text-[#006BFF] transition-colors cursor-pointer block mb-2"
+              >
+                Americas Hub →
+              </button>
+              <div className="flex flex-wrap gap-x-3 gap-y-1 text-[#5D687A]">
+                <button
+                  onClick={() => onNavigate('/locations/americas/united-states/new-york/new-york-city')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  New York
+                </button>
+                <span>·</span>
+                <button
+                  onClick={() => onNavigate('/locations/americas/united-states/california/los-angeles')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  Los Angeles
+                </button>
+                <span>·</span>
+                <button
+                  onClick={() => onNavigate('/locations/americas/canada/ontario/toronto')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  Toronto
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <button
+                onClick={() => onNavigate('/locations/europe')}
+                className="font-bold text-[#0A1020] hover:text-[#006BFF] transition-colors cursor-pointer block mb-2"
+              >
+                Europe Hub →
+              </button>
+              <div className="flex flex-wrap gap-x-3 gap-y-1 text-[#5D687A]">
+                <button
+                  onClick={() => onNavigate('/locations/europe/united-kingdom/england/london')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  London
+                </button>
+                <span>·</span>
+                <button
+                  onClick={() => onNavigate('/locations/europe/italy/veneto/venice')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  Venice
+                </button>
+                <span>·</span>
+                <button
+                  onClick={() => onNavigate('/locations/europe/italy/lazio/rome')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  Rome
+                </button>
+                <span>·</span>
+                <button
+                  onClick={() => onNavigate('/locations/europe/ireland/leinster/dublin')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  Dublin
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <button
+                onClick={() => onNavigate('/locations/oceania')}
+                className="font-bold text-[#0A1020] hover:text-[#006BFF] transition-colors cursor-pointer block mb-2"
+              >
+                Oceania Hub →
+              </button>
+              <div className="flex flex-wrap gap-x-3 gap-y-1 text-[#5D687A]">
+                <button
+                  onClick={() => onNavigate('/locations/oceania/australia/new-south-wales/sydney')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  Sydney
+                </button>
+                <span>·</span>
+                <button
+                  onClick={() => onNavigate('/locations/oceania/australia/victoria/melbourne')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  Melbourne
+                </button>
+                <span>·</span>
+                <button
+                  onClick={() => onNavigate('/locations/oceania/new-zealand/auckland-region/auckland')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  Auckland
+                </button>
+                <span>·</span>
+                <button
+                  onClick={() => onNavigate('/locations/oceania/new-zealand/wellington-region/wellington')}
+                  className="hover:text-[#006BFF] transition-colors cursor-pointer"
+                >
+                  Wellington
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#5D687A]">
           <div className="flex flex-wrap items-center gap-3">
@@ -126,6 +260,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               className="hover:text-[#006BFF] transition-colors cursor-pointer"
             >
               Terms &amp; Conditions
+            </button>
+            <span aria-hidden="true">·</span>
+            <button
+              onClick={() => onNavigate('/sitemap')}
+              className="hover:text-[#006BFF] transition-colors cursor-pointer"
+            >
+              Site Map
             </button>
             <span aria-hidden="true">·</span>
             <button

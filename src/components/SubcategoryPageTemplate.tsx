@@ -11,18 +11,22 @@ import { SUBCATEGORY_PAGES } from '../data/subcategoryPages';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioAndFaqs';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
 import { ServiceVisualDiagram } from './ServiceVisualDiagram';
+import { useApp } from '../context/AppContext';
 
 interface SubcategoryPageTemplateProps {
   page: SubcategoryPageData;
-  onNavigate: (path: string) => void;
-  onOpenQuote: (service?: string) => void;
+  onNavigate?: (path: string) => void;
+  onOpenQuote?: (service?: string) => void;
 }
 
 export const SubcategoryPageTemplate: React.FC<SubcategoryPageTemplateProps> = ({
   page,
-  onNavigate,
-  onOpenQuote,
+  onNavigate: propNavigate,
+  onOpenQuote: propOpenQuote,
 }) => {
+  const appContext = useApp();
+  const onNavigate = propNavigate || appContext.navigate;
+  const onOpenQuote = propOpenQuote || appContext.openQuoteModal;
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [activeRefCategory, setActiveRefCategory] = useState<string>('All');
 

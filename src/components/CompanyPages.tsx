@@ -852,10 +852,19 @@ const SERVICE_CHECKBOX_GROUPS = [
   },
 ];
 
+import { inquiryService } from '../services/inquiryService';
+import { inquiryApi } from '../api/inquiryApi';
+import { useApp } from '../context/AppContext';
+
 export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
   onNavigate,
 }) => {
+  const { addToast } = useApp();
   const [submitted, setSubmitted] = useState(false);
+  const [ticketId, setTicketId] = useState<string>('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [validationError, setValidationError] = useState<string | null>(null);
+
   const [fullName, setFullName] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [email, setEmail] = useState('');
@@ -875,10 +884,51 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!fullName || !email) return;
-    setSubmitted(true);
+    setValidationError(null);
+
+    if (!fullName.trim() || fullName.trim().length < 2) {
+      setValidationError('Please provide your full name.');
+      return;
+    }
+
+    if (!email.trim() || !inquiryService.isValidEmail(email)) {
+      setValidationError('Please provide a valid business email address.');
+      return;
+    }
+
+    if (selectedServices.length === 0) {
+      setValidationError('Please select at least one service needed.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const result = await inquiryApi.submitInquiry({
+        name: fullName,
+        companyName,
+        email,
+        phone,
+        selectedServices,
+        timeline,
+        budgetTier: budgetRange,
+        preferredContactMethod: contactMethod as 'Email' | 'Phone' | 'WhatsApp',
+        message: details,
+      });
+
+      setTicketId(result.data?.ticketId || 'BOT-CONFIRMED');
+      setSubmitted(true);
+      addToast({
+        type: 'success',
+        title: 'Inquiry Successfully Registered!',
+        message: `Your ticket ${result.data?.ticketId || 'BOT-CONFIRMED'} has been received by senior engineering.`,
+      });
+    } catch {
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -1046,6 +1096,11 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                     <h3 className="text-2xl font-bold text-[#0A1020] font-display">
                       Thank You, {fullName}
                     </h3>
+                    {ticketId && (
+                      <div className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 text-[#006BFF] text-xs font-mono font-bold rounded-lg">
+                        Reference Ticket: {ticketId}
+                      </div>
+                    )}
                     <p className="text-sm text-[#5D687A] max-w-md mx-auto leading-relaxed">
                       We have received your inquiry regarding{' '}
                       <strong className="text-[#0A1020]">
@@ -1053,19 +1108,23 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                           ? selectedServices.join(', ')
                           : 'your project'}
                       </strong>
-                      . A specialist will contact you via{' '}
-                      <strong className="text-[#0A1020]">{contactMethod}</strong> within 1 business
-                      day.
+                      . A senior engineer will contact you via{' '}
+                      <strong className="text-[#0A1020]">{contactMethod}</strong> within 2 hours.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="px-6 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-xs font-semibold text-[#0A1020] cursor-pointer"
+                      className="px-6 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-xs font-semibold text-[#0A1020] cursor-pointer hover:bg-slate-100"
                     >
                       Submit Another Inquiry
                     </button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {validationError && (
+                      <div className="p-3.5 bg-red-50 border border-red-200 text-red-700 text-xs font-semibold rounded-xl flex items-center gap-2">
+                        <span>{validationError}</span>
+                      </div>
+                    )}
                     <div className="border-b border-[#E6EBF2] pb-4">
                       <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase">
                         Project &amp; Service Inquiry Form

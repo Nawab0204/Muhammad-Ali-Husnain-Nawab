@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
+import { useApp } from '../context/AppContext';
+import { env } from '../config/env';
 
 export interface BreadcrumbItem {
   label: string;
@@ -11,7 +13,7 @@ interface SeoAndBreadcrumbProps {
   description: string;
   path: string;
   breadcrumbs: BreadcrumbItem[];
-  onNavigate: (path: string) => void;
+  onNavigate?: (path: string) => void;
   faqs?: { question: string; answer: string }[];
   serviceType?: string;
   articleSchema?: {
@@ -32,6 +34,14 @@ interface SeoAndBreadcrumbProps {
     category: string;
     description: string;
   }[];
+  locationSchema?: {
+    name: string;
+    areaServedName: string;
+    areaServedType?: 'City' | 'AdministrativeArea' | 'Country';
+    serviceNames?: string[];
+    isHybridOnSite?: boolean;
+    timezone?: string;
+  };
   hideVisualBreadcrumbs?: boolean;
 }
 
@@ -40,15 +50,19 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
   description,
   path,
   breadcrumbs,
-  onNavigate,
+  onNavigate: propNavigate,
   faqs,
   serviceType,
   articleSchema,
   blogPostingList,
+  locationSchema,
   hideVisualBreadcrumbs,
 }) => {
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://botlytices.com';
-  const canonicalUrl = `${origin}${path}`;
+  const { navigate: contextNavigate } = useApp();
+  const handleNavigate = propNavigate || contextNavigate;
+
+  const origin = typeof window !== 'undefined' ? window.location.origin : env.appUrl;
+  const canonicalUrl = `${origin}${path === '/' ? '' : path}`;
 
   useEffect(() => {
     document.title = title;
@@ -190,6 +204,40 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
     });
   }
 
+  if (locationSchema) {
+    schemaGraph.push({
+      '@type': 'ProfessionalService',
+      '@id': `${canonicalUrl}#localbusiness`,
+      name: `BOTLYTICES | ${locationSchema.name}`,
+      url: canonicalUrl,
+      description,
+      provider: { '@id': `${origin}/#organization` },
+      areaServed: {
+        '@type': locationSchema.areaServedType || 'City',
+        name: locationSchema.areaServedName,
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: `Digital & IT Services in ${locationSchema.areaServedName}`,
+        itemListElement: (locationSchema.serviceNames || [
+          'Web Development',
+          'IT Support & Cloud Infrastructure',
+          'Local Search & Digital Presence',
+          'AI Workflow Automation',
+        ]).map((srv, idx) => ({
+          '@type': 'Offer',
+          position: idx + 1,
+          name: srv,
+          itemOffered: {
+            '@type': 'Service',
+            name: srv,
+            description: `${srv} delivered for businesses in ${locationSchema.areaServedName}`,
+          },
+        })),
+      },
+    });
+  }
+
   if (faqs && faqs.length > 0) {
     schemaGraph.push({
       '@type': 'FAQPage',
@@ -228,7 +276,7 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
                     {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] shrink-0" />}
                     {crumb.path && !isLast ? (
                       <button
-                        onClick={() => onNavigate(crumb.path!)}
+                        onClick={() => handleNavigate(crumb.path!)}
                         className="hover:text-[#006BFF] transition-colors cursor-pointer font-medium"
                       >
                         {crumb.label}

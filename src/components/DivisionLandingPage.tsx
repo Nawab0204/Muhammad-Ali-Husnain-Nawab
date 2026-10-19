@@ -16,18 +16,22 @@ import {
 import { DivisionPageData, WEBSITE_INSPIRATION_REFERENCES } from '../data/siteArchitecture';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioAndFaqs';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
+import { useApp } from '../context/AppContext';
 
 interface DivisionLandingPageProps {
   division: DivisionPageData;
-  onNavigate: (path: string) => void;
-  onOpenQuote: (service?: string) => void;
+  onNavigate?: (path: string) => void;
+  onOpenQuote?: (service?: string) => void;
 }
 
 export const DivisionLandingPage: React.FC<DivisionLandingPageProps> = ({
   division,
-  onNavigate,
-  onOpenQuote,
+  onNavigate: propNavigate,
+  onOpenQuote: propOpenQuote,
 }) => {
+  const appContext = useApp();
+  const onNavigate = propNavigate || appContext.navigate;
+  const onOpenQuote = propOpenQuote || appContext.openQuoteModal;
   const [activeRefCategory, setActiveRefCategory] = useState<string>('All');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 

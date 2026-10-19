@@ -1,11 +1,17 @@
 /**
- * @license
- * SPDX-License-Identifier: Apache-2.0
+ * Main Application Component & Master Router for BOTLYTICES.
+ * Built with SOLID principles, centralized AppContext state management, and robust error boundaries.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { AppProvider, useApp } from './context/AppContext';
+import { ErrorBoundary } from './components/common/ErrorBoundary';
+import { ToastContainer } from './components/common/Toast';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { ProjectInquiryModal } from './components/ProjectInquiryModal';
+
+// Pages
 import { HomePage } from './components/HomePage';
 import { ServicesIndexPage } from './components/ServicesIndexPage';
 import { DivisionLandingPage } from './components/DivisionLandingPage';
@@ -14,22 +20,43 @@ import { PortfolioAndCaseStudiesPage } from './components/PortfolioAndCaseStudie
 import { ProcessPage, AboutPage, FaqPage, ContactPage } from './components/CompanyPages';
 import { TestimonialsPage, TermsPage } from './components/TestimonialsAndTermsPages';
 import { BlogPages } from './components/BlogPages';
-import { ProjectInquiryModal } from './components/ProjectInquiryModal';
+import { SitemapPage } from './pages/SitemapPage';
+import { NotFoundPage } from './pages/NotFoundPage';
+import {
+  LocationsDirectoryPage,
+  RegionLandingPage,
+  CountryLandingPage,
+  AdministrativeDivisionPage,
+  CityLandingPage,
+} from './components/locations';
+
+// Data registries
 import { DIVISIONS } from './data/siteArchitecture';
 import { SUBCATEGORY_PAGES } from './data/subcategoryPages';
+import {
+  getRegionBySlug,
+  getCountryBySlug,
+  getDivisionBySlug,
+  getCityBySlug,
+  getCityInCountryBySlug,
+} from './data/locationsData';
 import tabLogo from './assets/images/botlytices-tab-logo.png';
 
-export default function App() {
-  const [currentPath, setCurrentPath] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      return window.location.pathname || '/';
-    }
-    return '/';
-  });
+/**
+ * Inner router component that consumes AppContext.
+ */
+function AppContent() {
+  const {
+    currentPath,
+    navigate,
+    isQuoteModalOpen,
+    selectedService,
+    selectedLocation,
+    openQuoteModal,
+    closeQuoteModal,
+  } = useApp();
 
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState<string | undefined>(undefined);
-
+  // Dynamic favicon update
   useEffect(() => {
     let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement | null;
     if (!link) {
@@ -40,55 +67,33 @@ export default function App() {
     link.href = tabLogo;
   }, []);
 
-  useEffect(() => {
-    const handlePopState = () => {
-      setCurrentPath(window.location.pathname || '/');
-      window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-    };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
-
-  const navigate = (path: string) => {
-    const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    if (typeof window !== 'undefined' && window.location.pathname !== cleanPath) {
-      window.history.pushState({}, '', cleanPath);
-    }
-    setCurrentPath(cleanPath);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleOpenQuote = (service?: string) => {
-    setSelectedService(service);
-    setIsQuoteModalOpen(true);
-  };
-
-  const renderPage = () => {
+  // Route Resolver
+  const renderCurrentRoute = () => {
     const normalized = currentPath === '' ? '/' : currentPath.replace(/\/+$/, '') || '/';
 
     // 1. Home Page
     if (normalized === '/') {
-      return <HomePage onNavigate={navigate} onOpenQuote={handleOpenQuote} />;
+      return <HomePage onNavigate={navigate} onOpenQuote={openQuoteModal} />;
     }
 
     // 2. Services Directory (/services)
     if (normalized === '/services') {
-      return <ServicesIndexPage onNavigate={navigate} onOpenQuote={handleOpenQuote} />;
+      return <ServicesIndexPage onNavigate={navigate} onOpenQuote={openQuoteModal} />;
     }
 
-    // 3. Check 5 Division Landing Pages (/services/:division)
+    // 3. 5 Major Division Landing Pages (/services/:division)
     const matchedDivision = DIVISIONS.find((d) => d.path === normalized);
     if (matchedDivision) {
       return (
         <DivisionLandingPage
           division={matchedDivision}
           onNavigate={navigate}
-          onOpenQuote={handleOpenQuote}
+          onOpenQuote={openQuoteModal}
         />
       );
     }
 
-    // 4. Check 20 Subcategory Service Pages (/services/:division/:subcategory)
+    // 4. 20 Subcategory Service Pages (/services/:division/:subcategory)
     const matchedSubcategory = Object.values(SUBCATEGORY_PAGES).find(
       (s) => s.path === normalized
     );
@@ -97,28 +102,28 @@ export default function App() {
         <SubcategoryPageTemplate
           page={matchedSubcategory}
           onNavigate={navigate}
-          onOpenQuote={handleOpenQuote}
+          onOpenQuote={openQuoteModal}
         />
       );
     }
 
     // 5. About Us (/about)
     if (normalized === '/about') {
-      return <AboutPage onNavigate={navigate} onOpenQuote={handleOpenQuote} />;
+      return <AboutPage onNavigate={navigate} onOpenQuote={openQuoteModal} />;
     }
 
     // 6. Our Process (/about/process or /process)
     if (normalized === '/about/process' || normalized === '/process') {
-      return <ProcessPage onNavigate={navigate} onOpenQuote={handleOpenQuote} />;
+      return <ProcessPage onNavigate={navigate} onOpenQuote={openQuoteModal} />;
     }
 
-    // 7. Portfolio Index (/portfolio) & Portfolio Detail (/portfolio/:project)
+    // 7. Portfolio Index & Detail Pages
     if (normalized === '/portfolio') {
       return (
         <PortfolioAndCaseStudiesPage
           mode="portfolio"
           onNavigate={navigate}
-          onOpenQuote={handleOpenQuote}
+          onOpenQuote={openQuoteModal}
         />
       );
     }
@@ -130,18 +135,18 @@ export default function App() {
           mode="portfolio"
           selectedSlug={slug}
           onNavigate={navigate}
-          onOpenQuote={handleOpenQuote}
+          onOpenQuote={openQuoteModal}
         />
       );
     }
 
-    // 8. Case Studies Index (/case-studies) & Case Study Detail (/case-studies/:case-study)
+    // 8. Case Studies Index & Detail Pages
     if (normalized === '/case-studies') {
       return (
         <PortfolioAndCaseStudiesPage
           mode="case-studies"
           onNavigate={navigate}
-          onOpenQuote={handleOpenQuote}
+          onOpenQuote={openQuoteModal}
         />
       );
     }
@@ -153,19 +158,19 @@ export default function App() {
           mode="case-studies"
           selectedSlug={slug}
           onNavigate={navigate}
-          onOpenQuote={handleOpenQuote}
+          onOpenQuote={openQuoteModal}
         />
       );
     }
 
     // 9. Testimonials (/testimonials)
     if (normalized === '/testimonials') {
-      return <TestimonialsPage onNavigate={navigate} onOpenQuote={handleOpenQuote} />;
+      return <TestimonialsPage onNavigate={navigate} onOpenQuote={openQuoteModal} />;
     }
 
-    // 10. Blog Index (/blog) & Blog Article Detail (/blog/:article)
+    // 10. Blog Index & Article Detail Pages
     if (normalized === '/blog') {
-      return <BlogPages onNavigate={navigate} onOpenQuote={handleOpenQuote} />;
+      return <BlogPages onNavigate={navigate} onOpenQuote={openQuoteModal} />;
     }
 
     if (normalized.startsWith('/blog/')) {
@@ -174,14 +179,14 @@ export default function App() {
         <BlogPages
           selectedSlug={slug}
           onNavigate={navigate}
-          onOpenQuote={handleOpenQuote}
+          onOpenQuote={openQuoteModal}
         />
       );
     }
 
     // 11. FAQ (/faq)
     if (normalized === '/faq') {
-      return <FaqPage onNavigate={navigate} onOpenQuote={handleOpenQuote} />;
+      return <FaqPage onNavigate={navigate} onOpenQuote={openQuoteModal} />;
     }
 
     // 12. Terms & Conditions (/terms)
@@ -194,31 +199,139 @@ export default function App() {
       return <ContactPage onNavigate={navigate} />;
     }
 
-    // Fallback to Home Page
-    return <HomePage onNavigate={navigate} onOpenQuote={handleOpenQuote} />;
+    // 14. Global Service Locations Architecture (/locations and sub-levels)
+    if (normalized === '/locations') {
+      return (
+        <LocationsDirectoryPage
+          onNavigate={navigate}
+          onOpenQuote={openQuoteModal}
+        />
+      );
+    }
+
+    if (normalized.startsWith('/locations/')) {
+      const parts = normalized.replace('/locations/', '').split('/').filter(Boolean);
+
+      // Level 1: Region (/locations/:region)
+      if (parts.length === 1) {
+        const region = getRegionBySlug(parts[0]);
+        if (region) {
+          return (
+            <RegionLandingPage
+              region={region}
+              onNavigate={navigate}
+              onOpenQuote={openQuoteModal}
+            />
+          );
+        }
+      }
+
+      // Level 2: Country (/locations/:region/:country)
+      if (parts.length === 2) {
+        const country = getCountryBySlug(parts[0], parts[1]);
+        if (country) {
+          return (
+            <CountryLandingPage
+              country={country}
+              onNavigate={navigate}
+              onOpenQuote={openQuoteModal}
+            />
+          );
+        }
+      }
+
+      // Level 3: Administrative Division (/locations/:region/:country/:division)
+      // Or 3-segment direct City fallback (e.g. /locations/oceania/new-zealand/auckland)
+      if (parts.length === 3) {
+        const division = getDivisionBySlug(parts[0], parts[1], parts[2]);
+        if (division) {
+          return (
+            <AdministrativeDivisionPage
+              division={division}
+              onNavigate={navigate}
+              onOpenQuote={openQuoteModal}
+            />
+          );
+        }
+
+        const cityDirect = getCityInCountryBySlug(parts[0], parts[1], parts[2]);
+        if (cityDirect) {
+          return (
+            <CityLandingPage
+              city={cityDirect}
+              onNavigate={navigate}
+              onOpenQuote={openQuoteModal}
+            />
+          );
+        }
+      }
+
+      // Level 4: City (/locations/:region/:country/:division/:city)
+      if (parts.length === 4) {
+        const city = getCityBySlug(parts[0], parts[1], parts[2], parts[3]);
+        if (city) {
+          return (
+            <CityLandingPage
+              city={city}
+              onNavigate={navigate}
+              onOpenQuote={openQuoteModal}
+            />
+          );
+        }
+      }
+    }
+
+    // 15. HTML Site Map Directory (/sitemap)
+    if (normalized === '/sitemap') {
+      return <SitemapPage />;
+    }
+
+    // 16. Clean 404 Not Found Page
+    return <NotFoundPage />;
   };
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#0A1020] flex flex-col font-sans selection:bg-[#006BFF] selection:text-white">
-      {/* Global Sticky Header with Services ▼, About ▼ Mega-Menus & Contact Us CTA */}
+      {/* Global Sticky Header */}
       <Navbar
         currentPath={currentPath}
         onNavigate={navigate}
-        onOpenQuote={handleOpenQuote}
+        onOpenQuote={openQuoteModal}
       />
 
-      {/* Active Route View */}
-      <main className="flex-1">{renderPage()}</main>
+      {/* Main Routed Page with Section Error Catching */}
+      <main className="flex-1">
+        <ErrorBoundary fallbackTitle="View Failed to Load">
+          {renderCurrentRoute()}
+        </ErrorBoundary>
+      </main>
 
-      {/* Complete Multi-Division & Company Sitemap Footer */}
-      <Footer onNavigate={navigate} onOpenQuote={handleOpenQuote} />
+      {/* Complete Footer Sitemap */}
+      <Footer onNavigate={navigate} onOpenQuote={openQuoteModal} />
 
-      {/* Project Consultation / Quote Modal */}
+      {/* Global Interactive Modal */}
       <ProjectInquiryModal
         isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
+        onClose={closeQuoteModal}
         defaultService={selectedService}
+        defaultLocation={selectedLocation}
       />
+
+      {/* Accessible Floating Toast Notifications */}
+      <ToastContainer />
     </div>
+  );
+}
+
+/**
+ * Root Application Entry wrapped with Error Boundary and Context Provider.
+ */
+export default function App() {
+  return (
+    <ErrorBoundary fallbackTitle="Application Initialization Error">
+      <AppProvider>
+        <AppContent />
+      </AppProvider>
+    </ErrorBoundary>
   );
 }
