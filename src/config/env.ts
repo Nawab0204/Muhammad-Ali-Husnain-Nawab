@@ -35,9 +35,9 @@ export const env: AppEnv = {
   appName: 'BOTLYTICES',
   appUrl: resolveAppUrl(),
   isProduction: import.meta.env.PROD || false,
-  contactEmail: 'contact@botlytices.com',
-  contactPhone: '+1 (800) 840-2685',
-  contactAddress: 'One Tech Hub Plaza, Suite 400, San Francisco, CA 94105',
+  contactEmail: 'info@botlytices.com',
+  contactPhone: '+92 340 0320020',
+  contactAddress: 'Remote & On-Site International Technical Delivery',
   apiBaseUrl: (import.meta.env.VITE_API_BASE_URL as string | undefined) || '/api',
   enableAnalytics: import.meta.env.PROD || false,
 };

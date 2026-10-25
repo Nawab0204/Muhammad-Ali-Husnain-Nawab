@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect } from 'react';
-import { X, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { X, ArrowRight, CheckCircle2, Phone, MessageCircle } from 'lucide-react';
 import tabLogo from '../assets/images/botlytices-tab-logo.png';
 import { useInquiryForm } from '../hooks/useInquiryForm';
 import { APP_CONSTANTS } from '../config/constants';
@@ -268,7 +268,7 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                 />
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 space-y-3">
                 <Button
                   type="submit"
                   variant="primary"
@@ -279,6 +279,27 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                 >
                   Request Technical Consultation
                 </Button>
+
+                <div className="flex items-center justify-center gap-3 text-xs text-[#5D687A] pt-1">
+                  <span>Or reach us directly:</span>
+                  <a
+                    href="https://wa.me/923557181347?text=Hello%20BOTLYTICES%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 font-semibold text-emerald-600 hover:underline"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 text-emerald-500" />
+                    <span>WhatsApp</span>
+                  </a>
+                  <span>·</span>
+                  <a
+                    href="tel:+923400320020"
+                    className="inline-flex items-center gap-1 font-semibold text-[#0A1020] hover:text-[#006BFF]"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-[#006BFF]" />
+                    <span>Call</span>
+                  </a>
+                </div>
               </div>
             </form>
           )}

@@ -21,6 +21,10 @@ import {
   Cpu,
   Clock,
   Send,
+  Instagram,
+  Facebook,
+  Linkedin,
+  MessageCircle,
 } from 'lucide-react';
 import {
   SEVEN_STEP_PROCESS,
@@ -424,7 +428,258 @@ export const AboutPage: React.FC<PageProps> = ({ onNavigate, onOpenQuote }) => {
         </div>
       </section>
 
-      {/* 8. FINAL CTA */}
+      {/* 8. FOUNDER & TECHNICAL LEADERSHIP */}
+      <section className="py-20 bg-[#F8FAFC] border-b border-[#E6EBF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5 space-y-4">
+              <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase">
+                Technical Leadership
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1020] font-display tracking-tight">
+                Engineering-First Direction
+              </h2>
+              <p className="text-sm sm:text-base text-[#5D687A] leading-relaxed">
+                BOTLYTICES is led by hands-on engineers who build and supervise real systems, not account managers passing messages. Every project is scoped with data-driven architecture, robust security, and reliable long-term operations.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://www.linkedin.com/in/muhammad-ali-husnain-nawab/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#084e96] text-white text-xs font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer shadow-xs"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  <span>Connect on LinkedIn</span>
+                </a>
+                <a
+                  href="https://wa.me/923557181347?text=Hello%20Ali,%20I%20would%20like%20to%20discuss%20a%20project%20with%20BOTLYTICES."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer shadow-xs"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="p-7 sm:p-9 rounded-3xl bg-white border border-[#E6EBF2] shadow-sm space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#E6EBF2]">
+                  <div>
+                    <div className="text-xs font-mono-code text-[#006BFF] font-bold uppercase">
+                      Founder &amp; Principal Engineer
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#0A1020] font-display mt-0.5">
+                      Muhammad Ali Husnain Nawab
+                    </h3>
+                    <p className="text-xs text-[#5D687A] mt-1">
+                      Based in Pakistan · Serving International Clients Remotely
+                    </p>
+                  </div>
+                  <a
+                    href="https://www.linkedin.com/in/muhammad-ali-husnain-nawab/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:border-[#006BFF] text-xs font-semibold text-[#0A1020] transition-colors"
+                  >
+                    <Linkedin className="w-4 h-4 text-[#0A66C2]" />
+                    <span>View Profile →</span>
+                  </a>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="text-xs font-bold text-[#0A1020] uppercase tracking-wider">
+                    Core Specializations &amp; Certified Credentials
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] space-y-1">
+                      <div className="font-bold text-[#0A1020] flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                        <span>Microsoft Fabric &amp; Power BI</span>
+                      </div>
+                      <p className="text-[11px] text-[#5D687A]">
+                        DP-700 Certified · Enterprise data analytics &amp; interactive executive dashboards.
+                      </p>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] space-y-1">
+                      <div className="font-bold text-[#0A1020] flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                        <span>Modern Web Architecture</span>
+                      </div>
+                      <p className="text-[11px] text-[#5D687A]">
+                        React, TypeScript, Next.js, performant UI/UX, and scalable API integrations.
+                      </p>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] space-y-1">
+                      <div className="font-bold text-[#0A1020] flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                        <span>AI &amp; Workflow Automation</span>
+                      </div>
+                      <p className="text-[11px] text-[#5D687A]">
+                        Python, Apache Spark, SQL, MongoDB, and automated CRM &amp; lead triage pipelines.
+                      </p>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] space-y-1">
+                      <div className="font-bold text-[#0A1020] flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                        <span>Google Professional Credentials</span>
+                      </div>
+                      <p className="text-[11px] text-[#5D687A]">
+                        Google Certified in Data Analytics, IT Support, and Project Management.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs text-[#5D687A] border-t border-[#E6EBF2]">
+                  <div className="flex items-center gap-3">
+                    <a
+                      href="tel:+923400320020"
+                      className="inline-flex items-center gap-1 text-[#0A1020] font-semibold hover:text-[#006BFF]"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-[#006BFF]" />
+                      <span>+92 340 0320020</span>
+                    </a>
+                    <span>·</span>
+                    <a
+                      href="https://wa.me/923557181347"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-emerald-600 font-semibold hover:underline"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5 text-emerald-500" />
+                      <span>WhatsApp: +92 355 7181347</span>
+                    </a>
+                  </div>
+                  <span className="text-[11px] text-[#5D687A]">Direct Engineering Contact</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. GLOBAL LOCATIONS & REGIONAL HUBS */}
+      <section className="py-20 bg-[#FFFFFF] border-b border-[#E6EBF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase tracking-wider">
+                International Service Footprint
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1020] font-display tracking-tight mt-1">
+                Global Locations &amp; Regional Hubs
+              </h2>
+              <p className="text-sm sm:text-base text-[#5D687A] mt-2 max-w-2xl">
+                BOTLYTICES operates an international digital services network organized across 3 primary continental hubs, 11 countries, and 39 metropolitan localities.
+              </p>
+            </div>
+            <button
+              onClick={() => onNavigate('/locations')}
+              className="px-6 py-3 text-xs sm:text-sm font-semibold btn-secondary-outline inline-flex items-center gap-2 cursor-pointer self-start md:self-auto shrink-0"
+            >
+              <span>Explore All 39 Locations</span>
+              <ArrowRight className="w-4 h-4 text-[#006BFF]" />
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Americas Hub */}
+            <div className="p-7 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2] hover:border-[#006BFF] transition-all flex flex-col justify-between group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF]">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <span className="text-[11px] font-mono-code font-bold text-[#006BFF]">
+                    Hub 01
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-[#0A1020] font-display group-hover:text-[#006BFF] transition-colors">
+                  Americas Hub
+                </h3>
+                <p className="text-xs text-[#5D687A] leading-relaxed">
+                  United States and Canada metropolitan services spanning New York, San Francisco, Los Angeles, Chicago, Toronto, and Vancouver.
+                </p>
+              </div>
+              <div className="pt-5 mt-5 border-t border-[#E6EBF2]">
+                <button
+                  onClick={() => onNavigate('/locations/americas')}
+                  className="text-xs font-bold text-[#006BFF] hover:underline inline-flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>View Americas Locations</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Europe Hub */}
+            <div className="p-7 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2] hover:border-[#006BFF] transition-all flex flex-col justify-between group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF]">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <span className="text-[11px] font-mono-code font-bold text-[#006BFF]">
+                    Hub 02
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-[#0A1020] font-display group-hover:text-[#006BFF] transition-colors">
+                  Europe Hub
+                </h3>
+                <p className="text-xs text-[#5D687A] leading-relaxed">
+                  London, Birmingham, Manchester, Dublin, Venice, Rome, Berlin, Paris, Madrid, and Amsterdam across 7 European nations.
+                </p>
+              </div>
+              <div className="pt-5 mt-5 border-t border-[#E6EBF2]">
+                <button
+                  onClick={() => onNavigate('/locations/europe')}
+                  className="text-xs font-bold text-[#006BFF] hover:underline inline-flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>View Europe Locations</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Oceania Hub */}
+            <div className="p-7 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2] hover:border-[#006BFF] transition-all flex flex-col justify-between group">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF]">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <span className="text-[11px] font-mono-code font-bold text-[#006BFF]">
+                    Hub 03
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-[#0A1020] font-display group-hover:text-[#006BFF] transition-colors">
+                  Oceania Hub
+                </h3>
+                <p className="text-xs text-[#5D687A] leading-relaxed">
+                  Sydney, Melbourne, Brisbane, Perth, Auckland, Wellington, and Christchurch across Australia and New Zealand.
+                </p>
+              </div>
+              <div className="pt-5 mt-5 border-t border-[#E6EBF2]">
+                <button
+                  onClick={() => onNavigate('/locations/oceania')}
+                  className="text-xs font-bold text-[#006BFF] hover:underline inline-flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>View Oceania Locations</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. FINAL CTA */}
       <section className="py-20 bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-[#07152E] text-white p-8 sm:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
@@ -977,7 +1232,7 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                   </h2>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-3.5">
                   <a
                     href="mailto:info@botlytices.com"
                     className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F3F7FC] border border-[#E6EBF2] transition-colors"
@@ -986,50 +1241,121 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                       <Mail className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs text-[#5D687A]">Email Us</div>
+                      <div className="text-xs text-[#5D687A]">Email Us Directly</div>
                       <div className="text-sm font-bold text-[#0A1020]">info@botlytices.com</div>
+                      <div className="text-[11px] text-[#5D687A] mt-0.5">Replies within 1 business day</div>
                     </div>
                   </a>
 
-                  <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2]">
+                  {/* Direct Phone Number */}
+                  <a
+                    href="tel:+923400320020"
+                    className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F3F7FC] border border-[#E6EBF2] transition-colors"
+                  >
                     <div className="w-9 h-9 rounded-lg bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] shrink-0">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs text-[#5D687A]">Phone &amp; WhatsApp Inquiry</div>
-                      <div className="text-sm font-bold text-[#0A1020]">
-                        Available for Scheduled Calls &amp; WhatsApp
-                      </div>
-                      <div className="text-[11px] text-[#5D687A] mt-0.5">
-                        Select Phone or WhatsApp in the form for direct callback
-                      </div>
+                      <div className="text-xs text-[#5D687A]">Direct Phone Line</div>
+                      <div className="text-sm font-bold text-[#0A1020]">+92 340 0320020</div>
+                      <div className="text-[11px] text-[#5D687A] mt-0.5">Monday – Saturday · 9:00 AM – 6:00 PM</div>
                     </div>
-                  </div>
+                  </a>
 
+                  {/* Direct WhatsApp Chat */}
+                  <a
+                    href="https://wa.me/923557181347?text=Hello%20BOTLYTICES%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3.5 p-3.5 rounded-xl bg-emerald-50/60 hover:bg-emerald-50 border border-emerald-200/80 transition-colors"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-white border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
+                      <MessageCircle className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-emerald-700 font-semibold flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>WhatsApp Quick Response</span>
+                      </div>
+                      <div className="text-sm font-bold text-[#0A1020]">+92 355 7181347</div>
+                      <div className="text-[11px] text-[#5D687A] mt-0.5">Direct chat with solution engineers</div>
+                    </div>
+                  </a>
+
+                  {/* Service Area & Hours */}
                   <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2]">
                     <div className="w-9 h-9 rounded-lg bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] shrink-0">
                       <Clock className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs text-[#5D687A]">Business Hours &amp; Coverage</div>
+                      <div className="text-xs text-[#5D687A]">Global Delivery Coverage</div>
                       <div className="text-sm font-bold text-[#0A1020]">
-                        Monday – Saturday · 9:00 AM – 6:00 PM
+                        Remote Worldwide · Hybrid Delivery
                       </div>
                       <div className="text-[11px] text-[#5D687A] mt-0.5">
-                        Remote digital delivery worldwide · On-site IT &amp; CCTV installation
+                        Americas, Europe &amp; Oceania timezones
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2]">
-                    <div className="w-9 h-9 rounded-lg bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] shrink-0">
-                      <MapPin className="w-4 h-4" />
+                  {/* Social Media Profiles & Founder Link */}
+                  <div className="pt-2 border-t border-[#E6EBF2]">
+                    <div className="text-xs font-bold text-[#0A1020] uppercase tracking-wider mb-2.5">
+                      Official Social Channels
                     </div>
-                    <div>
-                      <div className="text-xs text-[#5D687A]">Service Area</div>
-                      <div className="text-sm font-bold text-[#0A1020]">
-                        Global Digital Solutions &amp; On-Site Technical Deployment
-                      </div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <a
+                        href="https://x.com/botlytices"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-black hover:text-white hover:border-black text-[#0A1020] flex items-center justify-center transition-colors"
+                        title="Follow on X @botlytices"
+                      >
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                      </a>
+
+                      <a
+                        href="https://www.linkedin.com/company/botlytices/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] text-[#0A1020] flex items-center justify-center transition-colors"
+                        title="LinkedIn Company Page"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                      </a>
+
+                      <a
+                        href="https://www.instagram.com/botlytices/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] text-[#0A1020] flex items-center justify-center transition-colors"
+                        title="Instagram @botlytices"
+                      >
+                        <Instagram className="w-4 h-4" />
+                      </a>
+
+                      <a
+                        href="https://web.facebook.com/people/Botlytices/61588672514929/#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] text-[#0A1020] flex items-center justify-center transition-colors"
+                        title="Facebook @Botlytices"
+                      >
+                        <Facebook className="w-4 h-4" />
+                      </a>
+
+                      <a
+                        href="https://www.linkedin.com/in/muhammad-ali-husnain-nawab/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:border-[#006BFF] text-[11px] font-semibold text-[#0A1020] transition-colors ml-auto"
+                        title="Founder LinkedIn Profile"
+                      >
+                        <Linkedin className="w-3.5 h-3.5 text-[#0A66C2]" />
+                        <span>Founder Profile</span>
+                      </a>
                     </div>
                   </div>
                 </div>

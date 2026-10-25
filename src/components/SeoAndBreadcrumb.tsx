@@ -131,8 +131,37 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
       '@id': `${origin}/#organization`,
       name: 'BOTLYTICES',
       url: origin,
+      logo: `${origin}/src/assets/images/botlytices-logo.png`,
+      email: 'info@botlytices.com',
+      telephone: '+923400320020',
       description:
         'Technology and digital solutions company providing Web Development, IT Support & Infrastructure, Digital Presence & Branding, AI Automation, and Security & Surveillance.',
+      sameAs: [
+        'https://x.com/botlytices',
+        'https://www.instagram.com/botlytices/',
+        'https://web.facebook.com/people/Botlytices/61588672514929/#',
+        'https://www.linkedin.com/company/botlytices/',
+      ],
+      founder: {
+        '@type': 'Person',
+        name: 'Muhammad Ali Husnain Nawab',
+        jobTitle: 'Founder & Principal Engineer',
+        sameAs: 'https://www.linkedin.com/in/muhammad-ali-husnain-nawab/',
+      },
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '+923400320020',
+          contactType: 'customer service',
+          availableLanguage: ['English', 'Urdu'],
+        },
+        {
+          '@type': 'ContactPoint',
+          telephone: '+923557181347',
+          contactType: 'WhatsApp technical consultation',
+          availableLanguage: ['English', 'Urdu'],
+        },
+      ],
     },
     {
       '@type': 'LocalBusiness',
@@ -140,8 +169,15 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
       name: 'BOTLYTICES',
       url: origin,
       email: 'info@botlytices.com',
+      telephone: '+923400320020',
       description:
         'Technology partner delivering custom websites, IT infrastructure, local search & branding, AI voice & WhatsApp automation, and commercial CCTV & access control systems.',
+      sameAs: [
+        'https://x.com/botlytices',
+        'https://www.instagram.com/botlytices/',
+        'https://web.facebook.com/people/Botlytices/61588672514929/#',
+        'https://www.linkedin.com/company/botlytices/',
+      ],
     },
     {
       '@type': 'BreadcrumbList',

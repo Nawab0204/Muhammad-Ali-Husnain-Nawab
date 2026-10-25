@@ -10,6 +10,7 @@ import { ToastContainer } from './components/common/Toast';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ProjectInquiryModal } from './components/ProjectInquiryModal';
+import { FloatingWhatsAppButton } from './components/common/FloatingWhatsAppButton';
 
 // Pages
 import { HomePage } from './components/HomePage';
@@ -291,7 +292,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#0A1020] flex flex-col font-sans selection:bg-[#006BFF] selection:text-white">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#0A1020] flex flex-col font-sans selection:bg-[#006BFF] selection:text-white w-full max-w-[100vw] overflow-x-hidden">
       {/* Global Sticky Header */}
       <Navbar
         currentPath={currentPath}
@@ -316,6 +317,9 @@ function AppContent() {
         defaultService={selectedService}
         defaultLocation={selectedLocation}
       />
+
+      {/* Floating Direct WhatsApp Button */}
+      <FloatingWhatsAppButton />
 
       {/* Accessible Floating Toast Notifications */}
       <ToastContainer />
