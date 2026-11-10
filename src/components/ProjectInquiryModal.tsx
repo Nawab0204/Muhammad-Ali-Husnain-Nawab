@@ -288,6 +288,22 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                   Request Technical Consultation
                 </Button>
 
+                <p className="text-[11px] text-center text-[#5D687A]">
+                  By submitting, you acknowledge our{' '}
+                  <a href="/terms-of-service" className="text-[#0052CC] underline hover:text-[#003EA3]">
+                    Terms of Service
+                  </a>
+                  ,{' '}
+                  <a href="/privacy-policy" className="text-[#0052CC] underline hover:text-[#003EA3]">
+                    Privacy Policy
+                  </a>
+                  , and{' '}
+                  <a href="/refund-policy" className="text-[#0052CC] underline hover:text-[#003EA3]">
+                    Refund Policy
+                  </a>
+                  .
+                </p>
+
                 <div className="flex items-center justify-center gap-3 text-xs text-[#5D687A] pt-1">
                   <span>Or reach us directly:</span>
                   <a

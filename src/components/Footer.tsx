@@ -18,9 +18,10 @@ const ABOUT_FOOTER_LINKS = [
   { number: '06', label: 'Testimonials', path: '/testimonials' },
   { number: '07', label: 'Blog & Insights', path: '/blog' },
   { number: '08', label: 'FAQ', path: '/faq' },
-  { number: '09', label: 'Terms & Conditions', path: '/terms' },
+  { number: '09', label: 'Terms of Service', path: '/terms-of-service' },
   { number: '10', label: 'Privacy Policy', path: '/privacy-policy' },
-  { number: '11', label: 'Cookie Policy', path: '/cookie-policy' },
+  { number: '11', label: 'Refund Policy', path: '/refund-policy' },
+  { number: '12', label: 'Cookie Policy', path: '/cookie-policy' },
 ];
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpenQuote: propOpenQuote }) => {
@@ -371,10 +372,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpen
             </button>
             <span aria-hidden="true" className="text-slate-300">·</span>
             <button
-              onClick={() => onNavigate('/terms')}
+              onClick={() => onNavigate('/terms-of-service')}
               className="hover:text-[#0052CC] transition-colors cursor-pointer"
             >
-              Terms &amp; Conditions
+              Terms of Service
             </button>
             <span aria-hidden="true" className="text-slate-300">·</span>
             <button
@@ -385,10 +386,25 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpen
             </button>
             <span aria-hidden="true" className="text-slate-300">·</span>
             <button
+              onClick={() => onNavigate('/refund-policy')}
+              className="hover:text-[#0052CC] transition-colors cursor-pointer"
+            >
+              Refund Policy
+            </button>
+            <span aria-hidden="true" className="text-slate-300">·</span>
+            <button
               onClick={() => onNavigate('/cookie-policy')}
               className="hover:text-[#0052CC] transition-colors cursor-pointer"
             >
               Cookie Policy
+            </button>
+            <span aria-hidden="true" className="text-slate-300">·</span>
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('open-cookie-preferences'))}
+              className="hover:text-[#0052CC] transition-colors cursor-pointer"
+              title="Configure cookie consent preferences"
+            >
+              Cookie Settings
             </button>
             <span aria-hidden="true" className="text-slate-300">·</span>
             <button

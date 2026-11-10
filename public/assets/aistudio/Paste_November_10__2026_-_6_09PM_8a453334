@@ -1,0 +1,1305 @@
+# MASTER TASK: Create and Integrate Three Comprehensive Legal Policies for Botlytices
+
+Website: https://botlytices.com/
+
+You are acting as a senior commercial contracts specialist, privacy compliance researcher, legal-policy drafter, full-stack developer and website implementation specialist.
+
+Your task is to create three comprehensive, professional and commercially protective legal policy pages for Botlytices:
+
+1. Terms of Service
+2. Privacy Policy
+3. Refund & Cancellation Policy
+
+These documents must be specifically tailored to the actual services, business operations, technology, international customers and payment arrangements of Botlytices.
+
+The objective is to reduce avoidable legal, financial, contractual, operational, privacy and customer-dispute risks while maintaining compliance with applicable laws.
+
+**IMPORTANT:** No legal document can eliminate all liability or override mandatory statutory rights. Never create misleading, excessively broad or legally unenforceable exclusions. Prioritise enforceable protections, transparent contractual terms, clear customer obligations and properly documented transactions.
+
+## PART 1 — RESEARCH AND BUSINESS VERIFICATION
+
+Before writing anything, inspect the existing Botlytices website and codebase.
+
+Website: https://botlytices.com/
+
+Identify and verify:
+
+- The actual business name and publicly stated business information.
+- The legal business entity, if disclosed.
+- Registered or operating address, if disclosed.
+- Official business contact information.
+- Website functionality and contact forms.
+- Pricing and service descriptions.
+- Payment methods and payment gateways.
+- Subscription or recurring billing functionality.
+- Website hosting arrangements.
+- Third-party integrations.
+- Analytics and tracking systems.
+- Cookies and consent mechanisms.
+- AI chatbot, voice assistant and WhatsApp integrations.
+- CRM and automation integrations.
+- Any existing privacy, refund or service terms.
+
+Botlytices provides five primary divisions:
+
+**01. Web Development**
+- Web Design, UI/UX & Web Development.
+- E-commerce & Web Applications.
+- Website Maintenance & Management.
+- SEO, Hosting & Website Care.
+
+**02. IT Support & Infrastructure**
+- Hardware & Device Support.
+- Software & System Support.
+- Networking & Wi-Fi.
+- Cybersecurity & IT Security.
+
+**03. Digital Presence & Branding**
+- Brand Identity & Logo Design.
+- Social Media & Content.
+- Business Profiles & Local Presence.
+- Digital Marketing & Growth.
+
+**04. AI Automation**
+- AI Voice Assistants.
+- WhatsApp & Chat Automation.
+- AI Lead Generation.
+- Workflow & Business Automation.
+
+**05. Security & Surveillance**
+- CCTV & Video Surveillance.
+- Access Control & Biometrics.
+- Remote Monitoring & Security Systems.
+- Security Maintenance & Upgrades.
+
+All three legal policies must account for the risks and responsibilities associated with these services.
+
+### International markets
+
+Research applicable requirements for customers in:
+
+- United States.
+- United Kingdom.
+- Canada.
+- Australia.
+- New Zealand.
+- Ireland.
+- European Union and relevant EEA markets.
+- United Arab Emirates.
+- Pakistan, where applicable to the actual business establishment.
+
+Use laws and official regulatory guidance current as of November 2026.
+
+Prioritise government legislation, official regulatory authorities and primary legal sources.
+
+Do not base policies on random legal templates or third-party policy generators.
+
+Where a legal requirement applies only to certain business sizes, sectors, types of customers or jurisdictions, explain the conditions rather than assuming it applies universally.
+
+Do not claim universal legal compliance merely because these documents have been written.
+
+## PART 2 — TERMS OF SERVICE
+
+Create a comprehensive Terms of Service document.
+
+Suggested URL:
+
+`/terms-of-service`
+
+Page title:
+
+**Terms of Service | Botlytices**
+
+Introduction:
+
+"These Terms of Service govern your access to the Botlytices website and the purchase or use of services provided by Botlytices. They explain the conditions under which we provide our technology, development, digital, automation and security services, together with the respective responsibilities of Botlytices and its customers."
+
+Include the following sections.
+
+### 1. Business identity and agreement
+
+Identify the actual contracting business entity.
+
+Include:
+- Legal business name.
+- Business registration details, where applicable.
+- Registered or principal business address.
+- Official email address.
+- Official website.
+- Contact information.
+- Effective date.
+- Last updated date.
+
+Do not invent any registration number, legal entity type or address.
+
+Use clearly labelled placeholders for missing information and prevent publication until essential legal identity information has been confirmed.
+
+Explain when a legally binding agreement is formed, including quotations, accepted proposals, electronic acceptance, invoices and written statements of work.
+
+### 2. Scope of services
+
+Clearly define the five Botlytices service divisions.
+
+Explain that each project is governed by its individual quotation, proposal, statement of work or agreed service specification.
+
+Clarify that website prices and advertised starting rates are not automatically fixed quotations for complex projects.
+
+### 3. Customer eligibility and responsibilities
+
+Customers must:
+
+- Provide accurate information.
+- Supply necessary materials, content, credentials and approvals.
+- Own or possess appropriate rights to supplied materials.
+- Maintain lawful access to their accounts and systems.
+- Cooperate with project requirements.
+- Review and approve deliverables.
+- Avoid illegal activities.
+- Avoid using services to violate intellectual property, privacy or other applicable laws.
+
+Explain that delays caused by missing materials, inaccessible accounts, late approvals or customer-side issues may affect delivery schedules.
+
+### 4. Quotes, pricing and payments
+
+Cover:
+- Written quotations.
+- Quotation expiration.
+- Deposits.
+- Milestone payments.
+- Final payments.
+- Monthly subscriptions.
+- Annual subscriptions, where offered.
+- Taxes.
+- Currency and exchange-rate differences.
+- Payment processing charges where lawfully disclosed.
+- Late-payment arrangements.
+- Failed transactions.
+- Chargebacks and payment disputes.
+- Additional scope and project extensions.
+
+Specify that work outside the approved scope requires written approval and may incur additional charges.
+
+Do not create arbitrary payment penalties or hidden fees.
+
+### 5. Project scope and changes
+
+Clearly distinguish:
+
+- Included deliverables.
+- Additional revisions.
+- New functionality.
+- Third-party integrations.
+- Custom development.
+- Content creation.
+- Maintenance.
+- Support.
+- Hosting.
+- Hardware procurement.
+
+Explain how change requests are submitted, approved, priced and scheduled.
+
+### 6. Website development and digital services
+
+Include specific conditions for website and application projects.
+
+Cover:
+- Browser and device compatibility.
+- Client-provided content.
+- Third-party plugins.
+- Open-source software.
+- External APIs.
+- Payment processors.
+- Hosting providers.
+- Domain registration.
+- Software updates.
+- Website migrations.
+- Client approval and acceptance.
+- Post-launch support.
+- Maintenance agreements.
+
+State that third-party services remain subject to their own terms, availability and pricing.
+
+Do not disclaim Botlytices' own contractual responsibility for work it has agreed to perform.
+
+### 7. Website maintenance and hosting limitations
+
+Specify what maintenance packages actually include.
+
+Distinguish routine maintenance from additional development.
+
+Explain:
+- Scheduled maintenance.
+- Backups and backup scope.
+- Restoration assistance.
+- Security updates.
+- Hosting dependencies.
+- Third-party outages.
+- Domain renewals.
+- Server interruptions.
+- Emergency support.
+- Maintenance exclusions.
+
+Do not promise uninterrupted uptime, perfect security or zero data loss.
+
+Clarify which backup and recovery responsibilities belong to Botlytices and which remain with the customer.
+
+### 8. SEO, marketing and digital presence
+
+Include appropriate limitations covering:
+- Search engine algorithms.
+- Search ranking changes.
+- Google Business Profile decisions.
+- Apple Business Connect.
+- Bing Places.
+- Paid advertising platforms.
+- Account restrictions.
+- Campaign performance.
+- Lead generation.
+- Website traffic.
+- Social media account decisions.
+
+Clearly state that Botlytices does not guarantee specific search rankings, traffic, customer enquiries, sales, advertising returns or business profits unless a specific written contractual guarantee has been expressly agreed and lawfully offered.
+
+Clarify that advertising budgets are separate from management charges.
+
+### 9. IT support and cybersecurity
+
+Cover:
+- Remote access permissions.
+- Device access.
+- Customer backups.
+- Software licences.
+- Network configurations.
+- Security assessments.
+- Malware and recovery.
+- System compatibility.
+- Third-party cybersecurity products.
+- Emergency services.
+- Customer cooperation.
+
+Explain that cybersecurity involves ongoing risks and no technology service can guarantee protection against every attack, vulnerability, interruption or data loss.
+
+Do not use this section to excuse avoidable negligence or failure to perform agreed security work with reasonable care.
+
+### 10. AI services and automated systems
+
+Create a specific clause for AI automation.
+
+Cover:
+- AI-generated content.
+- AI voice assistants.
+- AI chatbots.
+- WhatsApp automation.
+- Automated lead generation.
+- CRM integration.
+- Business workflows.
+- AI service interruptions.
+- Third-party AI services.
+- AI model changes.
+- Incorrect or incomplete AI-generated responses.
+
+Explain that AI-generated outputs may require human verification, especially for legal, financial, medical, safety-related and other consequential matters.
+
+Customers must review their automated workflows and ensure appropriate human oversight.
+
+Explain voice recording, call disclosure, messaging consent and applicable marketing obligations.
+
+Do not claim that AI automation independently guarantees regulatory compliance.
+
+### 11. CCTV and security installations
+
+Include:
+- Equipment ownership.
+- Installation scope.
+- Hardware warranties.
+- Installation arrangements.
+- Access control.
+- CCTV recording.
+- Storage and retention.
+- Maintenance.
+- Remote viewing.
+- Third-party equipment.
+
+Explain that customers must determine and implement their own lawful surveillance purposes, notices, permissions, access restrictions and retention policies.
+
+Where Botlytices processes personal data on behalf of customers, establish the appropriate separate data-processing arrangements.
+
+Do not assume that the customer is always the only party with legal responsibilities.
+
+### 12. Intellectual property
+
+This section is essential.
+
+Clearly distinguish:
+
+**Customer-owned materials**
+The customer retains rights to materials they owned before the project.
+
+**Botlytices-owned materials**
+Botlytices retains rights to its pre-existing tools, frameworks, reusable components, methods and proprietary technology.
+
+**Project deliverables**
+Explain when ownership or usage rights transfer, according to the signed proposal and full payment of agreed fees, subject to third-party and open-source licences.
+
+**Third-party materials**
+Remain subject to their respective licences.
+
+**Portfolio rights**
+Botlytices may display completed work as a case study or portfolio item only under appropriately disclosed and agreed permissions, respecting confidentiality and customer restrictions.
+
+Do not claim ownership of customer materials or prevent customers from using deliverables they have legitimately purchased.
+
+### 13. Confidentiality and data processing
+
+Include confidentiality duties for both parties.
+
+Explain that customer data may require a separate Data Processing Agreement (DPA), particularly when Botlytices processes personal information on the customer's behalf.
+
+State that the Privacy Policy governs Botlytices' own personal-data practices and does not replace an appropriate client DPA.
+
+### 14. Warranties and service standards
+
+Define the agreed service standards.
+
+Do not make unconditional promises.
+
+Preserve applicable statutory consumer guarantees and rights.
+
+For example, do not attempt to exclude the UK Consumer Rights Act 2015 requirement for reasonable care and skill where it applies.
+
+Explain any separately offered service warranties and their scope.
+
+### 15. Limitation of liability
+
+Create a carefully drafted liability section designed to protect Botlytices while remaining enforceable.
+
+Address:
+- Direct losses.
+- Indirect or consequential losses where legally excludable.
+- Loss of profits.
+- Loss of business opportunities.
+- Third-party platform failures.
+- Customer-provided materials.
+- Unauthorised customer modifications.
+- Customer misuse.
+- Force majeure.
+- Data and service interruptions.
+
+For business-to-business agreements, propose a commercially reasonable liability cap, such as fees paid or payable for the affected services during an appropriately defined preceding period, subject to negotiation and legal review.
+
+Do not automatically impose a blanket cap on consumer claims.
+
+Explicitly preserve liabilities and rights that cannot lawfully be excluded or limited, including applicable non-waivable consumer rights and any mandatory exclusions concerning death, personal injury, fraud or other matters under relevant law.
+
+Make every limitation proportionate and clearly presented.
+
+### 16. Indemnification
+
+Include appropriately limited and mutual contractual protection.
+
+For example, address claims arising from:
+- Unlawful customer-provided content.
+- Customer infringement of third-party rights.
+- Customer misuse of services.
+- Breach of agreed obligations.
+
+Where appropriate, address Botlytices' own infringement or breach separately.
+
+Avoid unlimited, one-sided indemnification clauses.
+
+### 17. Suspension and termination
+
+Explain:
+- Customer termination rights.
+- Botlytices' termination rights.
+- Material breach.
+- Non-payment.
+- Illegal activities.
+- Repeated abuse.
+- Security threats.
+- Prolonged inactivity.
+- Outstanding invoices.
+- Handover arrangements.
+- Data return and deletion.
+- Subscription cancellation.
+- Refund calculation.
+
+Give reasonable notice and opportunities to remedy where appropriate, except when immediate action is justified by law or genuine security concerns.
+
+### 18. Disputes and governing law
+
+Include an appropriate complaint and dispute-resolution procedure.
+
+Allow customers to contact Botlytices before escalating disputes.
+
+Identify governing law and jurisdiction only after verifying the actual contracting entity and legal circumstances.
+
+Do not invent a governing jurisdiction.
+
+Do not claim that one chosen jurisdiction overrides mandatory consumer protection or privacy laws elsewhere.
+
+### 19. General legal provisions
+
+Include:
+- Severability.
+- No unlawful waiver of rights.
+- Entire agreement.
+- Assignment.
+- Amendments.
+- Electronic communications.
+- Force majeure.
+- Language.
+- Notices.
+- Precedence of individual statements of work.
+
+---
+
+## PART 3 — PRIVACY POLICY
+
+Create a dedicated Privacy Policy page.
+
+Suggested URL:
+
+`/privacy-policy`
+
+Page title:
+
+**Privacy Policy | Botlytices**
+
+Introduction:
+
+"At Botlytices, we respect your privacy and are committed to handling personal information responsibly. This Privacy Policy explains what information we collect, why we collect it, how we use and protect it, when it may be shared and what rights individuals may have under applicable privacy laws."
+
+This policy must be based on the actual data collected and processed by the existing website and business operations.
+
+### 1. Business identity and privacy contact
+
+Identify the actual legal business entity and privacy contact.
+
+Provide:
+- Business identity.
+- Address.
+- Privacy contact email.
+- Website.
+- Effective date.
+- Last updated date.
+
+Use placeholders for unverified details.
+
+### 2. Categories of personal information
+
+Investigate the website and identify which of the following categories actually apply:
+
+- Name.
+- Business name.
+- Email address.
+- Telephone number.
+- Country and location.
+- Contact-form submissions.
+- Project requirements.
+- Invoices and billing details.
+- Transaction references.
+- Customer account details.
+- Support requests.
+- Website usage information.
+- IP addresses.
+- Device information.
+- Browser information.
+- Analytics information.
+- Cookie information.
+- Chatbot conversations.
+- AI voice interaction records.
+- WhatsApp interactions.
+- CRM records.
+- Uploaded documents.
+- Technical logs.
+- Security and access logs.
+
+Include only data categories genuinely collected or reasonably expected to be collected.
+
+Do not claim to collect payment card details if payment providers process those details directly.
+
+### 3. How information is collected
+
+Explain the relevant collection channels:
+
+- Website forms.
+- Contact requests.
+- Quote requests.
+- Email communications.
+- Telephone and messaging communications.
+- Contracts and invoices.
+- Customer support.
+- Account registration.
+- Cookies and analytics.
+- Third-party integrations.
+- Automated systems.
+
+Distinguish information submitted directly by individuals from information received from other lawful sources.
+
+### 4. Why personal information is used
+
+Provide clearly defined purposes.
+
+These may include:
+- Responding to enquiries.
+- Preparing quotations.
+- Providing services.
+- Managing customer relationships.
+- Processing payments.
+- Maintaining accounts.
+- Providing technical support.
+- Managing subscriptions.
+- Preventing fraud.
+- Maintaining system security.
+- Improving website functionality.
+- Meeting legal obligations.
+- Sending marketing communications where legally permitted.
+
+### 5. Lawful basis for processing
+
+For jurisdictions requiring a lawful basis, explain the applicable processing grounds.
+
+Where relevant, distinguish:
+
+- Contractual necessity.
+- Legal obligation.
+- Legitimate interests.
+- Consent.
+- Other legally recognised grounds.
+
+Do not state that all data is processed based on consent.
+
+Create an accurate purpose-and-lawful-basis matrix.
+
+### 6. Cookies and tracking technologies
+
+Investigate actual cookies and tracking tools on the site.
+
+Explain:
+- Essential cookies.
+- Analytics cookies.
+- Functional cookies.
+- Advertising and marketing cookies.
+- Third-party tracking technologies.
+
+Implement an appropriate cookie consent mechanism.
+
+Where consent is required:
+- Non-essential cookies must remain disabled until valid consent.
+- Accept and reject options must be equally accessible.
+- Users must be able to change their preferences.
+- Consent must not be bundled into acceptance of general terms.
+- Withdrawal of consent must be possible.
+
+Do not claim that a cookie tool is installed unless it is actually implemented.
+
+### 7. Third-party service providers
+
+Identify and disclose actual categories of recipients and, where verified, the relevant providers.
+
+Potential categories include:
+
+- Website hosting providers.
+- Domain providers.
+- Payment processors.
+- Email providers.
+- Analytics platforms.
+- CRM systems.
+- Cloud infrastructure.
+- AI model providers.
+- Voice service providers.
+- WhatsApp and messaging providers.
+- Automation platforms.
+- Security service providers.
+
+Inspect the actual integrations before naming companies.
+
+Do not invent a list of subprocessors.
+
+Explain why information is shared, what each provider does and which parties may process data internationally.
+
+### 8. International data transfers
+
+Botlytices serves international markets.
+
+Explain that personal information may be processed or stored outside the individual's country, where applicable.
+
+Identify relevant transfer arrangements and safeguards based on the actual providers and jurisdictions.
+
+Where applicable, address:
+- EU GDPR transfer requirements.
+- UK international data transfer requirements.
+- Canadian transfer disclosures.
+- Australian privacy requirements.
+- New Zealand overseas disclosure requirements.
+- UAE personal-data transfer requirements.
+- Relevant US state privacy requirements.
+
+Do not claim that a transfer mechanism is in place unless verified.
+
+### 9. Data retention and deletion
+
+Create a realistic retention framework.
+
+Differentiate:
+- Enquiry records.
+- Customer contracts.
+- Invoices.
+- Payment records.
+- Website logs.
+- Analytics.
+- Support tickets.
+- AI conversations.
+- Voice recordings.
+- CRM information.
+- Security records.
+
+Use actual retention periods where established.
+
+Where no retention schedule exists, identify the issue and propose an appropriate period for review and approval.
+
+Do not claim that information is automatically deleted after a particular period unless the business actually implements that process.
+
+### 10. Data security
+
+Explain the reasonable technical and organisational safeguards actually used.
+
+Potential safeguards include:
+- Access controls.
+- Authentication.
+- Encryption where implemented.
+- Secure hosting.
+- Backup procedures.
+- Software updates.
+- Restricted permissions.
+- Monitoring.
+- Secure data disposal.
+
+Never claim complete or guaranteed protection.
+
+Explain that no internet-based system can guarantee absolute security.
+
+### 11. Customer privacy rights
+
+Explain the applicable rights according to jurisdiction.
+
+Where applicable, address:
+- Right to access.
+- Right to correction.
+- Right to deletion.
+- Right to restrict processing.
+- Right to object.
+- Right to data portability.
+- Right to withdraw consent.
+- Right to complain to the appropriate authority.
+- Rights related to automated decision-making.
+- Rights related to targeted advertising and sale or sharing of personal information.
+
+For US states, determine which state privacy laws apply and whether Botlytices meets their thresholds.
+
+Do not advertise rights that are not legally applicable without distinguishing voluntary company practices from statutory rights.
+
+### 12. GDPR and UK GDPR provisions
+
+Assess whether Botlytices falls within EU GDPR and UK GDPR territorial scope.
+
+Where applicable, incorporate the correct transparency requirements, legal bases, individual rights, retention information and data-transfer provisions.
+
+Do not automatically appoint a DPO or EU/UK representative on paper without determining whether one is legally required.
+
+If one is required, flag it for implementation.
+
+### 13. US privacy requirements
+
+Assess applicable federal and state privacy obligations.
+
+For example, examine California privacy requirements, including:
+- Categories of personal information collected.
+- Collection purposes.
+- Sharing and disclosure.
+- Retention.
+- Applicable consumer rights.
+- Appropriate opt-out mechanisms where required.
+- Notices at collection where applicable.
+
+Do not invent a Do Not Sell or Share practice or display a compliance badge without verifying applicability and actual data practices.
+
+### 14. AI, automation and voice data
+
+Include a dedicated section addressing:
+
+- AI chat conversations.
+- Voice assistant interactions.
+- Call recordings.
+- Automated lead qualification.
+- CRM integration.
+- WhatsApp data.
+- AI-generated summaries.
+- Third-party AI processing.
+- Data retention.
+- Human review.
+
+Explain applicable recording disclosures and consent obligations.
+
+Do not use customer or personal data for unrelated AI model training unless there is a lawful basis and appropriate disclosure, and any necessary consent or agreement has been obtained.
+
+### 15. Children's privacy
+
+Explain whether the business is directed toward children.
+
+Do not knowingly collect children's personal information where inappropriate.
+
+Where child-related data protection obligations apply, implement the required safeguards and consent mechanisms.
+
+### 16. Data breach and complaints
+
+Explain how Botlytices addresses suspected security incidents and privacy requests.
+
+Provide a real contact channel.
+
+Do not promise that every incident will be handled within one universal statutory deadline. Follow the applicable jurisdiction-specific deadlines.
+
+### 17. Privacy policy updates
+
+Explain how policy changes are communicated.
+
+Use a genuine last-updated date and clearly explain how material changes are handled.
+
+---
+
+## PART 4 — REFUND & CANCELLATION POLICY
+
+Create a dedicated policy page.
+
+Suggested URL:
+
+`/refund-policy`
+
+Page title:
+
+**Refund & Cancellation Policy | Botlytices**
+
+Introduction:
+
+"At Botlytices, we aim to provide clearly scoped professional services and transparent billing arrangements. This policy explains how cancellations, refunds, project withdrawals, subscription termination and service-related disputes are handled."
+
+The refund policy must protect Botlytices from unjustified financial losses without unlawfully withholding customer money or statutory remedies.
+
+### 1. General refund principles
+
+Explain that refund eligibility depends on:
+
+- The type of service.
+- Work already performed.
+- Project milestones.
+- The accepted agreement.
+- Applicable cancellation rights.
+- Actual costs incurred.
+- The reason for the cancellation.
+- Applicable mandatory consumer law.
+
+Do not state that every payment is non-refundable.
+
+Do not use "No Refunds Under Any Circumstances."
+
+### 2. Website development refunds
+
+Create specific conditions for:
+
+- Landing pages.
+- Business websites.
+- E-commerce websites.
+- Custom applications.
+- Website redesigns.
+- Integrations.
+- Migration projects.
+
+Explain how payments are assessed when:
+- Work has not started.
+- Initial planning has started.
+- Design work has been completed.
+- Development is underway.
+- Milestones have been delivered.
+- The full project has been completed.
+
+For cancellation, provide a fair calculation based on work completed, agreed milestones and legitimate unrecoverable costs, subject to applicable law.
+
+Do not impose automatic forfeiture of the entire deposit simply because a customer cancels.
+
+### 3. Design and branding services
+
+Explain refund eligibility for:
+- Logo design.
+- Brand identity.
+- Graphics.
+- Social media templates.
+- Content production.
+
+Differentiate between completed and uncompleted deliverables.
+
+### 4. Website maintenance and hosting
+
+Explain:
+- Monthly subscription charges.
+- Annual subscriptions, if offered.
+- Cancellation notices.
+- Unused prepaid periods.
+- Work already performed.
+- Hosting and domain renewal costs.
+- Third-party subscription charges.
+
+Clarify what happens when a customer cancels maintenance but keeps hosting or other related services.
+
+Do not continue charging after effective cancellation unless contractually and legally justified.
+
+### 5. SEO and marketing services
+
+Explain that SEO and marketing involve ongoing work rather than guaranteed results.
+
+Address:
+- Work already completed.
+- Keyword research.
+- Technical optimisation.
+- Content production.
+- Profile optimisation.
+- Ad campaign setup.
+- Campaign management.
+- Advertising expenditure.
+- Third-party advertising charges.
+
+Clarify that advertising money paid directly to third-party platforms is not held by Botlytices and may be subject to those platforms' separate terms.
+
+Do not automatically refuse remedies where Botlytices fails to deliver contracted work.
+
+### 6. IT support and infrastructure
+
+Specify how refunds work for:
+- Hourly support.
+- Completed assessments.
+- Device configuration.
+- Network work.
+- Software installation.
+- Remote troubleshooting.
+- Monthly support plans.
+
+Differentiate between completed support sessions, scheduled but unperformed work, and defective or incomplete services.
+
+### 7. AI automation services
+
+Address:
+- Chatbot implementation.
+- WhatsApp integration.
+- Voice assistant setup.
+- CRM automation.
+- Workflow development.
+- Monthly management.
+- API configuration.
+- Third-party AI usage charges.
+
+Clearly distinguish implementation fees from recurring usage fees.
+
+Explain the financial treatment of partially completed or completed setup work and unused subscriptions.
+
+### 8. CCTV and security services
+
+Address:
+- Site assessments.
+- Installation labour.
+- Equipment.
+- Custom installations.
+- Access control.
+- Hardware purchases.
+- Maintenance.
+- Replacement components.
+
+Separate service charges from hardware and third-party product purchases.
+
+Explain when cancellation, returns, replacement or warranty remedies apply to equipment purchased directly through Botlytices.
+
+Do not assume all hardware is non-returnable. Applicable consumer and product laws must be preserved.
+
+### 9. Deposits and milestone payments
+
+Explain that deposits secure project commencement and may cover initial planning, resource allocation or agreed work.
+
+Specify how deposits are treated when a project is cancelled.
+
+Any deductions must be reasonably supported by the contract, completed work and legitimate costs and must comply with applicable law.
+
+Do not impose arbitrary penalties.
+
+### 10. Right of withdrawal and cooling-off periods
+
+This is a critical international section.
+
+Research and correctly address applicable statutory cancellation periods in relevant countries.
+
+In particular:
+
+- UK consumer distance contracts.
+- EU consumer distance contracts.
+- Digital content supplied immediately.
+- Services commenced before an applicable withdrawal period ends.
+- Consumer consent and acknowledgement requirements.
+- Exceptions that genuinely apply.
+
+Where required, use separate, affirmative, unticked customer checkboxes for:
+
+1. A request to begin services during the applicable withdrawal period.
+2. An acknowledgement of the consequences for withdrawal rights after full performance, where legally applicable.
+3. Immediate digital-content supply and acknowledgement of the relevant loss of withdrawal rights, where permitted.
+
+These must not be automatically pre-selected or bundled together with general acceptance of terms.
+
+Do not incorrectly state that all custom digital work is automatically exempt from withdrawal rights.
+
+### 11. Subscription cancellation
+
+Provide a clear cancellation process for recurring plans.
+
+Cover:
+- Monthly subscriptions.
+- Annual subscriptions.
+- Renewal notices.
+- Cancellation requests.
+- Failed payments.
+- Outstanding invoices.
+- Service suspension.
+- Effective cancellation dates.
+- Prorated refunds where appropriate.
+- Third-party recurring charges.
+
+Ensure that customers can easily understand how to cancel.
+
+Do not introduce hidden cancellation requirements or misleading renewal conditions.
+
+### 12. Refund request procedure
+
+Create a practical process.
+
+Ask customers to provide:
+- Name.
+- Business or customer name.
+- Invoice or order number.
+- Service purchased.
+- Payment date.
+- Refund reason.
+- Supporting documents, where relevant.
+
+Provide a verified refund-request contact email.
+
+Explain:
+- How requests are acknowledged.
+- How eligibility is reviewed.
+- How decisions are communicated.
+- How approved refunds are processed.
+- The applicable statutory or disclosed contractual processing period.
+- How customers can raise an unresolved complaint.
+
+Do not promise an arbitrary universal refund processing period that conflicts with applicable legal requirements.
+
+### 13. Non-refundable third-party costs
+
+Explain that legitimate third-party expenses may not be refundable where they have already been incurred and cannot be recovered.
+
+Examples:
+- Domain registration.
+- Hosting fees.
+- Paid software licences.
+- API usage.
+- AI usage.
+- Messaging costs.
+- Advertising expenditure.
+- Hardware procurement.
+- External installation services.
+
+Clearly disclose these costs before purchase.
+
+Preserve statutory refund and cancellation rights, including where the third-party expense resulted from Botlytices' own breach.
+
+### 14. Defective, incomplete or unsatisfactory services
+
+Explain how customers can report problems.
+
+Establish a reasonable process for assessment and, where appropriate:
+- Rectification.
+- Re-performance.
+- Completion of outstanding work.
+- Price adjustment.
+- Refund.
+- Other legally required remedies.
+
+Do not suggest that Botlytices can simply refuse all complaints once a project is marked completed.
+
+### 15. Chargebacks and payment disputes
+
+Explain the proper procedure for disputed payments.
+
+Request that customers contact Botlytices with their invoice or order reference so the issue can be investigated.
+
+Retain relevant transaction and delivery records lawfully.
+
+Do not threaten customers for exercising legitimate payment dispute rights.
+
+### 16. Statutory rights
+
+Clearly state that this policy does not limit mandatory consumer guarantees, cancellation rights, refund rights or remedies under applicable law.
+
+---
+
+## PART 5 — LEGAL PROTECTION AND COMPLIANCE DESIGN
+
+This section governs the quality of all three documents.
+
+The policies must be protective without using legally dangerous language.
+
+### Prohibited drafting practices
+
+Never use blanket declarations such as:
+
+- Botlytices is never responsible for anything.
+- All payments are non-refundable in every circumstance.
+- Customers waive every legal right.
+- Botlytices can never be sued.
+- Botlytices accepts no liability under any circumstances.
+- Botlytices is not responsible for any loss whatsoever.
+- Botlytices can modify any agreement without notice.
+- Customers have no right to challenge services.
+- Botlytices is not responsible for any privacy or security incident.
+
+Avoid arbitrary clauses that attempt to override mandatory consumer, privacy, data-security or contractual obligations.
+
+Instead, use properly drafted limitations that are proportionate, transparent and legally permitted.
+
+### International law compatibility
+
+Check the applicable requirements for each market.
+
+Use separate country or regional supplements where needed.
+
+Do not force a single standard clause onto all customers regardless of whether they are businesses or consumers.
+
+Distinguish:
+- Business-to-business customers.
+- Individual consumers.
+- Professional clients.
+- Subscribers.
+- Users of digital content.
+- Customers of physical installation services.
+
+Where consumer status affects contractual rights, determine the applicable legal treatment.
+
+### Official legal research sources
+
+Use authoritative sources including:
+
+United Kingdom:
+- legislation.gov.uk
+- ico.org.uk
+- gov.uk
+
+European Union:
+- eur-lex.europa.eu
+- commission.europa.eu
+- europa.eu
+
+United States:
+- ftc.gov
+- oag.ca.gov
+- relevant state regulator websites.
+
+Canada:
+- priv.gc.ca
+- relevant federal and provincial government legislation.
+
+Australia:
+- accc.gov.au
+- legislation.gov.au
+- privacy.gov.au
+
+New Zealand:
+- comcom.govt.nz
+- privacy.org.nz
+- legislation.govt.nz
+
+United Arab Emirates:
+- u.ae
+- official UAE government legislation and relevant authorities.
+
+Pakistan:
+- moitt.gov.pk
+- official federal and provincial legislative sources.
+
+Do not treat a draft bill as enacted law.
+
+Cite important legal research findings in the internal development documentation and final implementation report. Policy pages should link to relevant official authorities only where useful and appropriate.
+
+## PART 6 — WEBSITE DESIGN AND INTEGRATION
+
+Create three separate, polished, fully responsive pages.
+
+Routes:
+
+- `/terms-of-service`
+- `/privacy-policy`
+- `/refund-policy`
+
+Add a professional **Legal** section in the existing footer containing all three links.
+
+Also make them discoverable through the existing Company & Methods area.
+
+If a user is completing a quote request, subscribing to a service or making a purchase, provide appropriate links to relevant legal policies at that point.
+
+Use the existing Botlytices visual identity.
+
+Design requirements:
+
+- Minimalist white background.
+- Professional black or dark typography.
+- Existing brand accent colours.
+- Clean typography.
+- Well-spaced legal sections.
+- Excellent mobile responsiveness.
+- Clear headings and subheadings.
+- Easy-to-read paragraphs.
+- Professional navigation.
+- Accessible links.
+- Subtle dividers.
+- No intrusive animations.
+- No unnecessary decoration.
+
+Create a clickable table of contents at the beginning of each policy page.
+
+The table of contents must:
+- Link to the relevant section.
+- Highlight the current section where feasible.
+- Support mobile navigation.
+- Allow users to return to the top.
+- Work correctly with keyboard navigation.
+
+Use semantic headings and accessible markup.
+
+The pages should be readable and professionally formatted, not huge unstructured blocks of legal text.
+
+### Legal information box
+
+At the beginning of each policy, display:
+
+- Policy title.
+- Effective date.
+- Last updated date.
+- Responsible business entity.
+- Relevant contact information.
+
+Only use verified information.
+
+### Policy version management
+
+Create a central configuration for:
+- Effective dates.
+- Last updated dates.
+- Version numbers.
+- Business identity details.
+- Contact details.
+
+Avoid inconsistent information between pages.
+
+Do not automatically change the effective date every time the page is rendered.
+
+## PART 7 — IMPORTANT CHECKOUT AND FORM INTEGRATIONS
+
+Inspect existing contact forms, checkout pages, pricing pages and payment gateway integrations.
+
+Where applicable:
+
+1. Display relevant legal links before purchase.
+2. Obtain affirmative acceptance of Terms of Service at the appropriate contract formation point.
+3. Keep marketing consent separate.
+4. Do not treat simply browsing the website as acceptance of all contractual terms.
+5. Record the applicable terms version, acceptance timestamp and relevant order reference.
+6. Avoid collecting unnecessary personal information.
+7. Implement separate withdrawal-period consent where required.
+8. Implement the appropriate cookie-consent mechanism.
+
+If Paddle or another merchant-of-record/payment provider is integrated, inspect the actual contractual payment arrangement before describing who processes payments, issues invoices, handles tax and receives refund requests.
+
+Do not assume that Botlytices is the merchant of record unless the actual payment arrangement establishes this.
+
+Do not modify working checkout functionality or payment processing without necessity.
+
+## PART 8 — MISSING BUSINESS INFORMATION
+
+You must not invent details.
+
+Create a list of information that must be verified before the policies are published.
+
+At minimum, assess:
+
+- Legal business entity name.
+- Business registration status.
+- Registered address.
+- Operating jurisdiction.
+- Official contact email.
+- Privacy contact email.
+- Refund request contact.
+- Payment processor.
+- Hosting provider.
+- Analytics provider.
+- Cookie and tracking tools.
+- CRM and AI platforms.
+- Data storage locations.
+- Data retention periods.
+- Subscription arrangements.
+- Current deposit and milestone policy.
+- Support and maintenance arrangements.
+- Hardware and installation warranty arrangements.
+- Governing law.
+- Customer categories.
+- Whether an EU or UK representative or data protection officer is required.
+
+For missing information, use conspicuous placeholders in the draft.
+
+Do not silently fill placeholders with guesses or invented details.
+
+**Critical launch rule:** Do not represent a policy containing unresolved essential placeholders as fully verified or ready for publication. Implement the drafts, generate a missing-information checklist and clearly identify the information required for final approval.
+
+## PART 9 — FINAL IMPLEMENTATION AND QUALITY ASSURANCE
+
+After creating the documents:
+
+- Implement all three pages in the existing website.
+- Add footer links.
+- Add Company & Methods links.
+- Add appropriate purchase and form links.
+- Check all internal URLs.
+- Test responsive layouts.
+- Test the policy navigation.
+- Test cookie consent where required.
+- Test the relevant checkout acceptance controls.
+- Ensure all policies use consistent business details.
+- Ensure no policy contradicts the website pricing page.
+- Ensure refund conditions are consistent with subscription terms.
+- Ensure data handling statements match actual website functionality.
+- Ensure no fabricated legal registrations, regulatory approvals or certifications appear.
+
+Do not rewrite unrelated pages or damage existing functionality.
+
+## PART 10 — FINAL DELIVERY REPORT
+
+After implementation, provide:
+
+1. The three URLs created.
+2. Files and components modified.
+3. Main sections implemented.
+4. International law research completed.
+5. Cookie consent functionality status.
+6. Terms acceptance integration status.
+7. Checkout and refund integration status.
+8. Any required business information still missing.
+9. Any legal clauses requiring review by a qualified lawyer.
+10. Confirmation that all three policies are internally consistent.
+
+The purpose is to give Botlytices a strong, credible, internationally oriented legal foundation, with commercially sensible contractual protection and transparent customer rights.
+
+**FINAL INSTRUCTION: Build and integrate the actual three policy pages into the existing Botlytices project. Do not merely generate sample text or a design preview. Make the pages production-quality, verify the implementation, and clearly distinguish implemented features from anything that still requires legal approval or additional business information.**

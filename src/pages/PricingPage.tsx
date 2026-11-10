@@ -982,15 +982,31 @@ export const PricingPage: React.FC<PricingPageProps> = ({
                   />
                 </div>
 
-                {/* Privacy note */}
+                {/* Privacy and Terms note */}
                 <p className="text-[11px] text-[#5D687A]">
-                  By submitting, you agree to our{' '}
+                  By submitting this quote request, you acknowledge our{' '}
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('/terms-of-service')}
+                    className="text-[#0052CC] underline hover:text-[#003EA3] cursor-pointer"
+                  >
+                    Terms of Service
+                  </button>
+                  ,{' '}
                   <button
                     type="button"
                     onClick={() => onNavigate('/privacy-policy')}
                     className="text-[#0052CC] underline hover:text-[#003EA3] cursor-pointer"
                   >
                     Privacy Policy
+                  </button>
+                  , and{' '}
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('/refund-policy')}
+                    className="text-[#0052CC] underline hover:text-[#003EA3] cursor-pointer"
+                  >
+                    Refund Policy
                   </button>
                   . We never share your contact details.
                 </p>

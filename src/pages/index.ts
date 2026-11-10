@@ -15,3 +15,7 @@ export { SitemapPage } from './SitemapPage';
 export { NotFoundPage } from './NotFoundPage';
 export { WebsiteMaintenancePage } from './WebsiteMaintenancePage';
 export { PricingPage } from './PricingPage';
+export { TermsOfServicePage } from './TermsOfServicePage';
+export { PrivacyPolicyPage } from './PrivacyPolicyPage';
+export { RefundPolicyPage } from './RefundPolicyPage';
+export { CookiePolicyPage } from './CookiePolicyPage';

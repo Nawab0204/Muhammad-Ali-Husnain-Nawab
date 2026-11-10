@@ -1669,7 +1669,31 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                         )}
                       </button>
                       <p className="text-[11px] text-center text-[#5D687A] mt-2.5">
-                        Delivered securely. We respect your confidentiality and never share your details.
+                        By submitting, you acknowledge our{' '}
+                        <button
+                          type="button"
+                          onClick={() => onNavigate('/terms-of-service')}
+                          className="text-[#006BFF] underline hover:text-[#0052CC] cursor-pointer"
+                        >
+                          Terms of Service
+                        </button>
+                        ,{' '}
+                        <button
+                          type="button"
+                          onClick={() => onNavigate('/privacy-policy')}
+                          className="text-[#006BFF] underline hover:text-[#0052CC] cursor-pointer"
+                        >
+                          Privacy Policy
+                        </button>
+                        , and{' '}
+                        <button
+                          type="button"
+                          onClick={() => onNavigate('/refund-policy')}
+                          className="text-[#006BFF] underline hover:text-[#0052CC] cursor-pointer"
+                        >
+                          Refund Policy
+                        </button>
+                        . Delivered directly to botlytices@gmail.com with strict confidentiality.
                       </p>
                     </div>
                   </form>

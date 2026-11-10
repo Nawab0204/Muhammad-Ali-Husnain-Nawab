@@ -18,6 +18,8 @@ import {
   HelpCircle,
   Scale,
   DollarSign,
+  ShieldCheck,
+  RotateCcw,
 } from 'lucide-react';
 import { DIVISIONS } from '../data/siteArchitecture';
 import { REGIONS_DATA, getRegionStats } from '../data/locationsData';
@@ -110,10 +112,24 @@ const ABOUT_MEGA_GROUPS = [
       },
       {
         number: '08',
-        title: 'Terms & Conditions',
-        description: 'Company policies and service terms.',
-        path: '/terms',
+        title: 'Terms of Service',
+        description: 'Commercial service terms and customer agreements.',
+        path: '/terms-of-service',
         icon: Scale,
+      },
+      {
+        number: '09',
+        title: 'Privacy Policy',
+        description: 'Data protection standards and privacy governance.',
+        path: '/privacy-policy',
+        icon: ShieldCheck,
+      },
+      {
+        number: '10',
+        title: 'Refund Policy',
+        description: 'Transparent cancellation and milestone refund rules.',
+        path: '/refund-policy',
+        icon: RotateCcw,
       },
     ],
   },
@@ -209,6 +225,9 @@ export const Navbar: React.FC<NavbarProps> = ({
     currentPath === '/faq' ||
     currentPath === '/pricing' ||
     currentPath === '/terms' ||
+    currentPath === '/terms-of-service' ||
+    currentPath === '/privacy-policy' ||
+    currentPath === '/refund-policy' ||
     currentPath === '/process';
 
   return (

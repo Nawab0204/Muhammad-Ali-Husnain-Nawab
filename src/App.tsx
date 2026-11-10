@@ -12,6 +12,8 @@ import { Footer } from './components/Footer';
 import { ProjectInquiryModal } from './components/ProjectInquiryModal';
 import { FloatingWhatsAppButton } from './components/common/FloatingWhatsAppButton';
 
+import { CookieConsentBanner } from './components/CookieConsentBanner';
+
 // Pages
 import { HomePage } from './components/HomePage';
 import { ServicesIndexPage } from './components/ServicesIndexPage';
@@ -19,11 +21,13 @@ import { DivisionLandingPage } from './components/DivisionLandingPage';
 import { SubcategoryPageTemplate } from './components/SubcategoryPageTemplate';
 import { PortfolioAndCaseStudiesPage } from './components/PortfolioAndCaseStudiesPage';
 import { ProcessPage, AboutPage, FaqPage, ContactPage } from './components/CompanyPages';
-import { TestimonialsPage, TermsPage } from './components/TestimonialsAndTermsPages';
+import { TestimonialsPage } from './components/TestimonialsAndTermsPages';
 import { BlogPages } from './components/BlogPages';
 import { SitemapPage } from './pages/SitemapPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { TermsOfServicePage } from './pages/TermsOfServicePage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { RefundPolicyPage } from './pages/RefundPolicyPage';
 import { CookiePolicyPage } from './pages/CookiePolicyPage';
 import { WebsiteMaintenancePage } from './pages/WebsiteMaintenancePage';
 import { PricingPage } from './pages/PricingPage';
@@ -212,9 +216,13 @@ function AppContent() {
       return <FaqPage onNavigate={navigate} onOpenQuote={openQuoteModal} />;
     }
 
-    // 12. Terms & Conditions (/terms, /terms-and-conditions)
-    if (normalized === '/terms' || normalized === '/terms-and-conditions') {
-      return <TermsPage onNavigate={navigate} />;
+    // 12. Terms of Service (/terms-of-service, /terms, /terms-and-conditions)
+    if (
+      normalized === '/terms-of-service' ||
+      normalized === '/terms' ||
+      normalized === '/terms-and-conditions'
+    ) {
+      return <TermsOfServicePage onNavigate={navigate} />;
     }
 
     // 13. Privacy Policy (/privacy-policy, /privacy)
@@ -222,12 +230,21 @@ function AppContent() {
       return <PrivacyPolicyPage onNavigate={navigate} />;
     }
 
-    // 14. Cookie Policy (/cookie-policy, /cookies)
+    // 14. Refund & Cancellation Policy (/refund-policy, /refunds, /cancellation-policy)
+    if (
+      normalized === '/refund-policy' ||
+      normalized === '/refunds' ||
+      normalized === '/cancellation-policy'
+    ) {
+      return <RefundPolicyPage onNavigate={navigate} />;
+    }
+
+    // 15. Cookie Policy (/cookie-policy, /cookies)
     if (normalized === '/cookie-policy' || normalized === '/cookies') {
       return <CookiePolicyPage onNavigate={navigate} />;
     }
 
-    // 15. Contact Us (/contact)
+    // 16. Contact Us (/contact)
     if (normalized === '/contact') {
       return <ContactPage onNavigate={navigate} />;
     }
@@ -363,6 +380,9 @@ function AppContent() {
 
       {/* Accessible Floating Toast Notifications */}
       <ToastContainer />
+
+      {/* GDPR & International Privacy Cookie Consent Banner */}
+      <CookieConsentBanner />
     </div>
   );
 }
