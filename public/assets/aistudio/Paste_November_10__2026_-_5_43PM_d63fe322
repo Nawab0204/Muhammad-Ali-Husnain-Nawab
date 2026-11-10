@@ -1,0 +1,834 @@
+# TASK: Build the Complete Botlytices International Pricing Page
+
+Website: https://botlytices.com/
+
+You are a senior UI/UX designer, full-stack developer, conversion-rate optimisation specialist, and digital agency pricing strategist.
+
+Your task is to design and implement a complete, production-ready **Pricing page for Botlytices**, presenting all five business divisions, their services, sub-services, packages, prices, inclusions, and optional add-ons.
+
+This must be a fully functional website page, not a mockup, static screenshot, or design concept.
+
+Before making changes, inspect the existing project, its framework, routing, components, navigation, design system, fonts, colours, and responsive behaviour. Work within the existing architecture and preserve the website's established visual identity.
+
+## 1. Main objective
+
+Create a dedicated international Pricing page that allows customers to:
+
+- Explore all five Botlytices divisions.
+- Understand every major service and its sub-services.
+- View transparent starting prices.
+- Compare service packages.
+- Select their country or preferred currency.
+- Understand exactly what is included and excluded.
+- Explore optional services and additional costs.
+- Request a custom quotation.
+- Contact Botlytices or start a project.
+
+The pricing experience should position Botlytices as a professional, internationally accessible technology and digital services company.
+
+The design must look credible alongside established agencies in the United States, United Kingdom, Canada, Australia and Europe.
+
+Do not make it look like a cheap freelance marketplace or an ordinary generic pricing template.
+
+## 2. Website navigation and placement
+
+Create a dedicated route:
+
+`/pricing`
+
+Add the Pricing page in the existing website navigation in both of the following places:
+
+1. **About menu:** Add a clearly visible Pricing link under About.
+2. **Company & Methods section:** Add a Pricing link or a well-designed pricing card within the existing Company & Methods section.
+
+Both links must point to the same `/pricing` route.
+
+If Company & Methods is a standalone page or subsection, integrate a suitable pricing introduction and a clear link to the full pricing page there.
+
+Do not create duplicate pricing pages.
+
+Ensure the Pricing page is accessible from desktop navigation, mobile navigation, footer navigation, and relevant internal service links.
+
+Preserve every existing navigation item and website route.
+
+## 3. Overall design direction
+
+Create a sophisticated, modern, minimalist and premium technology-company aesthetic.
+
+Design characteristics:
+
+- White or very light background.
+- Dark, highly readable typography.
+- Subtle grey borders and separators.
+- Restrained use of the existing Botlytices brand accent colour.
+- Generous whitespace.
+- Professionally structured sections.
+- Clean pricing cards.
+- Subtle shadows.
+- Rounded but not excessively rounded corners.
+- Excellent typography and readable price displays.
+- Smooth, restrained animations.
+- Consistent spacing and alignment.
+- High-quality icons for each business division.
+
+Use the actual Botlytices website branding and existing design tokens. Do not invent a new brand identity.
+
+Avoid:
+- Excessive gradients.
+- Neon colours.
+- Excessive animations.
+- Unnecessary decorative illustrations.
+- Oversized pricing cards.
+- Excessive text in the hero section.
+- Repetitive layouts.
+- Unprofessional icons.
+- Fake testimonials, company statistics or certifications.
+
+The page should feel like a well-designed international technology company website.
+
+## 4. Page structure
+
+Build the page in the following order.
+
+### Section A: Pricing hero
+
+Main heading:
+
+**Technology, Digital Solutions & Business Automation. Clearly Priced.**
+
+Supporting description:
+
+"Explore professional technology, website development, digital growth, IT infrastructure and AI automation services from Botlytices. Transparent starting prices, flexible packages and tailored solutions for businesses worldwide."
+
+Primary CTA: Explore Our Services
+
+Secondary CTA: Request a Custom Quote
+
+Under the hero, include a concise trust-oriented statement:
+
+"International services. Transparent pricing. Solutions built around your business."
+
+Include a subtle introduction explaining that listed prices are starting rates and final quotations depend on scope, complexity, integrations and requirements.
+
+### Section B: International pricing selector
+
+This is a very important feature.
+
+Create an interactive country and currency selector near the beginning of the pricing page.
+
+Supported markets:
+
+1. United States — USD ($)
+2. United Kingdom — GBP (£)
+3. Canada — CAD (C$)
+4. Australia — AUD (A$)
+5. New Zealand — NZD (NZ$)
+6. Ireland — EUR (€)
+7. Wider European markets — EUR (€)
+8. United Arab Emirates — AED
+
+The selector should:
+- Display the country name, flag and currency.
+- Allow the visitor to change the selected market.
+- Immediately update all displayed regional prices.
+- Preserve the visitor's selected market while navigating the pricing sections.
+- Use accessible controls.
+- Have a sensible default of United States / USD.
+- Never display a price in the wrong currency.
+
+Do not rely on live exchange rates to calculate advertised prices. Use a controlled pricing configuration with market-specific commercial prices.
+
+Use these regional positioning multipliers for the detailed USD-based sub-service rates:
+
+| Market | Pricing multiplier |
+|---|---:|
+| United States | 1.00 |
+| United Kingdom | 0.75 |
+| Canada | 1.33 |
+| Australia | 1.50 |
+| New Zealand | 1.58 |
+| Ireland | 0.92 |
+| Wider eurozone | 0.88 |
+| UAE | 3.67 |
+
+These multipliers are pricing-positioning guidelines, not live FX conversions.
+
+Round localized prices to sensible commercial amounts and allow manually defined country-specific overrides.
+
+Use the following exact regional prices for these six primary pricing anchors:
+
+| Market | 5-page website | 8–12-page website | Business care/month | Local SEO/month | Basic AI chatbot setup | IT support/month |
+|---|---:|---:|---:|---:|---:|---:|
+| USA | $1,199 | $2,199 | $99 | $399 | $499 | $199 |
+| UK | £899 | £1,599 | £79 | £299 | £399 | £149 |
+| Canada | C$1,599 | C$2,899 | C$129 | C$549 | C$699 | C$269 |
+| Australia | A$1,799 | A$3,199 | A$149 | A$599 | A$749 | A$279 |
+| New Zealand | NZ$1,899 | NZ$3,399 | NZ$159 | NZ$649 | NZ$799 | NZ$299 |
+| Ireland | €1,099 | €1,999 | €99 | €349 | €549 | €179 |
+| Wider eurozone | €1,049 | €1,899 | €89 | €329 | €499 | €169 |
+| UAE | AED 4,499 | AED 7,999 | AED 349 | AED 1,499 | AED 1,999 | AED 699 |
+
+These anchor prices must override the automatic regional calculation.
+
+For every other service, use the regional pricing multiplier with sensible rounding and keep the underlying USD base price available in one central configuration.
+
+Never show inconsistent prices for the same service in different sections.
+
+## 5. Division 01 — Web Development
+
+Division heading:
+
+**01 / Web Development**
+
+Description:
+
+"Design, develop and maintain professional digital experiences. From business websites to sophisticated e-commerce platforms, we build responsive, functional and scalable websites that help businesses establish and grow their online presence."
+
+Organise these services into clear categories.
+
+#### A. Web Design, UI/UX & Web Development
+
+| Service | Starting USD price |
+|---|---:|
+| Landing page design and development | $549 |
+| Starter business website (up to 5 pages) | $1,199 |
+| Business website (8–12 pages) | $2,199 |
+| Professional website redesign | $799 |
+| Additional website page | $100 |
+| Custom website development | $3,500 |
+
+Include responsive design, navigation, contact forms, mobile optimisation, foundational SEO, website testing and deployment according to the selected package.
+
+#### B. E-commerce & Web Applications
+
+| Service | Starting USD price |
+|---|---:|
+| Basic e-commerce website | $2,999 |
+| Advanced e-commerce website | $4,999 |
+| Product catalogue implementation | $199 |
+| Payment gateway integration | $149 |
+| Booking system integration | $199 |
+| Custom web application | $3,500 |
+| API integration | $199 |
+
+Explain that complex integrations, custom functionality, third-party subscriptions and advanced application development require individual quotations.
+
+#### C. Website Maintenance & Management
+
+Create three professionally designed monthly packages.
+
+**Essential Care — $49/month**
+
+- Website updates.
+- Routine backups.
+- Basic security checks.
+- Uptime monitoring.
+- Basic technical assistance.
+
+**Business Care — $99/month**
+
+- Everything in Essential.
+- Security monitoring.
+- Plugin and CMS maintenance.
+- Performance checks.
+- Minor content updates.
+- Priority support.
+- Monthly maintenance summary.
+
+**Growth Care — $179/month**
+
+- Everything in Business.
+- Enhanced performance monitoring.
+- Additional content assistance.
+- More frequent technical checks.
+- Priority technical support.
+- Monthly reporting.
+
+Clearly explain what counts as minor content work and what constitutes separately chargeable development.
+
+#### D. SEO, Hosting & Website Care
+
+| Service | Starting USD price |
+|---|---:|
+| Technical SEO setup | $299 |
+| Website hosting management | $15/month |
+| Domain management | $20/year plus registration cost |
+| Website migration | $199 |
+| Website speed optimisation | $149 |
+| Malware cleanup | $149 |
+| Website recovery | $199 |
+
+Include appropriate descriptions and explain third-party hosting, domain and software expenses.
+
+## 6. Division 02 — IT Support & Infrastructure
+
+Division heading:
+
+**02 / IT Support & Infrastructure**
+
+Description:
+
+"Reliable technology support, infrastructure management and practical security solutions that help businesses operate efficiently."
+
+#### A. Hardware & Device Support
+
+| Service | Starting USD price |
+|---|---:|
+| Device setup and configuration | $49/device |
+| Computer troubleshooting | $59/hour |
+| Hardware assessment | $49 |
+| New device deployment | $79/device |
+| Business workstation setup | $99/device |
+
+#### B. Software & System Support
+
+| Service | Starting USD price |
+|---|---:|
+| Software installation and configuration | $49 |
+| Operating system troubleshooting | $59 |
+| Microsoft 365 setup | $149 |
+| Microsoft 365 migration | $299 |
+| Email configuration | $49 |
+| Software troubleshooting | $59/hour |
+
+#### C. Networking & Wi-Fi
+
+| Service | Starting USD price |
+|---|---:|
+| Network assessment | $99 |
+| Wi-Fi troubleshooting | $79 |
+| Router configuration | $79 |
+| Network installation | Custom quotation |
+| Business network optimisation | $149 |
+
+#### D. Cybersecurity & IT Security
+
+| Service | Starting USD price |
+|---|---:|
+| Basic cybersecurity review | $199 |
+| Security configuration | $149 |
+| Device security configuration | $49/device |
+| Malware assessment | $99 |
+| Business IT security assessment | $299 |
+
+Create these three recurring support packages:
+
+- Essential IT Support — $199/month.
+- Business IT Support — $399/month.
+- Managed IT Support — $799/month.
+
+Explain that monthly packages have defined user/device limits, included support allowances and response targets.
+
+Hardware, software licences, onsite labour and third-party subscriptions are separate unless expressly included.
+
+## 7. Division 03 — Digital Presence & Branding
+
+Division heading:
+
+**03 / Digital Presence & Branding**
+
+Description:
+
+"Build a consistent brand, strengthen your online visibility and attract more relevant customers through effective branding, digital marketing and search optimisation."
+
+#### A. Brand Identity & Logo Design
+
+| Service | Starting USD price |
+|---|---:|
+| Basic logo design | $199 |
+| Logo and brand identity package | $399 |
+| Complete brand identity system | $699 |
+| Brand guidelines | $199 |
+| Business stationery design | $99 |
+| Social media brand templates | $99 |
+
+Explain the deliverables, file formats, revision limits and ownership arrangements.
+
+#### B. Social Media & Content
+
+| Service | Starting USD price |
+|---|---:|
+| Social media account setup | $149 |
+| 8-post monthly package | $299/month |
+| 12-post monthly package | $449/month |
+| 20-post monthly package | $699/month |
+| Short-form video editing | $35/video |
+| Social media graphic design | $25/design |
+| Content writing | $50/article |
+
+Explain that advertising spend, influencer fees, photography and video production are not included unless quoted.
+
+#### C. Business Profiles & Local Presence
+
+| Service | Starting USD price |
+|---|---:|
+| Google Business Profile setup | $149 |
+| Google Business Profile optimisation | $199 |
+| Monthly profile management | $149/month |
+| Apple Business Connect setup | $99 |
+| Bing Places setup | $99 |
+| Multiple platform profile setup | $249 |
+
+Clearly explain that the platform accounts themselves are not sold by Botlytices. The service fee covers eligible business setup, configuration and optimisation.
+
+Do not promise Google verification, ranking positions or approval where these depend on third-party platforms.
+
+#### D. Digital Marketing & Growth
+
+**SEO and Local SEO**
+
+| Service | Starting USD price |
+|---|---:|
+| Comprehensive SEO audit | $149 |
+| SEO implementation | $299 |
+| Local SEO | $349/month |
+| Growth SEO | $699/month |
+| Advanced SEO | $1,199/month |
+
+**AEO and AI Search Visibility**
+
+| Service | Starting USD price |
+|---|---:|
+| AEO implementation | $249 |
+| AI search optimisation setup | $499 |
+| Ongoing AEO management | $199/month |
+
+**Paid Advertising**
+
+| Service | Starting USD price |
+|---|---:|
+| Google Ads campaign setup | $149 |
+| Google Ads management | $199/month |
+| Meta Ads campaign setup | $149 |
+| Social advertising management | $199/month |
+
+Always state that advertising budget is separate from management fees.
+
+Do not promise guaranteed search rankings, traffic numbers, leads or advertising results.
+
+## 8. Division 04 — AI Automation
+
+Division heading:
+
+**04 / AI Automation**
+
+Description:
+
+"Make your business more efficient through intelligent customer communication, automated workflows, AI-powered lead management and virtual assistants."
+
+#### A. AI Voice Assistants
+
+| Service | Starting USD price |
+|---|---:|
+| Basic AI voice assistant | $1,499 |
+| Business voice automation | $1,999 |
+| Advanced voice assistant | $2,999 |
+| Voice workflow integration | $299 |
+
+#### B. WhatsApp & Chat Automation
+
+| Service | Starting USD price |
+|---|---:|
+| Website FAQ chatbot | $499 |
+| WhatsApp automation | $899 |
+| Multichannel chatbot | $999 |
+| Customer inquiry automation | $399 |
+
+#### C. AI Lead Generation
+
+| Service | Starting USD price |
+|---|---:|
+| Lead capture automation | $299 |
+| Lead qualification workflow | $499 |
+| CRM lead automation | $699 |
+| Automated lead follow-up | $299 |
+
+#### D. Workflow & Business Automation
+
+| Service | Starting USD price |
+|---|---:|
+| Basic workflow automation | $299 |
+| CRM automation | $699 |
+| Appointment automation | $399 |
+| Business workflow integration | $799 |
+| Advanced custom automation | $1,499 |
+
+Create a prominently featured package:
+
+**AI Smart Desk — Starting at $2,499 setup + $349/month**
+
+Include:
+- AI-powered customer communication.
+- Website chat integration.
+- WhatsApp integration where supported.
+- Lead capture and qualification.
+- Customer inquiry handling.
+- CRM connectivity.
+- Booking and appointment workflows.
+- Automated follow-ups.
+- Human handoff.
+- Reporting and workflow monitoring.
+
+Make it clear that the precise functionality depends on the selected integrations.
+
+**Critical AI pricing disclosure:**
+
+AI services may involve third-party usage charges for:
+- WhatsApp messaging.
+- Meta Business messaging.
+- Voice minutes.
+- AI model usage.
+- Telephone services.
+- CRM software.
+- External integrations.
+
+These must be clearly identified as additional usage or subscription charges, not silently included in unlimited plans.
+
+## 9. Division 05 — Security & Surveillance
+
+Division heading:
+
+**05 / Security & Surveillance**
+
+Description:
+
+"Professional security infrastructure, video surveillance and access management solutions designed to improve visibility, control and operational security."
+
+#### A. CCTV & Video Surveillance
+
+| Service | Starting USD price |
+|---|---:|
+| CCTV consultation | $99 |
+| CCTV site assessment | $149 |
+| Remote CCTV configuration | $99 |
+| NVR/DVR configuration | $149 |
+| CCTV system installation | Custom quotation |
+| Multi-camera deployment | Custom quotation |
+
+#### B. Access Control & Biometrics
+
+| Service | Starting USD price |
+|---|---:|
+| Access control assessment | $99 |
+| Basic access control configuration | $249 |
+| Biometric system configuration | $299 |
+| Access control deployment | Custom quotation |
+| Advanced integration | Custom quotation |
+
+#### C. Remote Monitoring & Security Systems
+
+| Service | Starting USD price |
+|---|---:|
+| Remote monitoring configuration | $149 |
+| CCTV mobile access setup | $99 |
+| Remote security system configuration | $149 |
+| Monitoring integration | Custom quotation |
+
+#### D. Security Maintenance & Upgrades
+
+| Service | Starting USD price |
+|---|---:|
+| CCTV system health assessment | $99 |
+| CCTV maintenance | $149 |
+| Camera replacement labour | Custom quotation |
+| Security system upgrade | $149 |
+| Security system troubleshooting | $79/hour |
+
+Clearly explain that equipment, cameras, recorders, storage devices, cabling, network equipment, site visits and installation labour may be separately charged.
+
+Never give a false fixed installation price for projects requiring a physical site survey.
+
+## 10. Package cards and presentation
+
+Do not place every individual service into one enormous pricing table.
+
+Instead, use a clean, consistent layout for each division.
+
+Each division should have:
+- Division number.
+- Division title.
+- Brief introduction.
+- A suitable professional icon.
+- Four visually organised service categories.
+- Service descriptions.
+- Starting prices.
+- Applicable billing intervals.
+- A button to request a quotation.
+- A link to the relevant detailed service page where one exists.
+
+Use interactive category navigation or tabs to help users move between the five divisions.
+
+Make the five divisions easy to distinguish without giving each a completely unrelated visual design.
+
+For recurring services, display monthly pricing prominently.
+
+For project-based services, display a one-time starting price.
+
+For custom services, show "Request a Quote".
+
+Do not invent package inclusions that cannot be delivered.
+
+## 11. Comparison and bundled solutions
+
+Create a section titled:
+
+**Complete Digital Solutions for Your Business**
+
+Introduce carefully designed bundles.
+
+### Website Launch Bundle — From $1,399
+
+- Five-page business website.
+- Responsive design.
+- Essential contact forms.
+- Basic SEO configuration.
+- Deployment assistance.
+- Initial handover.
+
+### Business Growth Bundle — From $1,999
+
+- Business website.
+- Technical SEO.
+- Google Business Profile setup where eligible.
+- Business email configuration.
+- Initial digital presence optimisation.
+
+### Website Care Bundle — From $99/month
+
+- Website maintenance.
+- Backups.
+- Security monitoring.
+- Uptime monitoring.
+- Minor content updates.
+- Technical support.
+
+### Business Automation Bundle — From $999 setup
+
+- Basic chatbot.
+- Lead capture.
+- One basic automation workflow.
+- Initial integration.
+- Testing and deployment.
+
+### Complete AI Smart Desk — From $2,499 setup + $349/month
+
+- AI customer assistance.
+- Website chatbot.
+- AI workflow automation.
+- CRM integration.
+- Lead management.
+- Booking workflow.
+- Ongoing technical management.
+
+Bundle prices must remain consistent with the underlying service prices. Clearly identify any bundled discount and the scope to which it applies.
+
+Do not describe every bundle as unlimited.
+
+## 12. Pricing explanations and commercial conditions
+
+Add a professional section titled:
+
+**Understanding Our Pricing**
+
+Include the following explanations:
+
+**Starting prices:** Published prices represent starting rates for defined standard scopes. Complex or customised projects require a tailored quotation.
+
+**One-time services:** Website builds, setup, design, integration, audits and installation services generally carry a one-time project fee.
+
+**Recurring services:** Maintenance, hosting management, SEO management, IT support and AI management may involve monthly subscriptions.
+
+**Third-party costs:** Domains, hosting infrastructure, paid software, licences, APIs, messaging charges, voice usage and advertising budgets are additional unless specifically included.
+
+**Hardware and equipment:** CCTV equipment, networking hardware and other physical products must be quoted according to project requirements.
+
+**Scope changes:** Work outside the approved quotation or package must receive customer approval and may attract additional fees.
+
+**Support limits:** Monthly plans have defined scope, included allowances and response targets.
+
+**Taxes:** Applicable local taxes or VAT are additional where required.
+
+**Custom projects:** Contact Botlytices for bespoke requirements.
+
+Do not promise guaranteed delivery dates, rankings, unlimited support or results without an expressly defined and commercially approved commitment.
+
+## 13. Frequently asked questions
+
+Add an interactive FAQ section with useful questions, including:
+
+1. How do Botlytices pricing packages work?
+2. Can I request a custom quotation?
+3. Do you work with businesses outside your home country?
+4. Can I pay in my local currency?
+5. Are website hosting and domain registration included?
+6. What is the difference between website maintenance and development?
+7. Are SEO services billed monthly?
+8. Do you guarantee Google rankings?
+9. Are AI voice and WhatsApp usage charges included?
+10. Can I purchase more than one service?
+11. Do you provide ongoing technical support?
+12. How are CCTV installations priced?
+13. Are third-party software subscriptions included?
+14. Can I upgrade my service package later?
+15. What happens when additional development work is needed?
+
+Write concise, accurate answers.
+
+## 14. Quote request and conversion functionality
+
+Create a professional quotation request section near the bottom.
+
+Heading:
+
+**Have a Project in Mind? Let's Build It.**
+
+Supporting text:
+
+"Tell us what your business needs. Our team will review your requirements and help you identify the appropriate solution and pricing."
+
+Create a functional form with the following fields:
+
+- Full name.
+- Business name.
+- Business email.
+- Country.
+- Preferred currency.
+- Service division.
+- Required sub-service.
+- Estimated budget.
+- Project description.
+- Preferred contact method.
+
+Allow users to select multiple services if they need more than one division.
+
+Add appropriate validation, clear success and error feedback, accessible labels, spam protection where the existing stack supports it, and a privacy notice.
+
+Connect the form to the existing website contact or lead submission infrastructure if available.
+
+Do not create a fake working form that only displays a success message without actually submitting the information.
+
+If there is no existing backend or submission endpoint, build the frontend integration cleanly and identify the missing endpoint rather than pretending the submission works.
+
+Include clear links to the existing contact page, email and WhatsApp contact options, using verified contact details from the existing website.
+
+## 15. Footer and internal links
+
+Use the existing website footer.
+
+Add or confirm:
+- Pricing.
+- About.
+- Company & Methods.
+- Web Development.
+- IT Support & Infrastructure.
+- Digital Presence & Branding.
+- AI Automation.
+- Security & Surveillance.
+- Contact.
+
+Make sure each link leads to the actual existing route.
+
+Do not create broken placeholder URLs.
+
+## 16. SEO and technical implementation
+
+Implement professional on-page SEO.
+
+Suggested page title:
+
+**Pricing | Website Development, IT Support & AI Automation | Botlytices**
+
+Suggested meta description:
+
+"Explore Botlytices pricing for website development, maintenance, IT support, SEO, digital branding, AI automation, CCTV and business technology services worldwide."
+
+Use:
+- One meaningful H1.
+- Proper H2 and H3 hierarchy.
+- Descriptive URLs.
+- Canonical URL.
+- Open Graph metadata.
+- Twitter metadata.
+- Semantic HTML.
+- Internal service links.
+- Descriptive image alt text.
+- Accessible interactive controls.
+
+Implement valid structured data only where appropriate. Do not generate fake ratings, reviews or aggregate ratings.
+
+Optimise images and page assets. Avoid unnecessary dependencies.
+
+Ensure:
+- Responsive desktop, tablet and mobile layouts.
+- Fast loading.
+- No horizontal overflow.
+- No console errors.
+- No broken internal routes.
+- No duplicated components where reusable components would be better.
+- Accessible keyboard navigation.
+- Correct currency formatting.
+- Functional pricing filters and tabs.
+- Proper form validation.
+- Good colour contrast.
+
+The pricing page should be server-rendering compatible if the existing architecture requires it.
+
+## 17. Development and code requirements
+
+Before coding:
+
+1. Inspect the complete existing project.
+2. Identify its framework, routing system and entry points.
+3. Inspect the existing navigation and footer.
+4. Locate the Company & Methods section.
+5. Identify the actual existing contact links.
+6. Reuse existing design tokens and components.
+
+During implementation:
+
+- Create reusable pricing components.
+- Store pricing information in a central configuration.
+- Keep regional prices and overrides in one place.
+- Avoid hardcoding different prices into unrelated components.
+- Ensure all pricing displays use the same pricing source.
+- Implement the country selector with proper state management.
+- Preserve existing page functionality.
+- Avoid rewriting unrelated pages.
+- Avoid removing existing content.
+- Do not change the existing website branding.
+
+Use the project's current stack and conventions. Do not introduce a new framework or unnecessary packages.
+
+## 18. Final quality assurance
+
+Before declaring the work complete, verify the following:
+
+- The new `/pricing` page loads correctly.
+- It appears under About.
+- It is linked from Company & Methods.
+- It is accessible on mobile and desktop.
+- All five divisions are displayed.
+- Every listed sub-service is included.
+- Project prices and monthly prices are clearly distinguished.
+- The country selector updates pricing properly.
+- The eight regional pricing schedules are correct.
+- The six regional pricing anchors match the exact supplied values.
+- Other sub-service prices use the central regional pricing configuration.
+- There are no inconsistent prices or duplicate charges.
+- All quote buttons and navigation links work.
+- The quotation form is connected to a real submission mechanism, or clearly identifies the missing integration.
+- All third-party charges and exclusions are explained.
+- No fabricated testimonials, guarantees or business statistics appear.
+- The existing website remains fully functional.
+
+## 19. Final design objective
+
+The finished page should communicate three things immediately:
+
+1. Botlytices provides five connected divisions of professional digital and technology services.
+2. Customers can understand the starting costs before contacting the company.
+3. Botlytices can support projects internationally with flexible service packages and customised solutions.
+
+Build this as a polished, professional, conversion-focused international pricing page that is visually consistent with the existing Botlytices website.
+
+**IMPORTANT: Do not stop after producing a design preview. Implement the actual working page in the existing project, integrate navigation links, test its functionality, and provide a final summary of the files changed and features implemented.**

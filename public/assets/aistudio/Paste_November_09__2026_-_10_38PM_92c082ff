@@ -1,0 +1,913 @@
+# PROJECT: CREATE A COMPLETE WEBSITE MAINTENANCE & MANAGEMENT LANDING PAGE FOR BOTLYTICES
+
+Act as a senior UI/UX designer, conversion-focused web designer, SEO specialist, technical website maintenance engineer, content strategist and frontend developer.
+
+Your task is to design and implement a complete, professional, modern, conversion-optimized Website Maintenance & Management page for **Botlytices**.
+
+This must be a fully developed service landing page, not a basic informational page.
+
+The page should establish Botlytices as a reliable long-term technology partner that helps businesses maintain, protect, optimize, update and continuously improve their websites.
+
+IMPORTANT: Work within my existing website, design system, technology stack, components, routing structure and brand identity. Inspect the existing project before making changes. Do not rebuild the entire website or modify unrelated pages.
+
+---
+
+# 1. PRIMARY OBJECTIVE
+
+Create a comprehensive Website Maintenance service page that communicates:
+
+- What website maintenance means.
+- Why every business needs ongoing maintenance.
+- What services Botlytices provides.
+- Which website platforms and technologies we support.
+- How maintenance differs across industries.
+- What businesses receive through our maintenance services.
+- How we prevent technical problems and minimize downtime.
+- How we improve website performance, security, SEO and functionality.
+- How businesses can request maintenance, repairs or ongoing management.
+- Why businesses should choose Botlytices.
+
+The page must convert visitors into potential clients through strategically placed enquiry forms, consultation calls and clear calls to action.
+
+Primary CTA: Request a Website Maintenance Quote.
+
+Secondary CTA: Get Your Website Audited.
+
+---
+
+# 2. TARGET AUDIENCES AND INDUSTRIES
+
+The page must address businesses of all sizes, including startups, independent professionals, small businesses, established companies and international organizations.
+
+Give particular attention to the following industries:
+
+## A. Tourism and Travel
+
+This is one of the most important target industries.
+
+Explain maintenance requirements for:
+
+- Travel agencies.
+- Tour operators.
+- Destination management companies.
+- Travel booking websites.
+- Hotel and accommodation websites.
+- Holiday rental businesses.
+- Safari and adventure tourism operators.
+- Airport transfer and transportation companies.
+- Cruise and holiday booking businesses.
+- Visa and immigration consultancy websites.
+
+Relevant maintenance services:
+
+- Booking form monitoring.
+- Enquiry form testing.
+- Tour and package updates.
+- Destination and travel content updates.
+- Booking functionality monitoring.
+- Reservation integration checks.
+- Payment gateway monitoring.
+- Availability and pricing updates.
+- WhatsApp integration testing.
+- Mobile booking optimization.
+- Website speed optimization.
+- SEO maintenance for destination and service pages.
+- SSL and security monitoring.
+- Broken link and redirect monitoring.
+
+Explain that website downtime, broken booking forms and malfunctioning enquiry systems can directly affect customer enquiries and potential bookings.
+
+## B. Real Estate and Property
+
+Include:
+
+- Real estate agencies.
+- Property management companies.
+- Residential property developers.
+- Commercial property businesses.
+- Property investment companies.
+- Rental and letting agencies.
+- Luxury property agencies.
+- Construction and development companies.
+
+Relevant maintenance services:
+
+- Property listing updates.
+- Property image and gallery management.
+- Property search functionality testing.
+- Search filters and category maintenance.
+- Property enquiry form testing.
+- Agent profile updates.
+- CRM integration monitoring.
+- Lead capture optimization.
+- Property availability updates.
+- Map and location integration checks.
+- Virtual tour functionality.
+- Mortgage and enquiry calculator maintenance.
+- Real estate SEO maintenance.
+- Mobile responsiveness.
+- Database and media optimization.
+
+Explain the importance of maintaining accurate listings, functional property searches and reliable lead-generation systems.
+
+## C. Hospitality and Restaurants
+
+Include:
+
+- Hotels.
+- Restaurants.
+- Cafes.
+- Resorts.
+- Holiday accommodation.
+- Catering businesses.
+- Event venues.
+
+Services should include reservation systems, menu updates, online ordering, payment functionality, booking forms, opening hours, image galleries and customer enquiry monitoring.
+
+## D. E-commerce and Retail
+
+Include:
+
+- Online stores.
+- Fashion retailers.
+- Electronics stores.
+- Wholesale businesses.
+- Product marketplaces.
+- Subscription businesses.
+
+Services should include:
+
+- Product and inventory updates.
+- Checkout testing.
+- Payment gateway monitoring.
+- Shopping cart functionality.
+- Order management integration checks.
+- Customer account functionality.
+- Website security.
+- Database optimization.
+- Broken product page monitoring.
+- Conversion and performance improvements.
+
+## E. Professional and Corporate Services
+
+Include:
+
+- Consultancy companies.
+- Law firms.
+- Accounting firms.
+- IT companies.
+- Marketing agencies.
+- Recruitment agencies.
+- Educational institutions.
+- Healthcare service providers.
+- Construction businesses.
+
+Cover service page updates, contact forms, appointment booking, document uploads, website security, SEO, accessibility and business information updates.
+
+## F. Other Websites
+
+Make it clear that Botlytices also supports:
+
+- WordPress websites.
+- Business websites.
+- Portfolio websites.
+- Personal websites.
+- Blogs and publishing platforms.
+- Membership websites.
+- Educational websites.
+- Custom-developed websites.
+- React-based applications.
+- Corporate portals.
+- Landing pages.
+
+Do not restrict the service to the industries listed above.
+
+---
+
+# 3. PAGE STRUCTURE AND CONTENT
+
+Build the page using the following complete structure.
+
+## SECTION 1: HERO SECTION
+
+Create an impressive, clean and professional hero section.
+
+Headline suggestion:
+
+"Your Website Deserves More Than Just Hosting. It Deserves Ongoing Care."
+
+Supporting description:
+
+"From security updates and performance optimization to content management, technical repairs and continuous improvements, Botlytices keeps your website secure, reliable, fast and ready to support your business."
+
+Include three short trust points:
+
+- Security and reliability.
+- Performance and optimization.
+- Continuous technical support.
+
+Primary CTA: Get a Maintenance Quote.
+
+Secondary CTA: Explore Our Services.
+
+Include a visually appealing website dashboard or website maintenance illustration showing website health, security status, uptime, performance and maintenance activity.
+
+Do not invent live performance statistics or display fake real-time monitoring results.
+
+## SECTION 2: THE IMPORTANCE OF WEBSITE MAINTENANCE
+
+Headline:
+
+"A Website Is Never Truly Finished."
+
+Explain that launching a website is only the beginning.
+
+Websites require ongoing attention because:
+
+- Software and plugins need updates.
+- Security threats continuously evolve.
+- Website speed can deteriorate.
+- Forms and integrations can stop working.
+- Content and business information become outdated.
+- Search engine requirements change.
+- Databases and media libraries accumulate unnecessary data.
+- Hosting configurations and SSL certificates require monitoring.
+- Customer expectations and devices continue to change.
+
+Use attractive visual cards to explain these problems and their potential business impact.
+
+## SECTION 3: COMPLETE WEBSITE MAINTENANCE SERVICES
+
+Create a comprehensive service grid with individual cards, clear descriptions and relevant icons.
+
+Include all of the following:
+
+### 1. Website Updates and Maintenance
+- CMS updates.
+- Theme updates.
+- Plugin and extension updates.
+- Framework and dependency updates.
+- Website content updates.
+- Layout and design adjustments.
+- Technical compatibility checks.
+
+### 2. Website Security and Protection
+- Security monitoring.
+- Malware scanning and remediation.
+- Vulnerability checks.
+- Firewall configuration where supported.
+- SSL certificate monitoring.
+- Login protection.
+- Spam protection.
+- Security patch management.
+- Backup verification.
+- Security incident response.
+
+### 3. Website Speed and Performance
+- Core Web Vitals improvements.
+- Image compression.
+- Lazy loading.
+- Caching configuration.
+- CSS and JavaScript optimization.
+- Database optimization.
+- Server response improvements.
+- Mobile performance optimization.
+- Resource loading analysis.
+
+### 4. Backup and Recovery
+- Scheduled website backups.
+- Database backups.
+- File backups.
+- Backup integrity checks.
+- Recovery planning.
+- Website restoration.
+- Migration assistance.
+
+Clearly distinguish between backup creation and guaranteed successful recovery. Recovery depends on backup availability and infrastructure access.
+
+### 5. Technical Support and Troubleshooting
+- Website error resolution.
+- Broken pages and links.
+- Plugin conflicts.
+- Layout issues.
+- Form failures.
+- Server and hosting problems.
+- DNS configuration.
+- Email configuration assistance.
+- Domain-related issues.
+- Website migration.
+- Technical debugging.
+
+### 6. Website Content Management
+- Text and image updates.
+- New page creation.
+- Service updates.
+- Blog publishing.
+- Product updates.
+- Property listing updates.
+- Tour and package updates.
+- Contact information changes.
+- Banner and promotional updates.
+
+### 7. SEO Maintenance
+- Technical SEO checks.
+- Broken link monitoring.
+- Redirect management.
+- Metadata updates.
+- Sitemap checks.
+- Robots.txt checks.
+- Structured data validation.
+- Indexability checks.
+- Image alt text improvements.
+- Canonical URL checks.
+- Search Console issue investigation.
+- On-page SEO improvements.
+
+Do not imply that technical maintenance guarantees rankings.
+
+### 8. Website Functionality and Integrations
+- Contact form testing.
+- Booking system checks.
+- Payment gateway testing.
+- CRM integrations.
+- WhatsApp integration.
+- Newsletter integrations.
+- API connectivity checks.
+- Maps integration.
+- Third-party widget checks.
+- Analytics integration.
+
+### 9. Mobile and Responsive Maintenance
+- Mobile layout testing.
+- Tablet compatibility.
+- Browser compatibility.
+- Responsive design adjustments.
+- Navigation testing.
+- Touch interaction improvements.
+- Mobile form optimization.
+
+### 10. Database and Hosting Maintenance
+- Database cleanup.
+- Database optimization.
+- Hosting configuration assistance.
+- DNS management.
+- Server resource monitoring.
+- File management.
+- Storage optimization.
+- Domain and SSL monitoring.
+- Website environment maintenance.
+
+### 11. Accessibility and Usability
+- Accessibility checks.
+- Navigation improvements.
+- Form usability.
+- Image descriptions.
+- Keyboard accessibility.
+- Contrast checks.
+- User experience improvements.
+
+### 12. Analytics and Reporting
+- Google Analytics integration checks.
+- Google Search Console monitoring.
+- Website traffic reporting.
+- Technical issue reports.
+- Maintenance activity reports.
+- Performance observations.
+- Recommendations for improvements.
+
+Organize services into visually attractive categories rather than presenting one overwhelming wall of text.
+
+## SECTION 4: INDUSTRY-SPECIFIC MAINTENANCE
+
+Create a dedicated section with attractive industry cards or tabs.
+
+Each industry should have:
+
+- Industry name.
+- A short explanation.
+- Common website challenges.
+- Relevant maintenance services.
+- Business benefits.
+- A dedicated enquiry CTA.
+
+The tourism and real estate sections should receive the strongest visual emphasis.
+
+Use relevant images and professional layouts.
+
+## SECTION 5: WEBSITE PLATFORMS WE SUPPORT
+
+Create a platform compatibility section.
+
+Include:
+
+- WordPress.
+- WooCommerce.
+- Shopify.
+- Wix.
+- Webflow.
+- Squarespace.
+- Custom HTML, CSS and JavaScript websites.
+- React websites.
+- Node.js applications.
+- PHP websites.
+- Other custom CMS and web applications, subject to technical assessment.
+
+Do not claim universal compatibility or guaranteed access to every platform. Explain that the scope depends on platform permissions, hosting arrangements and technical architecture.
+
+## SECTION 6: WHAT WE CHECK DURING WEBSITE MAINTENANCE
+
+Create a professional website health checklist.
+
+Include:
+
+- Website accessibility.
+- SSL and security configuration.
+- Core Web Vitals.
+- Mobile responsiveness.
+- Website navigation.
+- Contact and enquiry forms.
+- Booking functionality.
+- Payment functionality.
+- Broken links.
+- Redirects.
+- Plugin and software updates.
+- Database health.
+- Backup status.
+- SEO technical issues.
+- Third-party integrations.
+- Hosting and DNS configuration.
+
+Display this section using a dashboard-style design or interactive checklist.
+
+Do not represent a visual checklist as an actual completed technical audit.
+
+## SECTION 7: OUR MAINTENANCE PROCESS
+
+Create a five-step process:
+
+Step 1: Initial Website Assessment
+
+We review the website, identify technical issues, evaluate its current condition and understand your business requirements.
+
+Step 2: Maintenance Planning
+
+We prepare a maintenance scope based on the platform, website complexity, functionality and required level of support.
+
+Step 3: Implementation and Optimization
+
+We perform the agreed updates, security improvements, technical repairs, performance optimization and content changes.
+
+Step 4: Testing and Quality Assurance
+
+We test important pages, forms, booking systems, mobile layouts and integrations after making changes.
+
+Step 5: Continuous Monitoring and Support
+
+We provide ongoing maintenance, technical assistance, agreed updates and maintenance reporting.
+
+Present the process in a modern timeline with clear icons.
+
+## SECTION 8: CASE STUDIES AND REAL PROJECT EXPERIENCE
+
+This section is particularly important.
+
+Create professional case study cards demonstrating relevant experience and the practical value of our web development, optimization and digital support work.
+
+Use the following existing project references where applicable:
+
+### Case Study 1: AZA Kitchens
+
+Website: https://azakitchens.uk/
+
+Available project information:
+- Approximately 15,000 clicks.
+- Approximately 100,000 impressions.
+- Six-month reporting period.
+
+Focus on website development, search visibility, technical improvements and ongoing digital optimization only to the extent supported by the actual project history.
+
+### Case Study 2: SSDN Travels Dubai
+
+Website: https://ssdntravelsdubai.com/
+
+Available project information:
+- Approximately 2,430 search impressions.
+- Website administration and IT support involvement.
+- WordPress management.
+- DNS and hosting assistance.
+- Website backups.
+- SEO and website maintenance activities.
+
+Explain the relevance of technical website management for a tourism and travel business.
+
+### Case Study 3: Additional Business Websites
+
+Showcase other relevant Botlytices projects, including website development, redesigns, technical troubleshooting, hosting configuration and optimization where verified project evidence is available.
+
+IMPORTANT CASE STUDY RULES:
+
+- Do not invent client testimonials.
+- Do not invent revenue increases.
+- Do not invent conversion improvements.
+- Do not invent uptime percentages.
+- Do not claim that a website was maintained if the actual project only involved development or SEO.
+- Clearly distinguish website development, SEO results and maintenance work.
+- Do not misrepresent the available metrics as results caused exclusively by maintenance.
+- Use real screenshots and project images from the existing website or project assets where available.
+- If additional information is unavailable, create a clearly marked editable placeholder rather than publishing fabricated case studies.
+
+Each case study should have:
+1. Client/project name.
+2. Industry.
+3. Project overview.
+4. Challenge.
+5. Work completed.
+6. Verified results.
+7. Technologies involved, where known.
+8. A link to the project.
+
+Make the case studies visually consistent and professional.
+
+## SECTION 9: MAINTENANCE PLANS
+
+Create three suggested maintenance packages.
+
+Do not invent final prices. Use "Request a Quote" or editable pricing placeholders.
+
+### Essential Maintenance
+
+For small business and informational websites.
+
+Suggested scope:
+- Regular software updates.
+- Basic security checks.
+- Scheduled backups.
+- Website functionality checks.
+- Minor content changes.
+- Basic technical support.
+- Periodic maintenance reports.
+
+### Professional Maintenance
+
+For growing businesses and websites that generate enquiries.
+
+Everything in Essential, plus:
+- More frequent maintenance checks.
+- Performance optimization.
+- Technical SEO maintenance.
+- Form and integration testing.
+- Content updates.
+- Database optimization.
+- Priority support.
+- Detailed maintenance reporting.
+
+### Business and Advanced Maintenance
+
+For tourism, real estate, e-commerce and operationally important websites.
+
+Everything in Professional, plus:
+- More extensive technical maintenance.
+- Booking and payment functionality checks.
+- CRM and API integration monitoring.
+- Advanced performance optimization.
+- More comprehensive security management.
+- Website improvement recommendations.
+- Customized maintenance schedules.
+- Agreed priority response arrangements.
+
+Add a disclaimer that exact inclusions, frequency, response times and pricing depend on the agreed service contract and website complexity.
+
+CTA for every package: Discuss Your Requirements.
+
+## SECTION 10: WHY CHOOSE BOTLYTICES?
+
+Create a professional section highlighting:
+
+- Practical website development and maintenance experience.
+- Support for different website platforms.
+- Industry-specific maintenance solutions.
+- Security-focused website management.
+- Performance and SEO awareness.
+- Technical troubleshooting.
+- Content and functionality management.
+- Flexible maintenance arrangements.
+- Direct communication.
+- Long-term technical support.
+
+Keep all claims factual and verifiable.
+
+## SECTION 11: COMMON WEBSITE PROBLEMS WE FIX
+
+Create a visually attractive problem-and-solution section.
+
+Include:
+
+- Website showing errors.
+- Website loading slowly.
+- WordPress dashboard problems.
+- Website hacked or infected.
+- Broken contact forms.
+- Booking system not working.
+- Payment gateway problems.
+- Website layout broken on mobile.
+- Missing images.
+- Broken links.
+- Hosting and DNS issues.
+- SSL certificate problems.
+- Website migration issues.
+- Database errors.
+- Plugin conflicts.
+- Website content not updating.
+
+Add a CTA: Having One of These Problems? Let's Fix It.
+
+## SECTION 12: FREQUENTLY ASKED QUESTIONS
+
+Include detailed, search-friendly answers to the following questions:
+
+1. What is website maintenance?
+2. Why does my business need website maintenance?
+3. How often should a website be maintained?
+4. Do you provide WordPress maintenance?
+5. Can you maintain a website built by another developer?
+6. Do you maintain tourism and travel websites?
+7. Can you maintain real estate websites and property listings?
+8. Do you provide emergency website repair?
+9. Can you fix a hacked website?
+10. Do you provide website backups?
+11. Can you improve website loading speed?
+12. Do you provide SEO maintenance?
+13. Can you manage website content?
+14. Do you maintain booking and payment systems?
+15. Can you manage hosting, domains and DNS?
+16. Do you offer monthly maintenance packages?
+17. Can I request one-time website maintenance?
+18. What happens if my website goes offline?
+19. How much does website maintenance cost?
+20. Can you maintain custom-built websites?
+
+Answers should be useful, accurate, concise and natural. Avoid keyword stuffing.
+
+## SECTION 13: FINAL CONVERSION SECTION
+
+Headline:
+
+"Keep Your Website Running. Keep Your Business Moving."
+
+Supporting copy:
+
+"Whether you manage a travel agency, real estate business, online store or corporate website, Botlytices can help you maintain a secure, functional and reliable online presence."
+
+Include:
+- Request a Maintenance Quote.
+- Get Your Website Audited.
+- Contact Our Team.
+
+Add a professional enquiry form with:
+- Full name.
+- Business email.
+- Company name.
+- Website URL.
+- Website platform.
+- Industry.
+- Required maintenance services.
+- Current website problems.
+- Preferred maintenance arrangement.
+- Additional information.
+
+Allow multiple service selections.
+
+Add proper validation, error messages, submission feedback and spam protection.
+
+Connect the form to the existing website's actual enquiry system if one exists. Do not create a fake successful submission state.
+
+---
+
+# 4. DESIGN AND UI/UX REQUIREMENTS
+
+The entire page must look like a premium international web services company's landing page.
+
+Visual direction:
+
+- Clean, modern, professional and minimal.
+- White or very light background.
+- Dark navy or charcoal typography.
+- Subtle accent colors consistent with the existing Botlytices branding.
+- Attractive card-based layouts.
+- Soft shadows.
+- Subtle borders.
+- Professional spacing.
+- Rounded corners used consistently.
+- High-quality relevant imagery.
+- Modern line icons.
+- Strong visual hierarchy.
+
+Avoid:
+- Excessive gradients.
+- Overly bright colors.
+- Unnecessary animations.
+- Huge empty spaces.
+- Oversized text.
+- Excessively rounded cards.
+- Repetitive sections.
+- Generic AI-generated illustrations that look artificial.
+- Unprofessional stock imagery.
+- Excessive decorative elements.
+- Too many competing CTAs.
+
+The page must feel trustworthy, technically competent and premium.
+
+Use a consistent spacing system and typography scale.
+
+## Responsive design
+
+Optimize for:
+- Desktop.
+- Laptop.
+- Tablet.
+- Mobile.
+
+Ensure:
+- No horizontal scrolling.
+- No overflowing cards.
+- Proper mobile typography.
+- Responsive images.
+- Accessible navigation.
+- Properly sized buttons.
+- Easy-to-use enquiry forms.
+- Consistent section spacing.
+
+## Animations
+
+Use subtle animations only where they improve the experience:
+- Smooth scroll.
+- Gentle fade-in.
+- Subtle card hover.
+- Small icon transitions.
+- Accordion transitions.
+
+Respect reduced-motion preferences.
+
+---
+
+# 5. SEO REQUIREMENTS
+
+Optimize the page for relevant commercial and informational searches.
+
+Primary keyword:
+Website Maintenance Services.
+
+Secondary keywords:
+- Website Maintenance Company.
+- Website Management Services.
+- Website Support Services.
+- Website Maintenance Packages.
+- WordPress Maintenance Services.
+- Website Security Maintenance.
+- Website Performance Optimization.
+- Website Repair Services.
+- Website Updates and Maintenance.
+- Website Technical Support.
+- Tourism Website Maintenance.
+- Travel Agency Website Maintenance.
+- Real Estate Website Maintenance.
+- E-commerce Website Maintenance.
+- Business Website Management.
+
+Create:
+
+SEO Title:
+Website Maintenance Services | Security, Support & Optimization | Botlytices
+
+Meta Description:
+Professional website maintenance services for businesses. Security updates, backups, speed optimization, technical support and ongoing website management for tourism, real estate and more.
+
+Suggested URL:
+/website-maintenance/
+
+SEO implementation:
+- One clear H1.
+- Logical H2 and H3 hierarchy.
+- Descriptive image alt text.
+- Internal links to relevant Botlytices services.
+- Descriptive CTA links.
+- Canonical URL.
+- XML sitemap compatibility.
+- Appropriate metadata.
+- Open Graph metadata.
+- Breadcrumbs where appropriate.
+- FAQ structured data only when eligible and compliant with current search engine guidelines.
+- LocalBusiness or Organization structured data only where appropriate and based on verified business information.
+- Service structured data where appropriate.
+- Avoid duplicate metadata.
+- Avoid keyword stuffing.
+
+Do not promise search ranking improvements.
+
+---
+
+# 6. TECHNICAL IMPLEMENTATION REQUIREMENTS
+
+Before development:
+
+1. Inspect the existing website and repository.
+2. Identify the current framework and technology stack.
+3. Inspect the existing navigation, footer, typography, colors and components.
+4. Identify reusable components.
+5. Check how the website handles forms, routing and SEO.
+6. Review the existing website maintenance or related service content to avoid duplication.
+
+During development:
+
+- Follow the existing architecture.
+- Reuse existing components where practical.
+- Keep code modular and maintainable.
+- Avoid unnecessary dependencies.
+- Optimize images.
+- Implement semantic HTML.
+- Follow accessibility best practices.
+- Use correct heading structure.
+- Ensure all buttons and links work.
+- Ensure all forms function correctly.
+- Avoid console errors.
+- Avoid broken links.
+- Ensure mobile responsiveness.
+- Preserve existing functionality.
+- Do not change unrelated pages or global styles unnecessarily.
+
+If the project uses React, follow its existing component conventions. If it uses WordPress, follow its existing theme and page-builder architecture instead of introducing an unrelated framework.
+
+---
+
+# 7. INTERNAL LINKING
+
+Connect this page naturally to relevant existing Botlytices pages, where available:
+
+- Website Development.
+- Website Redesign.
+- WordPress Development.
+- Website Hosting.
+- SEO Services.
+- Website Optimization.
+- IT Support.
+- Business Automation.
+- AI Smart Desk.
+- Contact Us.
+
+Only link to pages that actually exist. Do not invent URLs.
+
+---
+
+# 8. QUALITY ASSURANCE AND FINAL TESTING
+
+After implementation, perform a complete review.
+
+Check:
+
+1. Every section is present.
+2. Content is grammatically correct.
+3. No placeholder content is accidentally published.
+4. No fabricated statistics or testimonials.
+5. No misleading service guarantees.
+6. All CTAs work.
+7. Enquiry forms work.
+8. All internal links work.
+9. Responsive layouts work.
+10. Images load correctly.
+11. No horizontal overflow.
+12. No JavaScript errors.
+13. No CSS conflicts.
+14. SEO metadata is implemented.
+15. Accessibility is checked.
+16. Page loading performance is optimized.
+17. Existing website functionality remains intact.
+
+Run available automated checks and inspect the final page in desktop and mobile viewports.
+
+---
+
+# 9. FINAL DELIVERY REQUIREMENTS
+
+Do not just provide a design concept or a suggested page structure.
+
+Actually create and implement the complete page in the existing project.
+
+The finished result must include:
+- Fully written website content.
+- Complete UI/UX design.
+- All requested sections.
+- Responsive implementation.
+- Industry-specific content.
+- Real project case studies using verified information.
+- Functional enquiry form.
+- SEO implementation.
+- Internal linking.
+- Quality assurance.
+
+Prioritize the quality of the final page over speed.
+
+The final result should look like a professionally designed website maintenance service page from an established international digital agency.
+
+**MOST IMPORTANT:** Make the page comprehensive without making it cluttered. Every section should have a clear purpose, communicate genuine value and encourage potential clients to contact Botlytices.
+
+Do not fabricate information to make the company appear larger or more experienced than it is. Use real evidence, transparent service descriptions and professional presentation.

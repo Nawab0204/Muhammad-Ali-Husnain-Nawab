@@ -29,6 +29,7 @@ export type DivisionId =
 export interface SubcategoryPageData {
   slug: string;
   path: string;
+  canonicalPath?: string;
   divisionId: DivisionId;
   divisionTitle: string;
   divisionPath: string;
@@ -165,22 +166,17 @@ export const DIVISIONS: DivisionPageData[] = [
       'Custom websites, web applications, and e-commerce platforms engineered for sub-second speed, responsive clarity, and measurable conversion.',
     subcategories: [
       {
-        slug: 'web-design-ui-ux',
-        path: '/services/web-development/web-design-ui-ux',
-        title: 'Web Design & UI/UX',
+        slug: 'web-design-ui-ux-development',
+        path: '/services/web-development/web-design-ui-ux-development',
+        title: 'Web Design, UI/UX & Web Development',
         image: heroMonolithGallery,
         shortDescription:
-          'Mobile-first interfaces, interactive Figma prototypes, design systems, and conversion-focused layouts tailored to your brand.',
-        highlights: ['UI/UX & Figma Prototypes', 'Mobile-First Responsive Design', 'Conversion-Focused Architecture'],
-      },
-      {
-        slug: 'web-development',
-        path: '/services/web-development/web-development',
-        title: 'Web Development',
-        image: heroWebDev,
-        shortDescription:
-          'Custom-coded websites in React, Next.js, WordPress, and Shopify with clean APIs, booking flows, and fast performance.',
-        highlights: ['React, Next.js & Custom CMS', 'API & Booking System Integration', 'Performance, Security & Accessibility'],
+          'End-to-end Figma UI/UX prototyping, custom React/Next.js/CMS engineering, and proactive website maintenance for business & e-commerce sites.',
+        highlights: [
+          'Figma UI/UX & Design Systems',
+          'Custom React, Next.js & CMS Engineering',
+          'Full Website Maintenance & Care',
+        ],
       },
       {
         slug: 'ecommerce-web-applications',
@@ -188,8 +184,21 @@ export const DIVISIONS: DivisionPageData[] = [
         title: 'E-commerce & Web Applications',
         image: azaKitchensImg,
         shortDescription:
-          'Online stores, custom product catalogs, payment gateways, customer portals, and business dashboards.',
+          'Online stores, custom product catalogs, payment gateways, customer portals, and business dashboards with ongoing e-commerce care.',
         highlights: ['Shopify, WooCommerce & Custom Stores', 'Payment, Checkout & Inventory Sync', 'Client Portals & Custom Dashboards'],
+      },
+      {
+        slug: 'website-maintenance',
+        path: '/services/web-development/website-maintenance',
+        title: 'Website Maintenance & Management',
+        image: heroLaptopStudio,
+        shortDescription:
+          'Proactive security updates, speed optimization, technical repairs, backups, and ongoing management for tourism, real estate, and business websites.',
+        highlights: [
+          'Security Patches & Malware Defense',
+          'Speed & Core Web Vitals Optimization',
+          'Tourism, Real Estate & E-Commerce Care',
+        ],
       },
       {
         slug: 'seo-hosting-website-care',

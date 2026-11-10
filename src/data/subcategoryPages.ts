@@ -2,126 +2,380 @@ import { SubcategoryPageData, IMAGES } from './siteArchitecture';
 
 export const SUBCATEGORY_PAGES: Record<string, SubcategoryPageData> = {
   // ============================================================================
-  // 1. WEB DEVELOPMENT SUBCATEGORIES
+  // 1. WEB DEVELOPMENT SUBCATEGORIES (Consolidated Design, Development & Maintenance)
   // ============================================================================
-  'web-design-ui-ux': {
-    slug: 'web-design-ui-ux',
-    path: '/services/web-development/web-design-ui-ux',
+  'web-design-ui-ux-development': {
+    slug: 'web-design-ui-ux-development',
+    path: '/services/web-development/web-design-ui-ux-development',
     divisionId: 'web-development',
     divisionTitle: 'Web Development',
     divisionPath: '/services/web-development',
-    title: 'Web Design & UI/UX',
-    metaTitle: 'Web Design & UI/UX Services | Figma Prototypes & Responsive Layouts | BOTLYTICES',
+    title: 'Web Design, UI/UX & Web Development',
+    metaTitle: 'Web Design, UI/UX, Development & Website Care | BOTLYTICES',
     metaDescription:
-      'Custom UI/UX design, mobile-first responsive layouts, Figma prototypes, design systems, and conversion-focused websites built around your brand.',
+      'Complete web design, interactive Figma UI/UX prototyping, full-stack React/Next.js/WordPress engineering, and proactive website maintenance at one-third conventional agency rates.',
     heroEyebrow: 'Web Development · 01',
-    heroHeadline: 'Interfaces Designed for Clarity, Trust & Conversion.',
+    heroHeadline: 'End-to-End Web Design, Custom Engineering & Website Maintenance.',
     heroDescription:
-      'We design responsive, mobile-first websites and interactive Figma prototypes that make your business look credible and guide visitors effortlessly toward taking action.',
+      'We unify the complete web lifecycle under one senior engineering team: user-centered Figma prototypes, custom code in React, Next.js, WordPress and Shopify, plus ongoing daily care and security maintenance for e-commerce and corporate websites—at one-third Western agency pricing.',
     ctaText: 'Plan My Website',
-    heroImage: IMAGES.heroLaptopStudio,
-    problemTitle: 'Why Most Business Websites Fail to Convert Visitors',
+    heroImage: IMAGES.heroWebDev,
+    problemTitle: 'Why Disconnected Design, Coding & Neglected Maintenance Cost You Clients',
     problemDescription:
-      'Visitors judge your company within seconds. Cluttered layouts, confusing navigation, slow mobile screens, and generic templates cause potential customers to leave before reading your offer.',
+      'Most businesses hire a designer who delivers unbuildable graphics, a freelancer who writes bloated code, and then nobody maintains the site. Over time, WordPress plugins break, checkout forms fail, mobile layouts glitch, and security holes emerge.',
     painPoints: [
-      'Outdated visual design that makes an established business look untrustworthy',
-      'Poor mobile responsiveness where buttons and text break on smartphones',
-      'Confusing navigation with no clear path to request a quote or book a call',
-      'Inconsistent fonts, colors, and spacing pieced together without a design system',
+      'Cluttered, outdated visual layouts that fail to establish credibility with corporate buyers',
+      'Slow mobile load times, broken forms, and buggy booking or checkout experiences',
+      'Unmaintained plugins and expired SSL certificates that trigger Google security warnings',
+      'Overpriced agency quotes ($3,000–$8,000+) with bloated overhead and slow communication',
     ],
-    whatWeProvideTitle: 'What We Design & Deliver',
+    whatWeProvideTitle: 'Our Unified Design, Development & Maintenance Suite',
     whatWeProvideDescription:
-      'Every project begins with structured wireframes and interactive Figma prototypes before a single line of code is written—so you see and approve the exact look and feel upfront.',
+      'From the very first wireframe to custom React/CMS deployment and ongoing monthly maintenance, BOTLYTICES delivers a complete, accountable engineering partner for your digital platforms.',
     deliverables: [
       {
-        title: 'UI/UX & Conversion Architecture',
-        description: 'User journeys mapped deliberately to answer customer questions and drive enquiries.',
+        title: 'Figma UI/UX & Responsive Prototypes',
+        description: 'Interactive click-through prototypes across desktop (1440px), tablet, and mobile (375px) breakpoints before development starts.',
       },
       {
-        title: 'Mobile-First Responsive Layouts',
-        description: 'Dedicated desktop, tablet, and mobile breakpoint layouts tested for thumb-friendly navigation.',
+        title: 'Custom Full-Stack Web Development',
+        description: 'Clean, modular code in React 19, Next.js, WordPress, or Shopify with sub-second page loads and zero plugin bloat.',
       },
       {
-        title: 'Interactive Figma Prototypes',
-        description: 'Clickable high-fidelity prototypes showing hover states, menus, and page transitions.',
+        title: 'Business & E-Commerce Website Maintenance',
+        description: 'Daily automated cloud backups, security firewall monitoring, PHP/plugin updates, and routine small content updates from $16–$33/mo.',
       },
       {
-        title: 'Complete Design Systems',
-        description: 'Reusable component libraries, typography scales, color tokens, and button standards.',
+        title: 'E-Commerce Store & Checkout Care',
+        description: 'Inventory synchronization, payment gateway maintenance (Stripe, PayPal, Apple Pay), and cart checkout health checks.',
       },
       {
-        title: 'Landing Pages & Corporate Sites',
-        description: 'High-converting campaign landing pages, multi-page corporate websites, and portfolios.',
+        title: 'Booking, Forms & CRM Automation',
+        description: 'Multi-step quote calculators, calendar booking systems, and instant lead webhooks routing directly to email and WhatsApp.',
       },
       {
-        title: 'Full Website Redesigns',
-        description: 'Modernizing legacy websites while preserving your brand equity and search rankings.',
+        title: 'Core Web Vitals & Technical SEO',
+        description: 'Semantic HTML5, Schema.org Organization/LocalBusiness structured data, OpenGraph cards, and Google PageSpeed 95+ scores.',
       },
     ],
     features: [
-      'UI/UX Design',
-      'Responsive Design',
-      'Mobile-First Design',
-      'Figma Prototypes',
-      'Landing Pages',
-      'Corporate Websites',
-      'Portfolio Websites',
-      'Website Redesign',
-      'Design Systems',
-      'Conversion-Focused Layouts',
+      'Figma UI/UX Design',
+      'Mobile-First Responsive',
+      'React & Next.js Builds',
+      'Custom WordPress & CMS',
+      'Shopify & E-Commerce',
+      'Website Maintenance Plans',
+      'E-Commerce Store Care',
+      'Daily Cloud Backups',
+      'Security Patching',
+      'Booking & Calendars',
+      'Payment Gateways',
+      'Core Web Vitals (<1s FCP)',
+      'Schema.org Structured Data',
+      'Direct WhatsApp Triage',
     ],
-    visualType: 'ui-ux-system',
+    visualType: 'web-dev-lifecycle',
     howItWorks: [
       {
         step: '01',
-        title: 'Reference & Brand Discovery',
-        description: 'We review websites you admire, analyze your competitors, and define your visual direction.',
+        title: 'Discovery & Visual Direction',
+        description: 'We review your goals, examine reference websites you admire, and map out page requirements.',
       },
       {
         step: '02',
-        title: 'Wireframing & Information Architecture',
-        description: 'We map out every page, section hierarchy, headline, and call-to-action placement.',
+        title: 'Interactive Figma Prototype',
+        description: 'You test clickable desktop and mobile screens, review design tokens, and approve the look.',
       },
       {
         step: '03',
-        title: 'High-Fidelity Figma Design',
-        description: 'We craft custom desktop and mobile screens using a cohesive design system.',
+        title: 'Clean Engineering & Integrations',
+        description: 'We write modular code, connect payment/booking flows, and optimize for Core Web Vitals.',
       },
       {
         step: '04',
-        title: 'Interactive Prototype & Handover',
-        description: 'You test the clickable prototype, request refinements, and approve for development.',
+        title: 'Launch & Continuous Care',
+        description: 'Zero-downtime DNS cutover followed by automated backups, security patching, and ongoing edits.',
       },
     ],
     benefits: [
       {
+        metric: '1/3 Cost',
+        title: 'Affordable International Rate',
+        description: 'Enterprise-grade design and engineering at one-third traditional Western agency pricing.',
+      },
+      {
+        metric: '< 1.0s',
+        title: 'Sub-Second Page Loads',
+        description: 'Engineered for instant visual rendering that keeps bounce rates low and Google rankings high.',
+      },
+      {
         metric: '100%',
-        title: 'Custom Brand Fit',
-        description: 'Designed around your logo, industry, and customers—never a recycled boilerplate.',
-      },
-      {
-        metric: '3 Breakpoints',
-        title: 'Desktop, Tablet & Mobile Precision',
-        description: 'Every layout is engineered to look sharp on 1440px monitors down to 375px phones.',
-      },
-      {
-        metric: '2x Faster',
-        title: 'Design-to-Code Approval',
-        description: 'Interactive Figma prototypes eliminate guesswork before development starts.',
+        title: 'Full Code & Asset Ownership',
+        description: 'You own your domain, repository, CMS accounts, and databases with zero vendor lock-in.',
       },
     ],
-    technologies: ['Figma', 'Design Tokens', 'Auto-Layout Systems', 'WCAG AA Accessibility', 'Responsive Grid Systems', 'Interactive Prototyping'],
-    relatedSlugs: ['web-development', 'ecommerce-web-applications', 'brand-identity'],
+    technologies: [
+      'React 19',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Figma',
+      'WordPress',
+      'Shopify',
+      'Stripe & PayPal',
+      'Cloudflare SSL',
+      'Automated Backups',
+    ],
+    relatedSlugs: ['ecommerce-web-applications', 'seo-hosting-website-care', 'workflow-automation'],
+    faqs: [
+      {
+        question: 'What is included in your website maintenance services?',
+        answer:
+          'Our website maintenance covers routine CMS, theme, and plugin updates applied on staging first; daily or weekly off-site cloud backups; 24/7 uptime monitoring with instant offline alerts; security scans; broken-form testing; and dedicated monthly allowances for content, banner, and text changes.',
+      },
+      {
+        question: 'Do you maintain e-commerce stores as well as standard business sites?',
+        answer:
+          'Yes. We maintain Shopify, WooCommerce, and custom headless e-commerce stores. This includes testing payment checkouts, verifying inventory sync, monitoring SSL certificates, and ensuring promotional banners and product pages load flawlessly.',
+      },
+      {
+        question: 'Why are your rates one-third of traditional web agencies?',
+        answer:
+          'Traditional agencies charge high markups for executive salaries, account directors, and expensive local offices. BOTLYTICES is led directly by Muhammad Ali Husnain Nawab and senior engineers operating remotely from Pakistan. You get direct access to builders with zero agency overhead.',
+      },
+      {
+        question: 'Can we start with design and add development or maintenance later?',
+        answer:
+          'Yes. We offer flexible engagements: we can create standalone Figma UI/UX prototypes, build full-stack code from an existing design, or take over maintenance and hosting care for an already live website.',
+      },
+    ],
+  },
+
+  'website-maintenance': {
+    slug: 'website-maintenance',
+    path: '/services/web-development/website-maintenance',
+    canonicalPath: '/services/web-development/website-maintenance',
+    divisionId: 'web-development',
+    divisionTitle: 'Web Development',
+    divisionPath: '/services/web-development',
+    title: 'Website Maintenance & Management',
+    metaTitle: 'Website Maintenance Services | Security, Support & Optimization | Botlytices',
+    metaDescription:
+      'Professional website maintenance services for businesses. Security updates, backups, speed optimization, technical support and ongoing website management for tourism, real estate and more.',
+    heroEyebrow: 'Web Development · 01',
+    heroHeadline: 'Your Website Deserves More Than Just Hosting. It Deserves Ongoing Care.',
+    heroDescription:
+      'From security updates and performance optimization to content management, technical repairs and continuous improvements, Botlytices keeps your website secure, reliable, fast and ready to support your business.',
+    ctaText: 'Get a Maintenance Quote',
+    heroImage: IMAGES.heroLaptopStudio,
+    problemTitle: 'Why Neglected Website Maintenance Directly Hurts Your Revenue & Trust',
+    problemDescription:
+      'Launching your website is only the beginning. Without regular maintenance, software decays, security flaws emerge, databases fill with bloat, and forms silently stop capturing business leads.',
+    painPoints: [
+      'Unpatched CMS cores and plugins that create vulnerabilities for automated malware bots',
+      'Broken inquiry forms and failing payment gateways that quietly lose customer transactions',
+      'Slow mobile load speeds and Core Web Vitals failures that trigger Google ranking drops',
+      'Outdated tour packages, property listings, or prices that confuse buyers and harm credibility',
+    ],
+    whatWeProvideTitle: 'Complete Website Maintenance & Technical Management',
+    whatWeProvideDescription:
+      'We provide full-spectrum engineering care organized across 12 core disciplines. Every update is tested in staging before deployment to eliminate downtime.',
+    deliverables: [
+      {
+        title: 'Security Hardening & Malware Defense',
+        description: 'Continuous monitoring, WAF tuning, cleanups, SSL monitoring, and zero-day patch deployments.',
+      },
+      {
+        title: 'Core Web Vitals & Speed Optimization',
+        description: 'Image compression, WebP formatting, cache tuning, script minification, and sub-second rendering.',
+      },
+      {
+        title: 'Automated Cloud Backups & Recovery',
+        description: 'Scheduled offsite database and media backups with regular integrity and recovery tests.',
+      },
+      {
+        title: 'Form, Booking & Payment Testing',
+        description: 'Routine test transactions for Stripe, PayPal, booking calendars, and WhatsApp lead webhooks.',
+      },
+      {
+        title: 'Content & Catalog Updates',
+        description: 'Publishing new pages, updating seasonal tour packages, revising property listings, and banner edits.',
+      },
+      {
+        title: 'Technical SEO & 301 Redirect Care',
+        description: 'Google Search Console monitoring, broken link elimination, sitemap sync, and structured data validation.',
+      },
+    ],
+    features: [
+      'Staging-First Updates',
+      'Daily Off-Site Cloud Backups',
+      'Malware Defense & WAF',
+      'Core Web Vitals Tuning',
+      'Booking Engine Testing',
+      'Payment Gateway Audits',
+      'Tourism & Travel Support',
+      'Real Estate Listing Sync',
+      'E-Commerce Cart Checks',
+      'Direct Senior Engineer Support',
+      '24/7 Uptime Alerts',
+      'Monthly Maintenance Logs',
+    ],
+    visualType: 'seo-aeo-care',
+    howItWorks: [
+      {
+        step: '01',
+        title: 'Initial Website Assessment',
+        description: 'We review your codebase, identify technical vulnerabilities, inspect hosting, and establish speed baselines.',
+      },
+      {
+        step: '02',
+        title: 'Maintenance Planning',
+        description: 'We prepare an agreed scope and schedule based on your platform, traffic volume, and business criticality.',
+      },
+      {
+        step: '03',
+        title: 'Implementation & Optimization',
+        description: 'We test patches on staging, deploy updates, clean up databases, harden security, and compress media assets.',
+      },
+      {
+        step: '04',
+        title: 'Testing & Quality Assurance',
+        description: 'We test all forms, checkouts, booking flows, mobile viewports, and integrations post-update to confirm zero breakage.',
+      },
+      {
+        step: '05',
+        title: 'Continuous Monitoring & Support',
+        description: '24/7 uptime monitoring, regular offsite backups, priority engineer support for edits, and transparent monthly reports.',
+      },
+    ],
+    benefits: [
+      {
+        metric: '99.9%',
+        title: 'Uptime Reliability',
+        description: 'Automated 60-second pings and rapid engineer response to keep your business accessible.',
+      },
+      {
+        metric: '1/3 Cost',
+        title: 'Transparent International Rate',
+        description: 'Senior engineer care from $49–$189/mo without inflated Western agency overhead.',
+      },
+      {
+        metric: '0 Outages',
+        title: 'Staging-First Safety',
+        description: 'Updates are validated on private clones first, ensuring your live site never breaks.',
+      },
+    ],
+    technologies: [
+      'WordPress & WooCommerce',
+      'Shopify & Shopify Plus',
+      'React & Next.js',
+      'Wix & Webflow',
+      'Stripe & PayPal',
+      'Cloudflare CDN & SSL',
+      'Amazon S3 Cloud Backups',
+      'Google Search Console',
+      'PHP & MySQL',
+    ],
+    relatedSlugs: ['web-design-ui-ux-development', 'ecommerce-web-applications', 'seo-hosting-website-care'],
+    faqs: [
+      {
+        question: 'What is website maintenance?',
+        answer:
+          'Website maintenance is the continuous process of testing, updating, securing, backing up, and optimizing a website so that it remains fully functional, fast, secure against cyber threats, and aligned with modern search engine standards.',
+      },
+      {
+        question: 'Do you maintain tourism, travel, and real estate websites?',
+        answer:
+          'Yes. Tourism and real estate are two of our core specializations. We test tour booking forms, property search filters, CRM integrations, and mobile responsiveness continuously.',
+      },
+      {
+        question: 'How quickly do you respond if my website goes down?',
+        answer:
+          'Our monitoring system checks your site every 60 seconds. Critical outages receive immediate priority attention with emergency diagnostic response under 2 hours.',
+      },
+    ],
+  },
+
+  // Legacy route aliases for SEO and bookmark preservation
+  'web-design-ui-ux': {
+    slug: 'web-design-ui-ux',
+    path: '/services/web-development/web-design-ui-ux',
+    canonicalPath: '/services/web-development/web-design-ui-ux-development',
+    divisionId: 'web-development',
+    divisionTitle: 'Web Development',
+    divisionPath: '/services/web-development',
+    title: 'Web Design, UI/UX & Web Development',
+    metaTitle: 'Web Design, UI/UX & Development | BOTLYTICES',
+    metaDescription:
+      'Custom UI/UX design, mobile-first responsive layouts, Figma prototypes, custom web engineering, and ongoing website maintenance.',
+    heroEyebrow: 'Web Development · 01',
+    heroHeadline: 'Interfaces Designed for Clarity, Trust & Conversion.',
+    heroDescription:
+      'We design and engineer responsive, mobile-first websites and provide ongoing website maintenance at one-third conventional agency rates.',
+    ctaText: 'Plan My Website',
+    heroImage: IMAGES.heroLaptopStudio,
+    problemTitle: 'Why Disconnected Design & Development Slows Down Businesses',
+    problemDescription:
+      'Visitors judge your company within seconds. Cluttered layouts, confusing navigation, slow mobile screens, and unmaintained plugins cause potential customers to leave.',
+    painPoints: [
+      'Outdated visual design that makes an established business look untrustworthy',
+      'Poor mobile responsiveness where buttons and text break on smartphones',
+      'Broken contact forms, booking calendars, or outdated plugins',
+      'Expensive Western agency rates for basic web design updates',
+    ],
+    whatWeProvideTitle: 'What We Design, Build & Maintain',
+    whatWeProvideDescription:
+      'Every project includes structured Figma UI/UX prototypes, performant custom development, and proactive ongoing maintenance.',
+    deliverables: [
+      {
+        title: 'UI/UX & Responsive Layouts',
+        description: 'User journeys mapped deliberately to drive enquiries on desktop, tablet, and mobile screens.',
+      },
+      {
+        title: 'Custom-Coded Development',
+        description: 'Clean React, Next.js, WordPress, or Shopify code with sub-second speeds and zero bloat.',
+      },
+      {
+        title: 'Routine Website Maintenance',
+        description: 'Daily cloud backups, security firewall checks, plugin updates, and monthly content edits.',
+      },
+      {
+        title: 'E-commerce & Store Care',
+        description: 'Checkout testing, inventory sync, and payment gateway health checks.',
+      },
+    ],
+    features: [
+      'UI/UX Design',
+      'Figma Prototypes',
+      'Responsive Web Development',
+      'Website Maintenance',
+      'E-commerce Care',
+      'Daily Backups',
+      'Security Patching',
+      'Core Web Vitals Tuning',
+    ],
+    visualType: 'ui-ux-system',
+    howItWorks: [
+      { step: '01', title: 'Discovery', description: 'Reviewing reference sites and business goals.' },
+      { step: '02', title: 'Figma UI/UX', description: 'Interactive desktop and mobile prototype.' },
+      { step: '03', title: 'Engineering', description: 'Clean custom development and integrations.' },
+      { step: '04', title: 'Care & Hosting', description: 'Ongoing backups, updates, and maintenance.' },
+    ],
+    benefits: [
+      { metric: '1/3 Cost', title: 'Affordable Rates', description: 'One-third the cost of Western agencies.' },
+      { metric: '< 1.0s', title: 'Sub-Second Loading', description: 'Engineered for instant performance.' },
+      { metric: '100%', title: 'Ownership', description: 'You own all code, designs, and content.' },
+    ],
+    technologies: ['Figma', 'React 19', 'Next.js', 'WordPress', 'Shopify', 'Tailwind CSS'],
+    relatedSlugs: ['ecommerce-web-applications', 'seo-hosting-website-care'],
     faqs: [
       {
         question: 'Will I be able to see how my website looks before you build it?',
-        answer:
-          'Yes. We create a complete interactive prototype in Figma for both desktop and mobile views. You can click through pages and request changes before development begins.',
+        answer: 'Yes. We create a complete interactive prototype in Figma before writing production code.',
       },
       {
-        question: 'Can you redesign our existing website without changing our logo?',
-        answer:
-          'Yes. We build the entire color, typography, and component system around your existing logo so your brand stays recognizable while looking modern and trustworthy.',
+        question: 'Do you offer monthly website maintenance?',
+        answer: 'Yes. We offer business website care starting from $16–$33/month covering backups, updates, and edits.',
       },
     ],
   },
@@ -129,55 +383,48 @@ export const SUBCATEGORY_PAGES: Record<string, SubcategoryPageData> = {
   'web-development': {
     slug: 'web-development',
     path: '/services/web-development/web-development',
+    canonicalPath: '/services/web-development/web-design-ui-ux-development',
     divisionId: 'web-development',
     divisionTitle: 'Web Development',
     divisionPath: '/services/web-development',
-    title: 'Web Development',
-    metaTitle: 'Custom Web Development | React, Next.js, WordPress & Shopify | BOTLYTICES',
+    title: 'Web Design, UI/UX & Web Development',
+    metaTitle: 'Custom Web Development & Maintenance | BOTLYTICES',
     metaDescription:
-      'High-performance web development using React, Next.js, WordPress, and Shopify. Custom forms, booking systems, API integrations, and sub-second speeds.',
-    heroEyebrow: 'Web Development · 02',
+      'High-performance web development using React, Next.js, WordPress, and Shopify with dedicated website maintenance.',
+    heroEyebrow: 'Web Development · 01',
     heroHeadline: 'Clean, Fast & Secure Code Built for Long-Term Growth.',
     heroDescription:
-      'We engineer custom websites, CMS platforms, booking engines, and API integrations that load in under a second, pass Core Web Vitals, and remain easy for your team to manage.',
+      'We engineer custom websites, CMS platforms, booking engines, and provide proactive website maintenance at one-third Western agency rates.',
     ctaText: 'Plan My Website',
     heroImage: IMAGES.heroWebDev,
-    problemTitle: 'Bloated Templates & Fragile Plugins Slow Down Your Business',
+    problemTitle: 'Bloated Templates & Unmaintained Websites Cost You Revenue',
     problemDescription:
-      'Many websites are weighed down by puluhan of conflicting plugins, unoptimized scripts, and fragile page builders that break during updates and frustrate mobile visitors.',
+      'Many websites suffer from conflicting plugins, fragile page builders, and lack of ongoing technical maintenance.',
     painPoints: [
       'Slow page load times that hurt Google rankings and increase bounce rates',
-      'Broken contact forms, booking calendars, or third-party CRM integrations',
-      'Security vulnerabilities caused by outdated themes and unmaintained plugins',
-      'Hard-to-edit pages that require a developer for simple text or photo changes',
+      'Security vulnerabilities caused by outdated plugins and unmaintained CMS themes',
+      'Broken forms, shopping carts, or booking workflows',
+      'Inflated agency retainers that do not provide real engineering value',
     ],
-    whatWeProvideTitle: 'Full-Stack Web Engineering Capabilities',
+    whatWeProvideTitle: 'Full-Stack Web Engineering & Maintenance',
     whatWeProvideDescription:
-      'Whether your project calls for a custom React/Next.js application, a tailored WordPress CMS, or a high-converting Shopify build, we select the right stack for your goals.',
+      'Whether you need a new custom platform or ongoing maintenance for an existing site, we deliver clean architecture.',
     deliverables: [
       {
         title: 'Custom React & Next.js Websites',
-        description: 'Ultra-fast modern web applications with server-side rendering and instant page transitions.',
+        description: 'Ultra-fast modern web applications with sub-second page transitions.',
       },
       {
         title: 'Tailored WordPress & Headless CMS',
-        description: 'Easy-to-manage content management systems without plugin bloat or security holes.',
+        description: 'Easy-to-manage content systems with clean code and zero security bloat.',
       },
       {
-        title: 'Forms, Booking & Scheduling Systems',
-        description: 'Multi-step quote calculators, appointment booking flows, and automated notifications.',
+        title: 'Business & E-Commerce Maintenance',
+        description: 'Proactive updates, daily cloud backups, uptime monitoring, and content edits.',
       },
       {
-        title: 'API & CRM Integrations',
-        description: 'Connecting your website directly to HubSpot, Salesforce, Stripe, WhatsApp, or internal tools.',
-      },
-      {
-        title: 'Authentication & Client Dashboards',
-        description: 'Secure member logins, role-based portals, and interactive data dashboards.',
-      },
-      {
-        title: 'Performance, Accessibility & Security',
-        description: 'Core Web Vitals optimization, WCAG accessibility compliance, and SSL/firewall hardening.',
+        title: 'Forms, Booking & Payment Integrations',
+        description: 'Stripe, PayPal, WhatsApp, and CRM integrations that operate smoothly.',
       },
     ],
     features: [
@@ -186,68 +433,34 @@ export const SUBCATEGORY_PAGES: Record<string, SubcategoryPageData> = {
       'Shopify',
       'React',
       'Next.js',
-      'CMS',
+      'Website Maintenance',
+      'E-commerce Care',
       'API Integration',
-      'Forms',
-      'Booking Systems',
-      'Authentication',
-      'Dashboards',
-      'Performance',
-      'Accessibility',
+      'Daily Backups',
       'Security',
     ],
     visualType: 'web-dev-lifecycle',
     howItWorks: [
-      {
-        step: '01',
-        title: 'Design Approval',
-        description: 'Finalizing responsive UI specs, component states, and data requirements.',
-      },
-      {
-        step: '02',
-        title: 'Clean Development',
-        description: 'Writing modular frontend and backend code, CMS schemas, and API endpoints.',
-      },
-      {
-        step: '03',
-        title: 'Rigorous Testing',
-        description: 'Cross-browser QA, mobile device testing, speed benchmarking, and security checks.',
-      },
-      {
-        step: '04',
-        title: 'Smooth Launch',
-        description: 'Zero-downtime DNS deployment, SSL activation, and analytics verification.',
-      },
+      { step: '01', title: 'Design Approval', description: 'Finalizing UI specs and responsive breakpoints.' },
+      { step: '02', title: 'Clean Development', description: 'Writing modular code and backend schemas.' },
+      { step: '03', title: 'QA & Testing', description: 'Cross-device verification and speed testing.' },
+      { step: '04', title: 'Launch & Care', description: 'Live deployment and ongoing monthly maintenance.' },
     ],
     benefits: [
-      {
-        metric: '< 1.0s',
-        title: 'First Contentful Paint',
-        description: 'Engineered for instant visual loading on both Wi-Fi and mobile 4G/5G connections.',
-      },
-      {
-        metric: '99.9%',
-        title: 'Uptime Reliability',
-        description: 'Deployed on modern cloud infrastructure with automated backups and SSL security.',
-      },
-      {
-        metric: '100%',
-        title: 'Code & Asset Ownership',
-        description: 'You own your domain, source code, content, and accounts with zero vendor lock-in.',
-      },
+      { metric: '1/3 Cost', title: 'Affordable Rates', description: 'One-third the cost of Western agencies.' },
+      { metric: '< 1.0s', title: 'Fast Loading', description: 'Engineered for instant speed.' },
+      { metric: '99.9%', title: 'Uptime Reliability', description: 'Cloud infrastructure with automated backups.' },
     ],
-    technologies: ['React 19', 'Next.js', 'TypeScript', 'Tailwind CSS', 'WordPress', 'Shopify', 'Node.js', 'REST & GraphQL APIs', 'Cloudflare'],
-    relatedSlugs: ['web-design-ui-ux', 'ecommerce-web-applications', 'seo-hosting-website-care'],
+    technologies: ['React 19', 'Next.js', 'TypeScript', 'WordPress', 'Shopify', 'Cloudflare'],
+    relatedSlugs: ['ecommerce-web-applications', 'seo-hosting-website-care'],
     faqs: [
       {
-        question: 'Should we build our website in React/Next.js or WordPress?',
-        answer:
-          'We recommend React or Next.js when maximum speed, custom interactive tools, or web applications are needed. We recommend a clean custom WordPress or headless CMS setup when your marketing team wants a familiar visual editor for frequent blog and page updates.',
+        question: 'Can you maintain our existing website built by someone else?',
+        answer: 'Yes. We audit your existing codebase or CMS, clean up conflicts, and onboard it into our maintenance program.',
       },
       {
-        question: 'Can you integrate our website with our booking system or CRM?',
-        answer:
-          'Yes. We integrate custom forms and booking flows directly with calendars, Stripe, WhatsApp, HubSpot, Pipedrive, Zoho, and custom REST APIs.',
+        question: 'Why are your rates one-third of traditional agencies?',
+        answer: 'We eliminate sales middlemen and overhead, working directly with senior software engineers.',
       },
     ],
   },

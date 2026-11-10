@@ -31,7 +31,7 @@ export const DivisionBanners: React.FC<DivisionBannersProps> = ({ onNavigate, on
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-3xl space-y-3">
-            <div className="text-xs font-mono font-bold text-[#006BFF] uppercase tracking-wider">
+            <div className="text-xs font-mono font-bold text-[#0052CC] uppercase tracking-wider">
               Our Five Major Service Divisions
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0A1020] tracking-tight leading-[1.1]">
@@ -112,14 +112,27 @@ export const DivisionBanners: React.FC<DivisionBannersProps> = ({ onNavigate, on
                     <div
                       key={sub.slug}
                       onClick={() => navigate(sub.path)}
-                      className="rounded-2xl bg-white border border-[#E6EBF2] overflow-hidden shadow-xs hover:shadow-xl hover:border-[#006BFF] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          navigate(sub.path);
+                        }
+                      }}
+                      role="link"
+                      tabIndex={0}
+                      aria-label={`Explore ${sub.title} under ${division.title}`}
+                      className="rounded-2xl bg-white border border-[#E6EBF2] overflow-hidden shadow-xs hover:shadow-xl hover:border-[#0052CC] focus:outline-none focus:ring-2 focus:ring-[#0052CC] focus:ring-offset-2 transition-all duration-300 flex flex-col justify-between cursor-pointer group"
                     >
                       <div>
                         {/* Rectangular 16:9 Subcategory Image */}
                         <div className="relative aspect-video w-full bg-slate-100 overflow-hidden border-b border-[#E6EBF2]">
                           <img
                             src={sub.image}
-                            alt={sub.title}
+                            alt={`${sub.title} - ${division.title} service`}
+                            width={640}
+                            height={360}
+                            loading="lazy"
+                            decoding="async"
                             referrerPolicy="no-referrer"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
@@ -129,7 +142,7 @@ export const DivisionBanners: React.FC<DivisionBannersProps> = ({ onNavigate, on
                         </div>
 
                         <div className="p-6 sm:p-7 space-y-3">
-                          <h4 className="text-xl sm:text-2xl font-bold text-[#0A1020] group-hover:text-[#006BFF] transition-colors">
+                          <h4 className="text-xl sm:text-2xl font-bold text-[#0A1020] group-hover:text-[#0052CC] transition-colors">
                             {sub.title}
                           </h4>
                           <p className="text-sm text-[#5D687A] leading-relaxed">
@@ -142,7 +155,7 @@ export const DivisionBanners: React.FC<DivisionBannersProps> = ({ onNavigate, on
                                 key={hl}
                                 className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#0A1020]"
                               >
-                                <CheckCircle2 className="w-4 h-4 text-[#006BFF] shrink-0" />
+                                <CheckCircle2 className="w-4 h-4 text-[#0052CC] shrink-0" />
                                 <span>{hl}</span>
                               </li>
                             ))}
@@ -150,7 +163,7 @@ export const DivisionBanners: React.FC<DivisionBannersProps> = ({ onNavigate, on
                         </div>
                       </div>
 
-                      <div className="px-6 sm:px-7 py-4 bg-[#F8FAFC] border-t border-[#E6EBF2] flex items-center justify-between text-xs sm:text-sm font-bold text-[#006BFF]">
+                      <div className="px-6 sm:px-7 py-4 bg-[#F8FAFC] border-t border-[#E6EBF2] flex items-center justify-between text-xs sm:text-sm font-bold text-[#0052CC] group-hover:text-[#003E99]">
                         <span>Explore {sub.title}</span>
                         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                       </div>

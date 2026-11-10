@@ -21,7 +21,7 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div className="max-w-2xl space-y-3">
-            <div className="text-xs font-mono font-bold text-[#006BFF] uppercase tracking-wider">
+            <div className="text-xs font-mono font-bold text-[#0052CC] uppercase tracking-wider">
               Proven Client Work
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0A1020] tracking-tight">
@@ -35,7 +35,7 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
           <div className="flex items-center gap-3">
             <button
               onClick={() => navigate('/portfolio')}
-              className="px-6 py-3.5 text-xs sm:text-sm font-semibold bg-white border border-[#006BFF] text-[#0A1020] hover:bg-[#F3F7FC] hover:text-[#006BFF] rounded-full cursor-pointer whitespace-nowrap transition-all"
+              className="px-6 py-3.5 text-xs sm:text-sm font-semibold bg-white border border-[#0052CC] text-[#0A1020] hover:bg-[#F3F7FC] hover:text-[#0052CC] rounded-full cursor-pointer whitespace-nowrap transition-all"
             >
               View Full Portfolio
             </button>
@@ -52,7 +52,7 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
           {PORTFOLIO_PROJECTS.slice(0, 3).map((project, index) => (
             <div
               key={project.id}
-              className="rounded-2xl bg-white border border-[#E6EBF2] overflow-hidden shadow-sm hover:shadow-xl hover:border-[#006BFF]/50 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 group"
+              className="rounded-2xl bg-white border border-[#E6EBF2] overflow-hidden shadow-sm hover:shadow-xl hover:border-[#0052CC]/50 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 group"
             >
               <div
                 onClick={() => navigate(`/portfolio/${project.slug}`)}
@@ -64,7 +64,11 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
               >
                 <img
                   src={project.image}
-                  alt={project.name}
+                  alt={`${project.name} - ${project.industry} Case Study by BOTLYTICES`}
+                  width={1280}
+                  height={720}
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-700"
                 />
@@ -79,7 +83,7 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
                 }`}
               >
                 <div className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold text-[#006BFF] uppercase">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold text-[#0052CC] uppercase">
                     <span>{project.industry}</span>
                     <span aria-hidden="true">·</span>
                     <span>{project.categories.join(' / ')}</span>
@@ -87,7 +91,7 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
 
                   <h3
                     onClick={() => navigate(`/portfolio/${project.slug}`)}
-                    className="text-2xl sm:text-3xl font-extrabold text-[#0A1020] group-hover:text-[#006BFF] transition-colors cursor-pointer"
+                    className="text-2xl sm:text-3xl font-extrabold text-[#0A1020] group-hover:text-[#0052CC] transition-colors cursor-pointer"
                   >
                     {project.name}
                   </h3>
@@ -97,7 +101,7 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
                   </p>
 
                   <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] space-y-1">
-                    <div className="text-xs font-bold text-[#006BFF]">Delivered Outcome:</div>
+                    <div className="text-xs font-bold text-[#0052CC]">Delivered Outcome:</div>
                     <div className="text-xs sm:text-sm font-semibold text-[#0A1020]">
                       {project.shortResult}
                     </div>

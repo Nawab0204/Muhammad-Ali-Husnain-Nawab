@@ -23,6 +23,10 @@ import { TestimonialsPage, TermsPage } from './components/TestimonialsAndTermsPa
 import { BlogPages } from './components/BlogPages';
 import { SitemapPage } from './pages/SitemapPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { CookiePolicyPage } from './pages/CookiePolicyPage';
+import { WebsiteMaintenancePage } from './pages/WebsiteMaintenancePage';
+import { PricingPage } from './pages/PricingPage';
 import {
   LocationsDirectoryPage,
   RegionLandingPage,
@@ -94,7 +98,20 @@ function AppContent() {
       );
     }
 
-    // 4. 20 Subcategory Service Pages (/services/:division/:subcategory)
+    // Dedicated Website Maintenance Landing Page
+    if (
+      normalized === '/services/web-development/website-maintenance' ||
+      normalized === '/website-maintenance'
+    ) {
+      return (
+        <WebsiteMaintenancePage
+          onNavigate={navigate}
+          onOpenQuote={openQuoteModal}
+        />
+      );
+    }
+
+    // 4. Subcategory Service Pages (/services/:division/:subcategory)
     const matchedSubcategory = Object.values(SUBCATEGORY_PAGES).find(
       (s) => s.path === normalized
     );
@@ -116,6 +133,11 @@ function AppContent() {
     // 6. Our Process (/about/process or /process)
     if (normalized === '/about/process' || normalized === '/process') {
       return <ProcessPage onNavigate={navigate} onOpenQuote={openQuoteModal} />;
+    }
+
+    // 6b. International Pricing (/pricing)
+    if (normalized === '/pricing') {
+      return <PricingPage onNavigate={navigate} onOpenQuote={openQuoteModal} />;
     }
 
     // 7. Portfolio Index & Detail Pages
@@ -190,12 +212,22 @@ function AppContent() {
       return <FaqPage onNavigate={navigate} onOpenQuote={openQuoteModal} />;
     }
 
-    // 12. Terms & Conditions (/terms)
-    if (normalized === '/terms') {
+    // 12. Terms & Conditions (/terms, /terms-and-conditions)
+    if (normalized === '/terms' || normalized === '/terms-and-conditions') {
       return <TermsPage onNavigate={navigate} />;
     }
 
-    // 13. Contact Us (/contact)
+    // 13. Privacy Policy (/privacy-policy, /privacy)
+    if (normalized === '/privacy-policy' || normalized === '/privacy') {
+      return <PrivacyPolicyPage onNavigate={navigate} />;
+    }
+
+    // 14. Cookie Policy (/cookie-policy, /cookies)
+    if (normalized === '/cookie-policy' || normalized === '/cookies') {
+      return <CookiePolicyPage onNavigate={navigate} />;
+    }
+
+    // 15. Contact Us (/contact)
     if (normalized === '/contact') {
       return <ContactPage onNavigate={navigate} />;
     }
@@ -293,6 +325,14 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#0A1020] flex flex-col font-sans selection:bg-[#006BFF] selection:text-white w-full max-w-[100vw] overflow-x-hidden">
+      {/* WCAG 2.2 AA Accessible Skip to Main Content Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-[#0052CC] focus:text-white focus:rounded-lg focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-white text-xs font-bold"
+      >
+        Skip to main content
+      </a>
+
       {/* Global Sticky Header */}
       <Navbar
         currentPath={currentPath}
@@ -301,7 +341,7 @@ function AppContent() {
       />
 
       {/* Main Routed Page with Section Error Catching */}
-      <main className="flex-1">
+      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
         <ErrorBoundary fallbackTitle="View Failed to Load">
           {renderCurrentRoute()}
         </ErrorBoundary>

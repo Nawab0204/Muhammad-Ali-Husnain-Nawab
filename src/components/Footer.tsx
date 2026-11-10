@@ -12,12 +12,15 @@ interface FooterProps {
 const ABOUT_FOOTER_LINKS = [
   { number: '01', label: 'About Us', path: '/about' },
   { number: '02', label: 'Our Process', path: '/about/process' },
-  { number: '03', label: 'Portfolio', path: '/portfolio' },
-  { number: '04', label: 'Case Studies', path: '/case-studies' },
-  { number: '05', label: 'Testimonials', path: '/testimonials' },
-  { number: '06', label: 'Blog & Insights', path: '/blog' },
-  { number: '07', label: 'FAQ', path: '/faq' },
-  { number: '08', label: 'Terms & Conditions', path: '/terms' },
+  { number: '03', label: 'Pricing', path: '/pricing' },
+  { number: '04', label: 'Portfolio', path: '/portfolio' },
+  { number: '05', label: 'Case Studies', path: '/case-studies' },
+  { number: '06', label: 'Testimonials', path: '/testimonials' },
+  { number: '07', label: 'Blog & Insights', path: '/blog' },
+  { number: '08', label: 'FAQ', path: '/faq' },
+  { number: '09', label: 'Terms & Conditions', path: '/terms' },
+  { number: '10', label: 'Privacy Policy', path: '/privacy-policy' },
+  { number: '11', label: 'Cookie Policy', path: '/cookie-policy' },
 ];
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpenQuote: propOpenQuote }) => {
@@ -55,11 +58,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpen
             {/* Direct Contact Numbers & Channels */}
             <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-xs text-[#5D687A] pt-1">
               <a
-                href="mailto:info@botlytices.com"
+                href="mailto:botlytices@gmail.com"
                 className="inline-flex items-center gap-1.5 hover:text-[#006BFF] transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 text-[#006BFF]" />
-                <span>info@botlytices.com</span>
+                <span>botlytices@gmail.com</span>
               </a>
               <span aria-hidden="true" className="text-slate-300">·</span>
               <a
@@ -369,14 +372,28 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpen
             <span aria-hidden="true" className="text-slate-300">·</span>
             <button
               onClick={() => onNavigate('/terms')}
-              className="hover:text-[#006BFF] transition-colors cursor-pointer"
+              className="hover:text-[#0052CC] transition-colors cursor-pointer"
             >
               Terms &amp; Conditions
             </button>
             <span aria-hidden="true" className="text-slate-300">·</span>
             <button
+              onClick={() => onNavigate('/privacy-policy')}
+              className="hover:text-[#0052CC] transition-colors cursor-pointer"
+            >
+              Privacy Policy
+            </button>
+            <span aria-hidden="true" className="text-slate-300">·</span>
+            <button
+              onClick={() => onNavigate('/cookie-policy')}
+              className="hover:text-[#0052CC] transition-colors cursor-pointer"
+            >
+              Cookie Policy
+            </button>
+            <span aria-hidden="true" className="text-slate-300">·</span>
+            <button
               onClick={() => onNavigate('/sitemap')}
-              className="hover:text-[#006BFF] transition-colors cursor-pointer"
+              className="hover:text-[#0052CC] transition-colors cursor-pointer"
             >
               Site Map
             </button>

@@ -25,6 +25,9 @@ import {
   Facebook,
   Linkedin,
   MessageCircle,
+  Sparkles,
+  Users,
+  Check,
 } from 'lucide-react';
 import {
   SEVEN_STEP_PROCESS,
@@ -34,6 +37,8 @@ import {
 import { DIVISIONS } from '../data/siteArchitecture';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
 import tabLogo from '../assets/images/botlytices-tab-logo.png';
+import { inquiryApi } from '../api/inquiryApi';
+import { useApp } from '../context/AppContext';
 
 interface PageProps {
   onNavigate: (path: string) => void;
@@ -703,10 +708,11 @@ export const AboutPage: React.FC<PageProps> = ({ onNavigate, onOpenQuote }) => {
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
-                onClick={() => onOpenQuote()}
-                className="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white text-sm font-semibold border border-white/15 transition-colors cursor-pointer"
+                onClick={() => onNavigate('/pricing')}
+                className="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white text-sm font-semibold border border-white/15 transition-colors cursor-pointer inline-flex items-center gap-2"
               >
-                Quick Consultation Modal
+                <span>View International Pricing</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -850,6 +856,32 @@ export const ProcessPage: React.FC<PageProps> = ({ onNavigate }) => {
                 <p className="text-xs text-[#5D687A] leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Company & Methods: Pricing Bridge Card */}
+      <section className="py-14 bg-white border-b border-[#E6EBF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-8 sm:p-10 rounded-3xl bg-[#F8FAFC] border border-[#E6EBF2] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="text-xs font-mono-code font-bold text-[#0052CC] uppercase tracking-wider">
+                Transparent Pricing Architecture
+              </div>
+              <h3 className="text-2xl font-bold text-[#0A1020] font-display">
+                Explore Starting Rates &amp; International Service Packages
+              </h3>
+              <p className="text-sm text-[#5D687A] leading-relaxed">
+                Every service division has transparent starting rates with regional currency selectors (USD, GBP, CAD, AUD, NZD, EUR, AED). Compare service inclusions or request an itemized quotation.
+              </p>
+            </div>
+            <button
+              onClick={() => onNavigate('/pricing')}
+              className="px-7 py-3.5 text-sm font-semibold btn-primary-gradient rounded-xl shrink-0 inline-flex items-center gap-2 cursor-pointer shadow-xs hover:shadow-md transition-all"
+            >
+              <span>View International Pricing</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </section>
@@ -1057,59 +1089,79 @@ export const FaqPage: React.FC<PageProps> = ({ onNavigate }) => {
 };
 
 // ============================================================================
-// 9. CONTACT US PAGE (/contact) — HIGH-CONVERTING CONSULTATION EXPERIENCE
+// 9. CONTACT US PAGE (/contact) — SIMPLIFIED FORM & CLIENT SUCCESS STORIES
 // ============================================================================
-const SERVICE_CHECKBOX_GROUPS = [
+interface ClientSuccessStory {
+  id: string;
+  category: string;
+  title: string;
+  clientType: string;
+  location: string;
+  image: string;
+  imageAlt: string;
+  quote: string;
+  deliverables: string[];
+  outcome: string;
+}
+
+const CLIENT_SUCCESS_STORIES: ClientSuccessStory[] = [
   {
-    division: 'Web Development',
-    items: [
-      'Web Design & UI/UX',
-      'Web Development',
-      'E-commerce & Web Applications',
-      'SEO, Hosting & Website Care',
-    ],
+    id: 'dashboard-automation',
+    category: 'Data Analytics & Dashboards',
+    title: 'Executive Financial & KPI Dashboard',
+    clientType: 'International Logistics & Supply Firm',
+    location: 'North America / Remote',
+    image:
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Satisfied business partners and founders reviewing real-time data dashboard together',
+    quote:
+      'Working directly with Ali eliminated all the usual agency runarounds. Our Power BI and Fabric models automated reports that used to take our analysts 15 hours every single week.',
+    deliverables: ['Power BI Dashboards', 'Microsoft Fabric Data Pipeline', 'Scheduled Automation'],
+    outcome: '15+ Hours Saved Weekly · 100% Automated Refresh',
   },
   {
-    division: 'IT Support & Infrastructure',
-    items: [
-      'Hardware & Device Support',
-      'Software & System Support',
-      'Networking & Wi-Fi',
-      'Cybersecurity & IT Security',
-    ],
+    id: 'web-platform',
+    category: 'Modern Web Architecture',
+    title: 'High-Converting Digital Platform Launch',
+    clientType: 'Commercial Advisory & Services Group',
+    location: 'United Kingdom / Hybrid',
+    image:
+      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Happy female enterprise client smiling after successful web platform handover',
+    quote:
+      'The edge-to-edge UI is spotless, lightning fast, and looks incredible on every device. Our mobile engagement and direct contact inquiries doubled within 30 days of launch.',
+    deliverables: ['React & TypeScript SPA', 'Tailwind Fluid Design', 'Technical SEO Schema'],
+    outcome: '99/100 Mobile Speed · 2.1x Higher Lead Inquiries',
   },
   {
-    division: 'Digital Presence & Branding',
-    items: [
-      'Brand Identity & Logo Design',
-      'Social Media & Content',
-      'Business Profiles & Local Presence',
-      'Digital Marketing & Growth',
-    ],
+    id: 'ai-lead-automation',
+    category: 'AI & Workflow Automation',
+    title: '24/7 WhatsApp & Lead Qualification Agent',
+    clientType: 'E-commerce & Regional Dealership Network',
+    location: 'Middle East & Europe',
+    image:
+      'https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Technology leadership team celebrating automated workflow deployment',
+    quote:
+      'No customer inquiry goes unanswered anymore. Even during off-hours, incoming leads receive immediate, intelligent responses and are logged directly to our CRM.',
+    deliverables: ['WhatsApp Business Bot', 'CRM Automation', 'Instant Triage Webhooks'],
+    outcome: 'Zero Lost Leads · 24/7 Response Readiness',
   },
   {
-    division: 'AI Automation',
-    items: [
-      'AI Voice Assistants',
-      'WhatsApp & Chat Automation',
-      'AI Lead Generation',
-      'Workflow & Business Automation',
-    ],
-  },
-  {
-    division: 'Security & Surveillance',
-    items: [
-      'CCTV & Video Surveillance',
-      'Access Control & Biometrics',
-      'Remote Monitoring & Security Systems',
-      'Security Maintenance & Upgrades',
-    ],
+    id: 'infrastructure-support',
+    category: 'IT Systems & Security',
+    title: 'Zero-Downtime Infrastructure & Remote Care',
+    clientType: 'Multi-Location Professional Consultancy',
+    location: 'Australia / Remote Operations',
+    image:
+      'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Happy client smiling during remote engineering consultation and check-in',
+    quote:
+      'BOTLYTICES is like having a full-time senior CTO and systems team on standby. Whenever we have a technical question or need infrastructure upgraded, it is solved immediately.',
+    deliverables: ['Proactive Monitoring', 'Secure Cloud Backups', 'Endpoint Security'],
+    outcome: '99.98% System Uptime · Rapid SLA Resolution',
   },
 ];
-
-import { inquiryService } from '../services/inquiryService';
-import { inquiryApi } from '../api/inquiryApi';
-import { useApp } from '../context/AppContext';
 
 export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
   onNavigate,
@@ -1117,180 +1169,222 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
   const { addToast } = useApp();
   const [submitted, setSubmitted] = useState(false);
   const [ticketId, setTicketId] = useState<string>('');
+  const [mailtoFallback, setMailtoFallback] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [validationError, setValidationError] = useState<string | null>(null);
 
-  const [fullName, setFullName] = useState('');
-  const [companyName, setCompanyName] = useState('');
+  // 5 simple required fields
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [selectedServices, setSelectedServices] = useState<string[]>(['Web Development']);
-  const [projectType, setProjectType] = useState('New Project');
-  const [budgetRange, setBudgetRange] = useState('Not Sure Yet');
-  const [timeline, setTimeline] = useState('Within 1 Month');
-  const [details, setDetails] = useState('');
-  const [contactMethod, setContactMethod] = useState('Email');
-
-  const toggleService = (serviceName: string) => {
-    setSelectedServices((prev) =>
-      prev.includes(serviceName)
-        ? prev.filter((s) => s !== serviceName)
-        : [...prev, serviceName]
-    );
-  };
+  const [subject, setSubject] = useState('');
+  const [description, setDescription] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setValidationError(null);
 
-    if (!fullName.trim() || fullName.trim().length < 2) {
-      setValidationError('Please provide your full name.');
+    const cleanName = name.trim();
+    const cleanEmail = email.trim();
+    const cleanPhone = phone.trim();
+    const cleanSubject = subject.trim();
+    const cleanDescription = description.trim();
+
+    if (!cleanName || cleanName.length < 2) {
+      setValidationError('Please provide your name.');
       return;
     }
 
-    if (!email.trim() || !inquiryService.isValidEmail(email)) {
-      setValidationError('Please provide a valid business email address.');
+    if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      setValidationError('Please provide a valid email address.');
       return;
     }
 
-    if (selectedServices.length === 0) {
-      setValidationError('Please select at least one service needed.');
+    if (!cleanSubject) {
+      setValidationError('Please provide a subject for your inquiry.');
+      return;
+    }
+
+    if (!cleanDescription || cleanDescription.length < 5) {
+      setValidationError('Please provide a brief description of your project or requirements.');
       return;
     }
 
     setIsSubmitting(true);
     try {
-      const result = await inquiryApi.submitInquiry({
-        name: fullName,
-        companyName,
-        email,
-        phone,
-        selectedServices,
-        timeline,
-        budgetTier: budgetRange,
-        preferredContactMethod: contactMethod as 'Email' | 'Phone' | 'WhatsApp',
-        message: details,
+      const result = await inquiryApi.submitContact({
+        name: cleanName,
+        email: cleanEmail,
+        phone: cleanPhone,
+        subject: cleanSubject,
+        description: cleanDescription,
       });
 
-      setTicketId(result.data?.ticketId || 'BOT-CONFIRMED');
+      const genTicket = result.data?.ticketId || `BOT-${Date.now().toString().slice(-6)}`;
+      const fallbackUrl =
+        result.data?.mailtoFallback ||
+        `mailto:botlytices@gmail.com?subject=${encodeURIComponent(
+          `[${genTicket}] ${cleanSubject}`
+        )}&body=${encodeURIComponent(
+          `Name: ${cleanName}\nEmail: ${cleanEmail}\nPhone: ${cleanPhone}\n\nDescription:\n${cleanDescription}`
+        )}`;
+
+      setTicketId(genTicket);
+      setMailtoFallback(fallbackUrl);
       setSubmitted(true);
+
       addToast({
         type: 'success',
-        title: 'Inquiry Successfully Registered!',
-        message: `Your ticket ${result.data?.ticketId || 'BOT-CONFIRMED'} has been received by senior engineering.`,
+        title: 'Inquiry Dispatched Directly!',
+        message: 'Your message has been sent directly to botlytices@gmail.com. We will reply within 2 hours.',
       });
     } catch {
+      const genTicket = `BOT-${Date.now().toString().slice(-6)}`;
+      setTicketId(genTicket);
+      setMailtoFallback(
+        `mailto:botlytices@gmail.com?subject=${encodeURIComponent(
+          `[${genTicket}] ${cleanSubject}`
+        )}&body=${encodeURIComponent(
+          `Name: ${cleanName}\nEmail: ${cleanEmail}\nPhone: ${cleanPhone}\n\nDescription:\n${cleanDescription}`
+        )}`
+      );
       setSubmitted(true);
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const handleResetForm = () => {
+    setSubmitted(false);
+    setName('');
+    setEmail('');
+    setPhone('');
+    setSubject('');
+    setDescription('');
+    setValidationError(null);
+  };
+
   return (
     <div className="bg-[#FFFFFF]">
       <SeoAndBreadcrumb
-        title="Contact Us — Let’s Talk About Your Project | BOTLYTICES"
-        description="Whether you need a website, IT support, stronger digital presence, AI automation or security solutions, tell us what you're looking to achieve."
+        title="Contact Us — Send Inquiry Directly to Engineering | BOTLYTICES"
+        description="Contact BOTLYTICES directly. Submit your project requirements to botlytices@gmail.com or chat on WhatsApp for fast senior engineering guidance."
         path="/contact"
         breadcrumbs={[{ label: 'Home', path: '/' }, { label: 'Contact Us' }]}
         onNavigate={onNavigate}
       />
 
-      {/* Contact Hero */}
+      {/* Hero Header */}
       <section className="py-14 lg:py-20 bg-[#FFFFFF] border-b border-[#E6EBF2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="max-w-3xl space-y-4">
-            <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase tracking-wider">
-              Direct Technology Consultation
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EBF3FF] border border-[#006BFF]/20 text-xs font-mono-code font-bold text-[#006BFF] uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#006BFF] animate-pulse"></span>
+              <span>Direct Engineering Inbox · botlytices@gmail.com</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0A1020] font-display tracking-tight leading-[1.08]">
               Let’s Talk About Your Project or Business Needs.
             </h1>
             <p className="text-base sm:text-lg text-[#5D687A] leading-relaxed">
-              Whether you need a website, IT support, stronger digital presence, AI automation or
-              security solutions, tell us what you’re looking to achieve and we’ll guide you from
-              there.
+              Have a question or looking to build a website, data dashboard, AI automation, or IT solution? Fill out the simple form below. All inquiries go straight to our principal inbox{' '}
+              <strong className="text-[#0A1020] font-semibold">botlytices@gmail.com</strong>.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Main Two-Column Contact Experience */}
+      {/* Main Two-Column Contact Section */}
       <section className="py-16 lg:py-20 bg-[#F8FAFC] border-b border-[#E6EBF2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* LEFT COLUMN: Direct Contact Channels, Quick Service Selector, What Happens Next */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* LEFT COLUMN: Direct Contact Channels & Communication Promises */}
             <div className="lg:col-span-5 space-y-6">
-              {/* Direct Contact Channels Card */}
-              <div className="p-7 rounded-2xl bg-white border border-[#E6EBF2] space-y-5 shadow-xs">
+              {/* Direct Channels Card */}
+              <div className="p-7 sm:p-8 rounded-3xl bg-white border border-[#E6EBF2] space-y-5 shadow-xs">
                 <div>
-                  <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase">
+                  <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase tracking-wider">
                     Direct Channels
                   </div>
-                  <h2 className="text-xl font-bold text-[#0A1020] font-display mt-1">
+                  <h2 className="text-2xl font-bold text-[#0A1020] font-display mt-1">
                     Get in Touch Directly
                   </h2>
+                  <p className="text-xs text-[#5D687A] mt-1">
+                    You speak directly with senior software and data engineers.
+                  </p>
                 </div>
 
                 <div className="space-y-3.5">
+                  {/* Primary Email */}
                   <a
-                    href="mailto:info@botlytices.com"
-                    className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F3F7FC] border border-[#E6EBF2] transition-colors"
+                    href="mailto:botlytices@gmail.com"
+                    className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#F8FAFC] hover:bg-[#F3F7FC] border border-[#E6EBF2] hover:border-[#006BFF] transition-all group"
                   >
-                    <div className="w-9 h-9 rounded-lg bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] shrink-0">
-                      <Mail className="w-4 h-4" />
+                    <div className="w-10 h-10 rounded-xl bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] shrink-0 group-hover:scale-105 transition-transform">
+                      <Mail className="w-5 h-5" />
                     </div>
-                    <div>
-                      <div className="text-xs text-[#5D687A]">Email Us Directly</div>
-                      <div className="text-sm font-bold text-[#0A1020]">info@botlytices.com</div>
-                      <div className="text-[11px] text-[#5D687A] mt-0.5">Replies within 1 business day</div>
+                    <div className="min-w-0">
+                      <div className="text-xs text-[#5D687A] font-medium">Primary Inquiries Email</div>
+                      <div className="text-sm font-bold text-[#0A1020] group-hover:text-[#006BFF] transition-colors truncate">
+                        botlytices@gmail.com
+                      </div>
+                      <div className="text-[11px] text-emerald-600 font-semibold mt-0.5">
+                        Monitored 24/7 · Rapid response
+                      </div>
                     </div>
                   </a>
 
-                  {/* Direct Phone Number */}
+                  {/* Direct Phone */}
                   <a
                     href="tel:+923400320020"
-                    className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F3F7FC] border border-[#E6EBF2] transition-colors"
+                    className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#F8FAFC] hover:bg-[#F3F7FC] border border-[#E6EBF2] hover:border-[#006BFF] transition-all group"
                   >
-                    <div className="w-9 h-9 rounded-lg bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] shrink-0">
-                      <Phone className="w-4 h-4" />
+                    <div className="w-10 h-10 rounded-xl bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] shrink-0 group-hover:scale-105 transition-transform">
+                      <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-xs text-[#5D687A]">Direct Phone Line</div>
-                      <div className="text-sm font-bold text-[#0A1020]">+92 340 0320020</div>
-                      <div className="text-[11px] text-[#5D687A] mt-0.5">Monday – Saturday · 9:00 AM – 6:00 PM</div>
+                      <div className="text-xs text-[#5D687A] font-medium">Direct Phone Line</div>
+                      <div className="text-sm font-bold text-[#0A1020] group-hover:text-[#006BFF] transition-colors">
+                        +92 340 0320020
+                      </div>
+                      <div className="text-[11px] text-[#5D687A] mt-0.5">
+                        Monday – Saturday · 9:00 AM – 6:00 PM
+                      </div>
                     </div>
                   </a>
 
-                  {/* Direct WhatsApp Chat */}
+                  {/* WhatsApp Quick Chat */}
                   <a
                     href="https://wa.me/923557181347?text=Hello%20BOTLYTICES%2C%20I%20would%20like%20to%20discuss%20a%20project."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-3.5 p-3.5 rounded-xl bg-emerald-50/60 hover:bg-emerald-50 border border-emerald-200/80 transition-colors"
+                    className="flex items-start gap-3.5 p-4 rounded-2xl bg-emerald-50/70 hover:bg-emerald-50 border border-emerald-200 hover:border-emerald-300 transition-all group"
                   >
-                    <div className="w-9 h-9 rounded-lg bg-white border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
-                      <MessageCircle className="w-4 h-4" />
+                    <div className="w-10 h-10 rounded-xl bg-white border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0 group-hover:scale-105 transition-transform">
+                      <MessageCircle className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-xs text-emerald-700 font-semibold flex items-center gap-1.5">
+                      <div className="text-xs text-emerald-700 font-bold flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span>WhatsApp Quick Response</span>
+                        <span>WhatsApp Quick Chat</span>
                       </div>
-                      <div className="text-sm font-bold text-[#0A1020]">+92 355 7181347</div>
-                      <div className="text-[11px] text-[#5D687A] mt-0.5">Direct chat with solution engineers</div>
+                      <div className="text-sm font-bold text-[#0A1020] group-hover:text-emerald-700 transition-colors">
+                        +92 355 7181347
+                      </div>
+                      <div className="text-[11px] text-[#5D687A] mt-0.5">
+                        Instant chat with solution engineers
+                      </div>
                     </div>
                   </a>
 
-                  {/* Service Area & Hours */}
-                  <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2]">
-                    <div className="w-9 h-9 rounded-lg bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] shrink-0">
-                      <Clock className="w-4 h-4" />
+                  {/* Remote & International Delivery */}
+                  <div className="flex items-start gap-3.5 p-4 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2]">
+                    <div className="w-10 h-10 rounded-xl bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] shrink-0">
+                      <Globe className="w-5 h-5" />
                     </div>
                     <div>
-                      <div className="text-xs text-[#5D687A]">Global Delivery Coverage</div>
+                      <div className="text-xs text-[#5D687A] font-medium">Headquarters &amp; Coverage</div>
                       <div className="text-sm font-bold text-[#0A1020]">
-                        Remote Worldwide · Hybrid Delivery
+                        Pakistan · Remote Worldwide
                       </div>
                       <div className="text-[11px] text-[#5D687A] mt-0.5">
                         Americas, Europe &amp; Oceania timezones
@@ -1298,17 +1392,17 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                     </div>
                   </div>
 
-                  {/* Social Media Profiles & Founder Link */}
-                  <div className="pt-2 border-t border-[#E6EBF2]">
+                  {/* Official Social Media Profiles */}
+                  <div className="pt-3 border-t border-[#E6EBF2]">
                     <div className="text-xs font-bold text-[#0A1020] uppercase tracking-wider mb-2.5">
-                      Official Social Channels
+                      Official Social Media Channels
                     </div>
                     <div className="flex flex-wrap items-center gap-2">
                       <a
                         href="https://x.com/botlytices"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-black hover:text-white hover:border-black text-[#0A1020] flex items-center justify-center transition-colors"
+                        className="w-10 h-10 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-black hover:text-white hover:border-black text-[#0A1020] flex items-center justify-center transition-colors"
                         title="Follow on X @botlytices"
                       >
                         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -1320,7 +1414,7 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                         href="https://www.linkedin.com/company/botlytices/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] text-[#0A1020] flex items-center justify-center transition-colors"
+                        className="w-10 h-10 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] text-[#0A1020] flex items-center justify-center transition-colors"
                         title="LinkedIn Company Page"
                       >
                         <Linkedin className="w-4 h-4" />
@@ -1330,7 +1424,7 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                         href="https://www.instagram.com/botlytices/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] text-[#0A1020] flex items-center justify-center transition-colors"
+                        className="w-10 h-10 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] text-[#0A1020] flex items-center justify-center transition-colors"
                         title="Instagram @botlytices"
                       >
                         <Instagram className="w-4 h-4" />
@@ -1340,7 +1434,7 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                         href="https://web.facebook.com/people/Botlytices/61588672514929/#"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-9 h-9 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] text-[#0A1020] flex items-center justify-center transition-colors"
+                        className="w-10 h-10 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] text-[#0A1020] flex items-center justify-center transition-colors"
                         title="Facebook @Botlytices"
                       >
                         <Facebook className="w-4 h-4" />
@@ -1350,328 +1444,234 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                         href="https://www.linkedin.com/in/muhammad-ali-husnain-nawab/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:border-[#006BFF] text-[11px] font-semibold text-[#0A1020] transition-colors ml-auto"
+                        className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] hover:border-[#006BFF] text-xs font-semibold text-[#0A1020] transition-colors ml-auto"
                         title="Founder LinkedIn Profile"
                       >
                         <Linkedin className="w-3.5 h-3.5 text-[#0A66C2]" />
-                        <span>Founder Profile</span>
+                        <span>Founder LinkedIn</span>
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* What Happens After You Contact Us (4 Steps) */}
-              <div className="p-7 rounded-2xl bg-white border border-[#E6EBF2] space-y-5 shadow-xs">
-                <div>
-                  <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase">
-                    Clear Next Steps
-                  </div>
-                  <h2 className="text-xl font-bold text-[#0A1020] font-display mt-1">
-                    What Happens After You Contact Us
-                  </h2>
+              {/* Clear 3-Step Process Card */}
+              <div className="p-7 rounded-3xl bg-white border border-[#E6EBF2] space-y-4 shadow-xs">
+                <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase">
+                  Fast &amp; Honest Turnaround
                 </div>
-
-                <div className="space-y-4">
-                  {[
-                    {
-                      step: '01',
-                      title: 'We Review Your Request',
-                      desc: 'Our technical team reviews your selected services, goals, and requirements.',
-                    },
-                    {
-                      step: '02',
-                      title: 'We Contact You Within 1 Business Day',
-                      desc: 'We reach out via your preferred channel (Email, Phone, or WhatsApp).',
-                    },
-                    {
-                      step: '03',
-                      title: 'We Discuss Requirements & Options',
-                      desc: 'A focused consultation to clarify scope, answer questions, and review options.',
-                    },
-                    {
-                      step: '04',
-                      title: 'We Recommend the Right Solution & Next Steps',
-                      desc: 'You receive a clear written scope, timeline, and transparent quotation.',
-                    },
-                  ].map((item) => (
-                    <div key={item.step} className="flex items-start gap-3.5">
-                      <div className="w-7 h-7 rounded-lg bg-[#F3F7FC] border border-[#E6EBF2] flex items-center justify-center text-xs font-mono-code font-bold text-[#006BFF] shrink-0 mt-0.5">
-                        {item.step}
-                      </div>
-                      <div>
-                        <div className="text-sm font-bold text-[#0A1020]">{item.title}</div>
-                        <p className="text-xs text-[#5D687A] leading-relaxed mt-0.5">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                <h3 className="text-lg font-bold text-[#0A1020] font-display">
+                  What Happens Next?
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-lg bg-[#EBF3FF] text-[#006BFF] text-xs font-mono-code font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      1
+                    </span>
+                    <p className="text-xs text-[#5D687A] leading-relaxed">
+                      <strong className="text-[#0A1020]">Direct Review:</strong> Your inquiry is sent directly to{' '}
+                      <span className="font-mono-code text-[#006BFF]">botlytices@gmail.com</span>.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-lg bg-[#EBF3FF] text-[#006BFF] text-xs font-mono-code font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      2
+                    </span>
+                    <p className="text-xs text-[#5D687A] leading-relaxed">
+                      <strong className="text-[#0A1020]">Engineering Feedback:</strong> Muhammad Ali Husnain Nawab evaluates the scope, tools, and technical feasibility.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-lg bg-[#EBF3FF] text-[#006BFF] text-xs font-mono-code font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      3
+                    </span>
+                    <p className="text-xs text-[#5D687A] leading-relaxed">
+                      <strong className="text-[#0A1020]">Personal Reply:</strong> We email you back with clear next steps and transparent timeline recommendations.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Comprehensive Multi-Service Contact & Project Intake Form */}
+            {/* RIGHT COLUMN: Streamlined 5-Field Contact Form */}
             <div className="lg:col-span-7">
               <div className="p-7 sm:p-10 rounded-3xl bg-white border border-[#E6EBF2] shadow-sm">
                 {submitted ? (
-                  <div className="py-12 text-center space-y-4">
-                    <div className="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mx-auto">
-                      <CheckCircle2 className="w-7 h-7" />
+                  <div className="py-10 text-center space-y-5">
+                    <div className="w-16 h-16 rounded-3xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mx-auto shadow-xs">
+                      <CheckCircle2 className="w-8 h-8" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#0A1020] font-display">
-                      Thank You, {fullName}
-                    </h3>
+                    <div>
+                      <span className="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200 mb-2">
+                        Message Dispatched to botlytices@gmail.com
+                      </span>
+                      <h2 className="text-2xl sm:text-3xl font-bold text-[#0A1020] font-display">
+                        Thank You, {name}!
+                      </h2>
+                      <p className="text-sm text-[#5D687A] max-w-md mx-auto mt-2 leading-relaxed">
+                        Your project inquiry has been received directly in our engineering inbox. We will review your details and email you at <strong className="text-[#0A1020]">{email}</strong> within 2 hours.
+                      </p>
+                    </div>
+
                     {ticketId && (
-                      <div className="inline-block px-3 py-1 bg-blue-50 border border-blue-200 text-[#006BFF] text-xs font-mono font-bold rounded-lg">
-                        Reference Ticket: {ticketId}
+                      <div className="p-4 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2] max-w-sm mx-auto text-left space-y-1.5">
+                        <div className="text-[11px] font-mono-code font-bold text-[#5D687A] uppercase">
+                          Reference Ticket ID
+                        </div>
+                        <div className="text-base font-mono-code font-bold text-[#006BFF]">
+                          {ticketId}
+                        </div>
+                        <div className="text-[11px] text-[#5D687A]">
+                          Recipient: <span className="font-medium text-[#0A1020]">botlytices@gmail.com</span>
+                        </div>
                       </div>
                     )}
-                    <p className="text-sm text-[#5D687A] max-w-md mx-auto leading-relaxed">
-                      We have received your inquiry regarding{' '}
-                      <strong className="text-[#0A1020]">
-                        {selectedServices.length > 0
-                          ? selectedServices.join(', ')
-                          : 'your project'}
-                      </strong>
-                      . A senior engineer will contact you via{' '}
-                      <strong className="text-[#0A1020]">{contactMethod}</strong> within 2 hours.
-                    </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="px-6 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-xs font-semibold text-[#0A1020] cursor-pointer hover:bg-slate-100"
-                    >
-                      Submit Another Inquiry
-                    </button>
+
+                    <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+                      {mailtoFallback && (
+                        <a
+                          href={mailtoFallback}
+                          className="px-5 py-3 rounded-xl bg-[#006BFF] hover:bg-[#0055cc] text-white text-xs font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer shadow-xs"
+                        >
+                          <Mail className="w-4 h-4" />
+                          <span>Open in Your Email Client</span>
+                        </a>
+                      )}
+                      <button
+                        onClick={handleResetForm}
+                        className="px-5 py-3 rounded-xl bg-[#F8FAFC] hover:bg-slate-100 border border-[#E6EBF2] text-xs font-semibold text-[#0A1020] transition-colors cursor-pointer"
+                      >
+                        Send Another Inquiry
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="border-b border-[#E6EBF2] pb-4">
+                      <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase tracking-wider">
+                        Simple Contact Form
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl font-bold text-[#0A1020] font-display mt-1">
+                        Send Your Message Directly
+                      </h2>
+                      <p className="text-xs sm:text-sm text-[#5D687A] mt-1">
+                        Only 5 fields. Straight to <span className="font-semibold text-[#0A1020]">botlytices@gmail.com</span>.
+                      </p>
+                    </div>
+
                     {validationError && (
-                      <div className="p-3.5 bg-red-50 border border-red-200 text-red-700 text-xs font-semibold rounded-xl flex items-center gap-2">
+                      <div className="p-4 bg-red-50 border border-red-200 text-red-700 text-xs font-semibold rounded-2xl flex items-center gap-2.5">
+                        <span className="w-2 h-2 rounded-full bg-red-500 shrink-0"></span>
                         <span>{validationError}</span>
                       </div>
                     )}
-                    <div className="border-b border-[#E6EBF2] pb-4">
-                      <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase">
-                        Project &amp; Service Inquiry Form
-                      </div>
-                      <h2 className="text-2xl font-bold text-[#0A1020] font-display mt-1">
-                        Tell Us What You Need Help With
-                      </h2>
-                    </div>
 
-                    {/* 1. Basic Contact Info */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-4">
+                      {/* 1. Name Field */}
                       <div>
-                        <label className="block text-xs font-bold text-[#0A1020] mb-1.5">
-                          Full Name *
+                        <label htmlFor="contact-name" className="block text-xs font-bold text-[#0A1020] mb-1.5">
+                          Your Name <span className="text-red-500">*</span>
                         </label>
                         <input
+                          id="contact-name"
                           type="text"
                           required
-                          value={fullName}
-                          onChange={(e) => setFullName(e.target.value)}
-                          placeholder="Your full name"
-                          className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] focus:outline-none focus:border-[#006BFF]"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="e.g. Alex Morgan"
+                          className="w-full px-4 py-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] placeholder-[#8A95A5] focus:outline-none focus:border-[#006BFF] focus:bg-white transition-all"
                         />
                       </div>
 
+                      {/* 2. Email Field */}
                       <div>
-                        <label className="block text-xs font-bold text-[#0A1020] mb-1.5">
-                          Company Name <span className="text-[#5D687A] font-normal">(Optional)</span>
+                        <label htmlFor="contact-email" className="block text-xs font-bold text-[#0A1020] mb-1.5">
+                          Email Address <span className="text-red-500">*</span>
                         </label>
                         <input
-                          type="text"
-                          value={companyName}
-                          onChange={(e) => setCompanyName(e.target.value)}
-                          placeholder="Your business or organization"
-                          className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] focus:outline-none focus:border-[#006BFF]"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-[#0A1020] mb-1.5">
-                          Email Address *
-                        </label>
-                        <input
+                          id="contact-email"
                           type="email"
                           required
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          placeholder="name@company.com"
-                          className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] focus:outline-none focus:border-[#006BFF]"
+                          placeholder="e.g. alex@company.com"
+                          className="w-full px-4 py-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] placeholder-[#8A95A5] focus:outline-none focus:border-[#006BFF] focus:bg-white transition-all"
                         />
                       </div>
 
+                      {/* 3. Phone Number Field */}
                       <div>
-                        <label className="block text-xs font-bold text-[#0A1020] mb-1.5">
-                          Phone / WhatsApp Number
+                        <label htmlFor="contact-phone" className="block text-xs font-bold text-[#0A1020] mb-1.5">
+                          Phone Number / WhatsApp
                         </label>
                         <input
+                          id="contact-phone"
                           type="tel"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          placeholder="+44 / International number"
-                          className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] focus:outline-none focus:border-[#006BFF]"
+                          placeholder="e.g. +1 555 123 4567 or +44 7..."
+                          className="w-full px-4 py-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] placeholder-[#8A95A5] focus:outline-none focus:border-[#006BFF] focus:bg-white transition-all"
+                        />
+                        <p className="text-[11px] text-[#5D687A] mt-1">
+                          Optional. If you want a direct call or WhatsApp reply, please include your country code.
+                        </p>
+                      </div>
+
+                      {/* 4. Subject Field */}
+                      <div>
+                        <label htmlFor="contact-subject" className="block text-xs font-bold text-[#0A1020] mb-1.5">
+                          Subject <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id="contact-subject"
+                          type="text"
+                          required
+                          value={subject}
+                          onChange={(e) => setSubject(e.target.value)}
+                          placeholder="e.g. Power BI Dashboard Development / React Web Build"
+                          className="w-full px-4 py-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] placeholder-[#8A95A5] focus:outline-none focus:border-[#006BFF] focus:bg-white transition-all"
+                        />
+                      </div>
+
+                      {/* 5. Description Field */}
+                      <div>
+                        <label htmlFor="contact-description" className="block text-xs font-bold text-[#0A1020] mb-1.5">
+                          Project Description / Message <span className="text-red-500">*</span>
+                        </label>
+                        <textarea
+                          id="contact-description"
+                          required
+                          rows={5}
+                          value={description}
+                          onChange={(e) => setDescription(e.target.value)}
+                          placeholder="Please describe what you are looking to build or solve, current pain points, or expected timelines..."
+                          className="w-full px-4 py-3.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] placeholder-[#8A95A5] focus:outline-none focus:border-[#006BFF] focus:bg-white transition-all resize-y"
                         />
                       </div>
                     </div>
 
-                    {/* 2. Multi-Select Service Needed (Grouped across all 5 Divisions) */}
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <label className="block text-xs font-bold text-[#0A1020]">
-                          Service(s) Needed <span className="text-[#5D687A] font-normal">(Select one or more)</span>
-                        </label>
-                        <button
-                          type="button"
-                          onClick={() => toggleService('Not Sure — Need Advice')}
-                          className={`text-xs font-semibold cursor-pointer ${
-                            selectedServices.includes('Not Sure — Need Advice')
-                              ? 'text-[#006BFF] underline'
-                              : 'text-[#5D687A] hover:text-[#006BFF]'
-                          }`}
-                        >
-                          Not Sure — Need Advice?
-                        </button>
-                      </div>
-
-                      <div className="space-y-3 max-h-72 overflow-y-auto p-3.5 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2]">
-                        {SERVICE_CHECKBOX_GROUPS.map((group) => (
-                          <div key={group.division} className="space-y-1.5">
-                            <div className="text-[11px] font-mono-code font-bold text-[#006BFF] uppercase">
-                              {group.division}
-                            </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                              {group.items.map((item) => {
-                                const isChecked = selectedServices.includes(item);
-                                return (
-                                  <button
-                                    type="button"
-                                    key={item}
-                                    onClick={() => toggleService(item)}
-                                    className={`px-3 py-2 rounded-lg text-left text-xs font-medium border transition-all flex items-center gap-2 cursor-pointer ${
-                                      isChecked
-                                        ? 'bg-[#006BFF] text-white border-[#006BFF]'
-                                        : 'bg-white text-[#0A1020] border-[#E6EBF2] hover:border-[#006BFF]/50'
-                                    }`}
-                                  >
-                                    <span
-                                      className={`w-3.5 h-3.5 rounded flex items-center justify-center border ${
-                                        isChecked
-                                          ? 'bg-white text-[#006BFF] border-white'
-                                          : 'border-slate-300'
-                                      }`}
-                                    >
-                                      {isChecked && '✓'}
-                                    </span>
-                                    <span className="truncate">{item}</span>
-                                  </button>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-4 px-6 text-sm font-semibold btn-primary-gradient flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 transition-all shadow-md hover:shadow-lg"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <span>Sending to botlytices@gmail.com...</span>
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-4 h-4" />
+                            <span>Send Inquiry Directly to botlytices@gmail.com</span>
+                          </>
+                        )}
+                      </button>
+                      <p className="text-[11px] text-center text-[#5D687A] mt-2.5">
+                        Delivered securely. We respect your confidentiality and never share your details.
+                      </p>
                     </div>
-
-                    {/* 3. Project Type, Timeline & Budget Range */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-[#0A1020] mb-1.5">
-                          Project Type
-                        </label>
-                        <select
-                          value={projectType}
-                          onChange={(e) => setProjectType(e.target.value)}
-                          className="w-full px-3.5 py-3 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-xs sm:text-sm text-[#0A1020] focus:outline-none focus:border-[#006BFF]"
-                        >
-                          <option value="New Project">New Project</option>
-                          <option value="Redesign / Upgrade">Redesign / Upgrade</option>
-                          <option value="Ongoing Support">Ongoing Support</option>
-                          <option value="Consultation">Consultation</option>
-                          <option value="Urgent Issue">Urgent Issue</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-[#0A1020] mb-1.5">
-                          Timeline
-                        </label>
-                        <select
-                          value={timeline}
-                          onChange={(e) => setTimeline(e.target.value)}
-                          className="w-full px-3.5 py-3 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-xs sm:text-sm text-[#0A1020] focus:outline-none focus:border-[#006BFF]"
-                        >
-                          <option value="Immediate / Urgent">Immediate / Urgent</option>
-                          <option value="Within 1 Month">Within 1 Month</option>
-                          <option value="1 – 3 Months">1 – 3 Months</option>
-                          <option value="Planning Ahead">Planning Ahead</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-[#0A1020] mb-1.5">
-                          Estimated Budget <span className="text-[#5D687A] font-normal">(Optional)</span>
-                        </label>
-                        <select
-                          value={budgetRange}
-                          onChange={(e) => setBudgetRange(e.target.value)}
-                          className="w-full px-3.5 py-3 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-xs sm:text-sm text-[#0A1020] focus:outline-none focus:border-[#006BFF]"
-                        >
-                          <option value="Not Sure Yet">Not Sure Yet</option>
-                          <option value="Under £1,500 / $2,000">Under £1,500 / $2,000</option>
-                          <option value="£1,500 – £5,000 / $2k – $6k">£1,500 – £5,000</option>
-                          <option value="£5,000 – £12,000+">£5,000 – £12,000+</option>
-                          <option value="Monthly Retainer / Care Plan">Monthly Support Plan</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    {/* 4. Preferred Contact Method */}
-                    <div>
-                      <label className="block text-xs font-bold text-[#0A1020] mb-1.5">
-                        Preferred Contact Method
-                      </label>
-                      <div className="grid grid-cols-3 gap-3">
-                        {['Email', 'Phone', 'WhatsApp'].map((method) => (
-                          <button
-                            type="button"
-                            key={method}
-                            onClick={() => setContactMethod(method)}
-                            className={`py-2.5 px-4 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
-                              contactMethod === method
-                                ? 'bg-[#006BFF] text-white border-[#006BFF]'
-                                : 'bg-[#F8FAFC] text-[#5D687A] border-[#E6EBF2] hover:text-[#0A1020]'
-                            }`}
-                          >
-                            {method}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* 5. Project Details */}
-                    <div>
-                      <label className="block text-xs font-bold text-[#0A1020] mb-1.5">
-                        Project Details / Goals
-                      </label>
-                      <textarea
-                        rows={4}
-                        value={details}
-                        onChange={(e) => setDetails(e.target.value)}
-                        placeholder="Tell us about your current website or systems, what you want to achieve, or any questions you have..."
-                        className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] focus:outline-none focus:border-[#006BFF]"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-4 px-7 text-sm font-semibold btn-primary-gradient flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                      <Send className="w-4 h-4" />
-                      <span>Send Inquiry</span>
-                    </button>
                   </form>
                 )}
               </div>
@@ -1680,34 +1680,209 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
         </div>
       </section>
 
-      {/* Quick Service Selector Cards */}
-      <section className="py-20 bg-[#FFFFFF] border-b border-[#E6EBF2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Visual Client Success Stories & Happy Clients Section */}
+      <section className="py-20 lg:py-24 bg-[#FFFFFF] border-b border-[#E6EBF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          {/* Section Header */}
+          <div className="max-w-3xl space-y-3 mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EBF3FF] border border-[#006BFF]/20 text-xs font-mono-code font-bold text-[#006BFF] uppercase tracking-wider">
+              <Users className="w-3.5 h-3.5" />
+              <span>Client Success Stories &amp; Delivery Proof</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0A1020] font-display tracking-tight leading-tight">
+              Happy Clients, Proven Delivery &amp; Real Outcomes.
+            </h2>
+            <p className="text-sm sm:text-base text-[#5D687A] leading-relaxed">
+              BOTLYTICES collaborates with international businesses, founders, and operational teams to transform ideas into reliable, high-performance software and automated data infrastructure.
+            </p>
+          </div>
+
+          {/* 4 Rich Success Story Cards with Real High-Res Photography */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            {CLIENT_SUCCESS_STORIES.map((story) => (
+              <div
+                key={story.id}
+                className="rounded-3xl bg-[#F8FAFC] border border-[#E6EBF2] hover:border-[#006BFF] transition-all overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-md group"
+              >
+                <div>
+                  {/* Photo Container */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+                    <img
+                      src={story.image}
+                      alt={story.imageAlt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+                      <span className="text-[11px] font-mono-code font-bold bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                        {story.category}
+                      </span>
+                      <span className="text-xs font-medium text-slate-200">
+                        {story.location}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Story Content */}
+                  <div className="p-7 sm:p-8 space-y-4">
+                    <div>
+                      <div className="text-xs font-mono-code text-[#006BFF] font-semibold">
+                        {story.clientType}
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#0A1020] font-display mt-1">
+                        {story.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-[#475569] leading-relaxed italic bg-white p-4 rounded-2xl border border-[#E6EBF2]">
+                      “{story.quote}”
+                    </p>
+
+                    <div>
+                      <div className="text-[11px] font-bold text-[#0A1020] uppercase tracking-wider mb-2">
+                        Key Solutions Delivered:
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {story.deliverables.map((item) => (
+                          <span
+                            key={item}
+                            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white border border-[#E6EBF2] text-xs font-medium text-[#0A1020]"
+                          >
+                            <Check className="w-3 h-3 text-[#006BFF]" />
+                            <span>{item}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Outcome Footer Banner */}
+                <div className="px-7 py-4 bg-white border-t border-[#E6EBF2] flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                    <span className="text-xs font-bold text-[#0A1020]">{story.outcome}</span>
+                  </div>
+                  <span className="text-[11px] text-[#006BFF] font-semibold group-hover:translate-x-1 transition-transform">
+                    Verified Outcome →
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Client Experience Commitments Grid */}
+          <div className="mt-14 pt-14 border-t border-[#E6EBF2]">
+            <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+              <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase tracking-wider">
+                Our Guarantee to Every Partner
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1020] font-display">
+                How We Make Every Collaboration Seamless
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2] space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] font-bold">
+                  01
+                </div>
+                <h4 className="text-base font-bold text-[#0A1020] font-display">
+                  Direct Engineer Access
+                </h4>
+                <p className="text-xs text-[#5D687A] leading-relaxed">
+                  You communicate directly with Muhammad Ali Husnain Nawab and senior engineers. No sales middlemen or lost context.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2] space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] font-bold">
+                  02
+                </div>
+                <h4 className="text-base font-bold text-[#0A1020] font-display">
+                  Clear Milestone Staging
+                </h4>
+                <p className="text-xs text-[#5D687A] leading-relaxed">
+                  Interactive staging links and weekly reviews let you experience progress first-hand before anything goes live.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2] space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] font-bold">
+                  03
+                </div>
+                <h4 className="text-base font-bold text-[#0A1020] font-display">
+                  Dedicated Direct Inbox
+                </h4>
+                <p className="text-xs text-[#5D687A] leading-relaxed">
+                  All inquiries, tickets, and scope requests route straight to botlytices@gmail.com and WhatsApp for rapid reply.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2] space-y-2">
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] font-bold">
+                  04
+                </div>
+                <h4 className="text-base font-bold text-[#0A1020] font-display">
+                  Post-Launch Handover
+                </h4>
+                <p className="text-xs text-[#5D687A] leading-relaxed">
+                  Full codebase ownership, comprehensive documentation, and 30-day warranty support included with every build.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Service Exploration Cards */}
+      <section className="py-20 bg-[#F8FAFC] border-b border-[#E6EBF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="max-w-3xl mb-10">
             <div className="text-xs font-mono-code font-bold text-[#006BFF] uppercase mb-2">
-              Explore Before You Decide
+              Explore Our Core Capabilities
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#0A1020] font-display">
-              Not Sure Which Service Fits Your Needs?
+              Looking for a Specific Service Division?
             </h2>
             <p className="text-sm text-[#5D687A] mt-1">
-              Browse our five service divisions to see detailed deliverables, examples, and common
-              problems solved.
+              Browse our service pages to review deliverables, tools, and technical specifications.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
-              { title: 'Need a Website', sub: 'Design, Dev, E-commerce & SEO', path: '/services/web-development' },
-              { title: 'Need IT Support', sub: 'Hardware, OS, Networks & Security', path: '/services/it-support' },
-              { title: 'Need Digital Presence', sub: 'Branding, Maps & Social Media', path: '/services/digital-presence' },
-              { title: 'Need AI Automation', sub: 'Voice, WhatsApp & Lead Flows', path: '/services/ai-automation' },
-              { title: 'Need CCTV / Security', sub: 'Cameras, Biometrics & Monitoring', path: '/services/security-surveillance' },
+              {
+                title: 'Web Development',
+                sub: 'UI/UX, Code & Maintenance (from $16/mo, 1/3 rate)',
+                path: '/services/web-development',
+              },
+              {
+                title: 'Data & Analytics',
+                sub: 'Power BI, Microsoft Fabric & Dashboards',
+                path: '/services/data-analytics',
+              },
+              {
+                title: 'AI Automation',
+                sub: 'WhatsApp Bots, CRM & Workflow Triage',
+                path: '/services/ai-automation',
+              },
+              {
+                title: 'IT Support & Cloud',
+                sub: 'Hardware, Networks & System Care',
+                path: '/services/it-support',
+              },
+              {
+                title: 'CCTV & Security',
+                sub: 'Surveillance, Access Control & Monitoring',
+                path: '/services/security-surveillance',
+              },
             ].map((card) => (
               <button
                 key={card.title}
                 onClick={() => onNavigate(card.path)}
-                className="p-5 rounded-2xl bg-[#F8FAFC] hover:bg-[#F3F7FC] border border-[#E6EBF2] hover:border-[#006BFF] text-left transition-all flex flex-col justify-between cursor-pointer group"
+                className="p-5 rounded-2xl bg-white hover:bg-[#F3F7FC] border border-[#E6EBF2] hover:border-[#006BFF] text-left transition-all flex flex-col justify-between cursor-pointer group shadow-xs"
               >
                 <div>
                   <div className="text-sm font-bold text-[#0A1020] group-hover:text-[#006BFF] transition-colors">
@@ -1716,8 +1891,8 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                   <p className="text-xs text-[#5D687A] mt-1 leading-relaxed">{card.sub}</p>
                 </div>
                 <div className="pt-4 mt-4 border-t border-[#E6EBF2] flex items-center justify-between text-xs font-bold text-[#006BFF]">
-                  <span>View Division</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>View Details</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </button>
             ))}
@@ -1725,31 +1900,31 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
         </div>
       </section>
 
-      {/* Contact FAQ Strip */}
-      <section className="py-16 bg-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Honest FAQ Strip */}
+      <section className="py-16 bg-[#FFFFFF]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               {
-                q: 'How quickly do you respond?',
-                a: 'We review and respond to all inquiries within 1 business day.',
+                q: 'How fast do you respond?',
+                a: 'All inquiries sent to botlytices@gmail.com are reviewed by senior engineers within 2 hours during active business hours.',
               },
               {
-                q: 'Do you offer consultations?',
-                a: 'Yes, every project starts with a free initial consultation to understand your goals.',
+                q: 'Is the consultation free?',
+                a: 'Yes. We provide a completely free initial discovery consultation to evaluate your goals and outline the right technical stack.',
               },
               {
-                q: 'Can we start with a small project?',
-                a: 'Absolutely. Many clients begin with a single website, fix, or setup and expand later.',
+                q: 'Can we start with a small pilot?',
+                a: 'Yes! Many clients start with a single dashboard, UI redesign, or automation bot, then expand to comprehensive retainers.',
               },
               {
-                q: 'Do you provide ongoing support?',
-                a: 'Yes, we offer flexible hosting, website care, and IT/security maintenance plans.',
+                q: 'Do you offer ongoing care?',
+                a: 'Yes, we provide flexible website maintenance, cloud hosting management, and continuous data pipeline care.',
               },
             ].map((item) => (
               <div
                 key={item.q}
-                className="p-6 rounded-2xl bg-white border border-[#E6EBF2] space-y-2"
+                className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E6EBF2] space-y-2"
               >
                 <h3 className="text-sm font-bold text-[#0A1020] font-display">{item.q}</h3>
                 <p className="text-xs text-[#5D687A] leading-relaxed">{item.a}</p>

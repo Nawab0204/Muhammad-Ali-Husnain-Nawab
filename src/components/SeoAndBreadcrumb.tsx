@@ -93,6 +93,7 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
     canonicalEl.setAttribute('href', canonicalUrl);
 
     setMetaTag('meta[name="description"]', 'content', description);
+    setMetaTag('meta[name="robots"]', 'content', 'index, follow, max-image-preview:large');
     setMetaTag('meta[property="og:title"]', 'content', title);
     setMetaTag('meta[property="og:description"]', 'content', description);
     setMetaTag('meta[property="og:url"]', 'content', canonicalUrl);
@@ -101,9 +102,20 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
       'content',
       articleSchema ? 'article' : 'website'
     );
+    setMetaTag(
+      'meta[property="og:image"]',
+      'content',
+      articleSchema?.image || `${origin}/assets/images/botlytices-logo.png`
+    );
+    setMetaTag('meta[property="og:site_name"]', 'content', 'BOTLYTICES');
     setMetaTag('meta[name="twitter:card"]', 'content', 'summary_large_image');
     setMetaTag('meta[name="twitter:title"]', 'content', title);
     setMetaTag('meta[name="twitter:description"]', 'content', description);
+    setMetaTag(
+      'meta[name="twitter:image"]',
+      'content',
+      articleSchema?.image || `${origin}/assets/images/botlytices-logo.png`
+    );
 
     if (articleSchema) {
       setMetaTag(
@@ -123,16 +135,25 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
         setMetaTag('meta[name="keywords"]', 'content', articleSchema.keywords.join(', '));
       }
     }
-  }, [title, description, path, canonicalUrl, articleSchema]);
+  }, [title, description, path, canonicalUrl, articleSchema, origin]);
 
   const schemaGraph: Record<string, unknown>[] = [
+    {
+      '@type': 'WebSite',
+      '@id': `${origin}/#website`,
+      name: 'BOTLYTICES',
+      url: origin,
+      description: 'BOTLYTICES provides web development, IT support, SEO and AI automation to help businesses improve their digital operations and online presence.',
+      publisher: { '@id': `${origin}/#organization` },
+      inLanguage: 'en-US',
+    },
     {
       '@type': 'Organization',
       '@id': `${origin}/#organization`,
       name: 'BOTLYTICES',
       url: origin,
-      logo: `${origin}/src/assets/images/botlytices-logo.png`,
-      email: 'info@botlytices.com',
+      logo: `${origin}/assets/images/botlytices-logo.png`,
+      email: 'botlytices@gmail.com',
       telephone: '+923400320020',
       description:
         'Technology and digital solutions company providing Web Development, IT Support & Infrastructure, Digital Presence & Branding, AI Automation, and Security & Surveillance.',
@@ -164,14 +185,17 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
       ],
     },
     {
-      '@type': 'LocalBusiness',
-      '@id': `${origin}/#localbusiness`,
+      '@type': 'ProfessionalService',
+      '@id': `${origin}/#professionalservice`,
       name: 'BOTLYTICES',
       url: origin,
-      email: 'info@botlytices.com',
+      email: 'botlytices@gmail.com',
       telephone: '+923400320020',
+      priceRange: '$$',
+      image: `${origin}/assets/images/botlytices-logo.png`,
       description:
         'Technology partner delivering custom websites, IT infrastructure, local search & branding, AI voice & WhatsApp automation, and commercial CCTV & access control systems.',
+      areaServed: ['Worldwide', 'United States', 'United Kingdom', 'Canada', 'Australia', 'New Zealand', 'Ireland', 'United Arab Emirates'],
       sameAs: [
         'https://x.com/botlytices',
         'https://www.instagram.com/botlytices/',
@@ -202,17 +226,19 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
 
   if (articleSchema) {
     schemaGraph.push({
-      '@type': ['Article', 'BlogPosting'],
+      '@type': 'BlogPosting',
       headline: articleSchema.headline,
       description,
+      image: articleSchema.image || `${origin}/assets/images/botlytices-logo.png`,
       articleSection: articleSchema.category || 'Technology',
       keywords: articleSchema.keywords?.join(', ') || articleSchema.category,
       datePublished: articleSchema.datePublished,
       dateModified: articleSchema.dateModified,
       author: {
-        '@type': 'Organization',
+        '@type': 'Person',
         name: articleSchema.authorName,
-        jobTitle: articleSchema.authorRole,
+        jobTitle: articleSchema.authorRole || 'Technical Author',
+        sameAs: 'https://www.linkedin.com/in/muhammad-ali-husnain-nawab/',
       },
       publisher: { '@id': `${origin}/#organization` },
       mainEntityOfPage: {

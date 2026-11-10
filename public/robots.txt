@@ -1,8 +1,29 @@
-# Robots.txt for BOTLYTICES Digital Solutions
-# Allows full indexing for Google Search Console, Googlebot, Bingbot, and AI Search Crawlers
+# Robots.txt for BOTLYTICES Digital Solutions (https://botlytices.com/)
+# Allows full indexing for Google Search Console, Bingbot, Applebot, and AI Search Crawlers
 
 User-agent: *
 Allow: /
 
-# Direct Google Search Console to complete XML sitemap
+# Explicit Search Engine Rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Explicit AI Search & Assistant Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemaps & LLM Reference
 Sitemap: https://botlytices.com/sitemap.xml
+# LLM Manifest: https://botlytices.com/llms.txt

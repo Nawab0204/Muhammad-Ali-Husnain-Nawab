@@ -17,6 +17,7 @@ import { DivisionPageData, WEBSITE_INSPIRATION_REFERENCES } from '../data/siteAr
 import { PORTFOLIO_PROJECTS } from '../data/portfolioAndFaqs';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
 import { useApp } from '../context/AppContext';
+import { PricingRateCard } from './sections/PricingRateCard';
 
 interface DivisionLandingPageProps {
   division: DivisionPageData;
@@ -394,6 +395,13 @@ export const DivisionLandingPage: React.FC<DivisionLandingPageProps> = ({
           </div>
         </div>
       </section>
+
+      {/* DIVISION TRANSPARENT PRICING & RATE CARD */}
+      <PricingRateCard
+        initialDivisionId={division.id}
+        onOpenQuote={onOpenQuote}
+        onNavigate={onNavigate}
+      />
 
       {/* Division FAQs */}
       <section className="py-20 bg-[#F8FAFC] border-b border-[#E6EBF2]">

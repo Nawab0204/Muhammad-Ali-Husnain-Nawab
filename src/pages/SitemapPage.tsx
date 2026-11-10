@@ -74,7 +74,7 @@ export const SitemapPage: React.FC = () => {
       <section className="py-16 md:py-20 bg-[#F7F9FC] border-b border-[#E6EBF2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-xs font-bold text-[#006BFF] uppercase tracking-wider block mb-3">
+            <span className="text-xs font-bold text-[#0052CC] uppercase tracking-wider block mb-3">
               Search Index & Structure
             </span>
             <h1 className="text-3xl md:text-5xl font-extrabold text-[#0A1020] tracking-tight mb-4">
@@ -128,7 +128,7 @@ export const SitemapPage: React.FC = () => {
               href="/sitemap.xml"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#006BFF] hover:underline"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0052CC] hover:underline"
             >
               <span>View Raw XML Sitemap</span>
               <ExternalLink className="w-3.5 h-3.5" />

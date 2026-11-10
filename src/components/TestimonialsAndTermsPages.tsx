@@ -386,7 +386,7 @@ const TERMS_SECTIONS = [
     title: 'Contact Information',
     icon: Mail,
     paragraphs: [
-      'If you have any questions regarding these Terms & Conditions, project proposals, or service policies, please contact BOTLYTICES directly via our Contact page or email info@botlytices.com.',
+      'If you have any questions regarding these Terms & Conditions, project proposals, or service policies, please contact BOTLYTICES directly via our Contact page or email botlytices@gmail.com.',
     ],
   },
 ];

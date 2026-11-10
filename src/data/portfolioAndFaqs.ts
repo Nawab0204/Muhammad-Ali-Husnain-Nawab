@@ -72,8 +72,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       'Business Profiles & Local Presence',
     ],
     relatedServiceLinks: [
-      { label: 'Web Design & UI/UX', path: '/services/web-development/web-design-ui-ux' },
-      { label: 'Web Development', path: '/services/web-development/web-development' },
+      { label: 'Web Design, UI/UX & Web Development', path: '/services/web-development/web-design-ui-ux-development' },
       { label: 'SEO, Hosting & Website Care', path: '/services/web-development/seo-hosting-website-care' },
       { label: 'Business Profiles & Local Presence', path: '/services/digital-presence/business-profiles' },
     ],
@@ -146,7 +145,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       'SEO, Hosting & Website Care',
     ],
     relatedServiceLinks: [
-      { label: 'Web Development', path: '/services/web-development/web-development' },
+      { label: 'Web Design, UI/UX & Web Development', path: '/services/web-development/web-design-ui-ux-development' },
       { label: 'WhatsApp & Chat Automation', path: '/services/ai-automation/whatsapp-chat' },
       { label: 'SEO, Hosting & Website Care', path: '/services/web-development/seo-hosting-website-care' },
     ],
@@ -219,8 +218,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       'SEO, Hosting & Website Care',
     ],
     relatedServiceLinks: [
-      { label: 'Web Design & UI/UX', path: '/services/web-development/web-design-ui-ux' },
-      { label: 'Web Development', path: '/services/web-development/web-development' },
+      { label: 'Web Design, UI/UX & Web Development', path: '/services/web-development/web-design-ui-ux-development' },
       { label: 'Brand Identity & Logo Design', path: '/services/digital-presence/brand-identity' },
     ],
     shortDescription:

@@ -21,7 +21,15 @@ export const APP_CONSTANTS = {
     WHATSAPP: '+923557181347',
     WHATSAPP_FORMATTED: '+92 355 7181347',
     WHATSAPP_URL: 'https://wa.me/923557181347?text=Hello%20BOTLYTICES%2C%20I%20would%20like%20to%20discuss%20a%20project.',
-    EMAIL: 'info@botlytices.com',
+    EMAIL: 'botlytices@gmail.com',
+    PRIMARY_EMAIL: 'botlytices@gmail.com',
+    INFO_EMAIL: 'info@botlytices.com',
+  },
+  EMAILJS: {
+    SERVICE_ID: 'service_celhx6a',
+    TEMPLATE_ID: 'template_2ls8f9w',
+    PUBLIC_KEY: 'dMIkk7Bzv9al7M4bb',
+    PRIVATE_KEY: 'ecwUyElCdBTGyH5wbsLIy',
   },
   SOCIAL: {
     X: 'https://x.com/botlytices',
@@ -37,9 +45,8 @@ export const APP_CONSTANTS = {
     API_TIMEOUT_MS: 10000,
   },
   CONTACT_SERVICES: [
-    'Web Development',
-    'Web Design & UI/UX',
-    'Custom Web Development',
+    'Web Design, UI/UX & Web Development',
+    'Website Maintenance & Care (from $16/mo)',
     'E-commerce & Web Applications',
     'SEO, Hosting & Website Care',
     'IT Support & Infrastructure',

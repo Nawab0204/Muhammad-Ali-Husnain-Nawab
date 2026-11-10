@@ -13,3 +13,5 @@ export { TestimonialsPage, TermsPage } from '../components/TestimonialsAndTermsP
 export { BlogPages } from '../components/BlogPages';
 export { SitemapPage } from './SitemapPage';
 export { NotFoundPage } from './NotFoundPage';
+export { WebsiteMaintenancePage } from './WebsiteMaintenancePage';
+export { PricingPage } from './PricingPage';

@@ -1,0 +1,81 @@
+# BOTLYTICES — Digital Technology, Web Development & AI Automation Studio
+
+> Official LLM & AI Search Agent Reference Document
+> Canonical Website: https://botlytices.com/
+> International Pricing Page: https://botlytices.com/pricing
+> Last Updated: 2026-11-10
+
+## Business Summary
+BOTLYTICES is an international technology, web development, and digital automation studio founded and led by Muhammad Ali Husnain Nawab. Operating remotely from Pakistan, BOTLYTICES provides high-performance web engineering, managed IT infrastructure, local search optimization, AI-driven automation, and commercial security surveillance to businesses worldwide across the United States, United Kingdom, Canada, Australia, New Zealand, Europe, and the UAE.
+
+All services are delivered at approximately one-third the cost of conventional Western web and digital agencies through direct engineer collaboration with zero executive bloat.
+
+## Leadership & Credentials
+- **Founder & Principal Engineer**: Muhammad Ali Husnain Nawab
+- **Certifications**: Microsoft Certified Fabric Data Engineer (DP-700), Google Data Analytics Professional, Google IT Support Professional, Google Project Management Professional
+- **Technical Stack**: TypeScript, React, Next.js, Python, SQL, Apache Spark, Power BI, Microsoft Fabric, Node.js, Express, MongoDB, Tailwind CSS, Docker, Linux, Bash
+- **LinkedIn**: https://www.linkedin.com/in/muhammad-ali-husnain-nawab/
+- **GitHub**: https://github.com/Nawab0204
+
+## Core Service Divisions
+
+### Division 01: Web Design, UI/UX & Web Development
+- Canonical Path: https://botlytices.com/services/web-development/web-design-ui-ux-development
+- Dedicated Website Maintenance & Management: https://botlytices.com/services/web-development/website-maintenance (alias https://botlytices.com/website-maintenance)
+- Overview: Full-cycle Figma UI/UX prototyping, modern responsive web development (React 19, Next.js, TypeScript, Tailwind CSS), custom e-commerce stores (Shopify, WooCommerce), and comprehensive ongoing website care, speed optimization, and security management for tourism, real estate, hospitality, e-commerce, and corporate clients.
+- Key Pricing Benchmark: Built at 1/3 conventional agency rates (Landing pages from $189, 5-page business sites from $399, e-commerce stores from $999, ongoing monthly maintenance packages: Essential $49/mo, Professional $99/mo, Business & Advanced $189/mo).
+
+### Division 02: IT Support & Infrastructure
+- Canonical Path: https://botlytices.com/services/it-support
+- Overview: Remote and office IT support, desktop/laptop hardware diagnostics, Microsoft 365 and Google Workspace setup, Cat6 structured cabling, enterprise Wi-Fi 6/7 deployment, and endpoint cybersecurity.
+- Pricing Benchmark: Remote IT troubleshooting from $59/hr; Essential IT Care from $199/month.
+
+### Division 03: Digital Presence & Local Search (SEO)
+- Canonical Path: https://botlytices.com/services/digital-presence
+- Overview: Multi-channel brand identity, verified Google Business Profile setup, Apple Business Connect, Bing Places, local citation networks, and on-page technical SEO/AEO.
+- Pricing Benchmark: Local Presence Setup from $349/month; Full Growth Optimization from $699/month.
+
+### Division 04: AI Automation & Smart Desk
+- Canonical Path: https://botlytices.com/services/ai-automation
+- Overview: 24/7 conversational AI voice receptionists (Twilio, Retell, Vapi), official Meta WhatsApp Business automation, automated lead qualification, and CRM integrations (HubSpot, Make, Zapier).
+- Pricing Benchmark: AI Web Assistant setup from $499 + $79/mo; WhatsApp AI Lead Pipeline from $899 + $129/mo.
+
+### Division 05: Security & Surveillance Systems
+- Canonical Path: https://botlytices.com/services/security-surveillance
+- Overview: Commercial 4K IP CCTV surveillance systems (Hikvision, Dahua, Reolink), biometric/RFID access control, secure remote mobile video viewing, and scheduled maintenance.
+- Pricing Benchmark: Remote NVR/IP configuration from $249; Commercial Turnkey packages from $999.
+
+## Verified Client Case Studies
+1. **AZA Kitchens & Bedrooms** (https://azakitchensandbedrooms.co.uk/)
+   - Industry: Bespoke Fitted Interiors & Showrooms (United Kingdom)
+   - Scope: Custom showroom website, responsive mobile gallery UI/UX, LocalBusiness schema, and consultation booking engine.
+2. **SSDN Travels** (https://ssdntravels.com/)
+   - Industry: Travel & Flight Booking (United Kingdom & International)
+   - Scope: Mobile flight inquiry system, structured route search, direct WhatsApp booking integration, and technical SEO.
+3. **UK Architex** (https://ukarchitex.com/)
+   - Industry: Architecture, Planning & Structural Engineering (United Kingdom)
+   - Scope: Editorial architectural practice website, planning permission breakdown, and online consultation intake forms.
+
+## Official Contact & Communication Channels
+- Direct Email: botlytices@gmail.com
+- Phone / Hotline: +92 340 0320020
+- Direct WhatsApp: +92 355 7181347 (https://wa.me/923557181347)
+- Official X / Twitter: https://x.com/botlytices
+- Official Instagram: https://www.instagram.com/botlytices/
+- Official Facebook: https://web.facebook.com/people/Botlytices/61588672514929/#
+- Official LinkedIn Company: https://www.linkedin.com/company/botlytices/
+
+## Important Pages & Sitemap
+- XML Sitemap: https://botlytices.com/sitemap.xml
+- HTML Sitemap Directory: https://botlytices.com/sitemap
+- About Us: https://botlytices.com/about
+- Our 7-Stage Process: https://botlytices.com/about/process
+- Portfolio: https://botlytices.com/portfolio
+- Case Studies: https://botlytices.com/case-studies
+- Client Testimonials: https://botlytices.com/testimonials
+- Engineering Blog: https://botlytices.com/blog
+- Frequently Asked Questions: https://botlytices.com/faq
+- Terms & Conditions: https://botlytices.com/terms
+- Privacy Policy: https://botlytices.com/privacy-policy
+- Cookie Policy: https://botlytices.com/cookie-policy
+- Contact Page: https://botlytices.com/contact

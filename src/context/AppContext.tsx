@@ -24,6 +24,19 @@ const AppContext = createContext<AppContextType | null>(null);
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [currentPath, setCurrentPath] = useState<string>(() => {
     if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirectParam = urlParams.get('p');
+      if (redirectParam) {
+        const decoded = decodeURIComponent(redirectParam.replace(/~and~/g, '&'));
+        window.history.replaceState(null, '', decoded);
+        return decoded;
+      }
+      if (sessionStorage.redirect) {
+        const redirected = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        window.history.replaceState(null, '', redirected);
+        return redirected;
+      }
       return window.location.pathname || '/';
     }
     return '/';

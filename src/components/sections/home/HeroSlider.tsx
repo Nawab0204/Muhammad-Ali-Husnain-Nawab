@@ -120,7 +120,12 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onNavigate, onOpenQuote 
         >
           <img
             src={slide.image}
-            alt={slide.label}
+            alt={`BOTLYTICES ${slide.label} - ${slide.headline}`}
+            width={1920}
+            height={1080}
+            loading={idx === 0 ? 'eager' : 'lazy'}
+            fetchPriority={idx === 0 ? 'high' : 'low'}
+            decoding={idx === 0 ? 'sync' : 'async'}
             className="w-full h-full object-cover object-center filter brightness-[0.70] contrast-[1.05]"
           />
           {/* Deep Contrast Scrims */}

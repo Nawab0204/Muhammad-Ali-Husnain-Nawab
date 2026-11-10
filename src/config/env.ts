@@ -35,7 +35,7 @@ export const env: AppEnv = {
   appName: 'BOTLYTICES',
   appUrl: resolveAppUrl(),
   isProduction: import.meta.env.PROD || false,
-  contactEmail: 'info@botlytices.com',
+  contactEmail: 'botlytices@gmail.com',
   contactPhone: '+92 340 0320020',
   contactAddress: 'Remote & On-Site International Technical Delivery',
   apiBaseUrl: (import.meta.env.VITE_API_BASE_URL as string | undefined) || '/api',

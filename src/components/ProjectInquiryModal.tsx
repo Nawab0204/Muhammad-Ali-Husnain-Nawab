@@ -122,10 +122,11 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
             <form onSubmit={submit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#0A1020] mb-1.5">
+                  <label htmlFor="inquiry-name" className="block text-xs font-semibold text-[#0A1020] mb-1.5">
                     Your Name *
                   </label>
                   <input
+                    id="inquiry-name"
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFieldValue('name', e.target.value)}
@@ -138,10 +139,11 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#0A1020] mb-1.5">
+                  <label htmlFor="inquiry-company" className="block text-xs font-semibold text-[#0A1020] mb-1.5">
                     Company Name
                   </label>
                   <input
+                    id="inquiry-company"
                     type="text"
                     value={formData.companyName}
                     onChange={(e) => setFieldValue('companyName', e.target.value)}
@@ -153,10 +155,11 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#0A1020] mb-1.5">
+                  <label htmlFor="inquiry-location" className="block text-xs font-semibold text-[#0A1020] mb-1.5">
                     Target City / Service Location
                   </label>
                   <input
+                    id="inquiry-location"
                     type="text"
                     value={formData.location || ''}
                     onChange={(e) => setFieldValue('location', e.target.value)}
@@ -165,10 +168,11 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#0A1020] mb-1.5">
+                  <label htmlFor="inquiry-email" className="block text-xs font-semibold text-[#0A1020] mb-1.5">
                     Business Email *
                   </label>
                   <input
+                    id="inquiry-email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFieldValue('email', e.target.value)}
@@ -181,10 +185,11 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#0A1020] mb-1.5">
+                  <label htmlFor="inquiry-phone" className="block text-xs font-semibold text-[#0A1020] mb-1.5">
                     Phone / WhatsApp
                   </label>
                   <input
+                    id="inquiry-phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFieldValue('phone', e.target.value)}
@@ -199,10 +204,11 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#0A1020] mb-1.5">
+                  <label htmlFor="inquiry-service" className="block text-xs font-semibold text-[#0A1020] mb-1.5">
                     Service Required *
                   </label>
                   <select
+                    id="inquiry-service"
                     value={formData.selectedServices[0] || APP_CONSTANTS.CONTACT_SERVICES[0]}
                     onChange={(e) => setFieldValue('selectedServices', [e.target.value])}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] focus:outline-none focus:bg-white focus:border-[#006BFF]"
@@ -216,10 +222,11 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#0A1020] mb-1.5">
+                  <label htmlFor="inquiry-budget" className="block text-xs font-semibold text-[#0A1020] mb-1.5">
                     Estimated Budget Tier
                   </label>
                   <select
+                    id="inquiry-budget"
                     value={formData.budgetTier}
                     onChange={(e) => setFieldValue('budgetTier', e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-sm text-[#0A1020] focus:outline-none focus:bg-white focus:border-[#006BFF]"
@@ -256,10 +263,11 @@ export const ProjectInquiryModal: React.FC<ProjectInquiryModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#0A1020] mb-1.5">
+                <label htmlFor="inquiry-message" className="block text-xs font-semibold text-[#0A1020] mb-1.5">
                   Project Brief &amp; Requirements
                 </label>
                 <textarea
+                  id="inquiry-message"
                   rows={3}
                   value={formData.message}
                   onChange={(e) => setFieldValue('message', e.target.value)}

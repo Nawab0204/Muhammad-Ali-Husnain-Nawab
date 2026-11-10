@@ -21,7 +21,7 @@ export const HomeBlogSection: React.FC<HomeBlogSectionProps> = ({ onNavigate }) 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div className="max-w-2xl space-y-3">
-            <div className="text-xs font-mono font-bold text-[#006BFF] uppercase tracking-wider">
+            <div className="text-xs font-mono font-bold text-[#0052CC] uppercase tracking-wider">
               Knowledge Hub &amp; Articles
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0A1020] tracking-tight">
@@ -46,13 +46,17 @@ export const HomeBlogSection: React.FC<HomeBlogSectionProps> = ({ onNavigate }) 
             <article
               key={article.slug}
               onClick={() => navigate(`/blog/${article.slug}`)}
-              className="rounded-2xl bg-white border border-[#E6EBF2] overflow-hidden shadow-xs hover:shadow-xl hover:border-[#006BFF] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
+              className="rounded-2xl bg-white border border-[#E6EBF2] overflow-hidden shadow-xs hover:shadow-xl hover:border-[#0052CC] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
             >
               <div>
                 <div className="relative aspect-video bg-slate-100 overflow-hidden border-b border-[#E6EBF2]">
                   <img
                     src={article.image}
                     alt={article.imageAlt}
+                    width={640}
+                    height={360}
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -64,13 +68,13 @@ export const HomeBlogSection: React.FC<HomeBlogSectionProps> = ({ onNavigate }) 
                 <div className="p-6 space-y-3">
                   <div className="flex items-center justify-between text-xs text-[#5D687A]">
                     <span>{article.publishedDate}</span>
-                    <span className="inline-flex items-center gap-1 font-medium text-[#006BFF]">
+                    <span className="inline-flex items-center gap-1 font-medium text-[#0052CC]">
                       <BookOpen className="w-3.5 h-3.5" />
                       {article.readingTime}
                     </span>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0A1020] group-hover:text-[#006BFF] transition-colors leading-snug">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#0A1020] group-hover:text-[#0052CC] transition-colors leading-snug">
                     {article.title}
                   </h3>
 
@@ -80,7 +84,7 @@ export const HomeBlogSection: React.FC<HomeBlogSectionProps> = ({ onNavigate }) 
                 </div>
               </div>
 
-              <div className="px-6 py-4 bg-[#F8FAFC] border-t border-[#E6EBF2] flex items-center justify-between text-xs font-bold text-[#006BFF]">
+              <div className="px-6 py-4 bg-[#F8FAFC] border-t border-[#E6EBF2] flex items-center justify-between text-xs font-bold text-[#0052CC] group-hover:text-[#003E99]">
                 <span>Read Full Article</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </div>

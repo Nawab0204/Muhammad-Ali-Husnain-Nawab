@@ -17,6 +17,7 @@ import {
   BookOpen,
   HelpCircle,
   Scale,
+  DollarSign,
 } from 'lucide-react';
 import { DIVISIONS } from '../data/siteArchitecture';
 import { REGIONS_DATA, getRegionStats } from '../data/locationsData';
@@ -54,6 +55,13 @@ const ABOUT_MEGA_GROUPS = [
         description: 'Understand how projects move from idea to delivery.',
         path: '/about/process',
         icon: Compass,
+      },
+      {
+        number: '03',
+        title: 'International Pricing',
+        description: 'Transparent starting rates, service packages and regional currencies.',
+        path: '/pricing',
+        icon: DollarSign,
       },
     ],
   },
@@ -199,6 +207,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     currentPath.startsWith('/testimonials') ||
     currentPath.startsWith('/blog') ||
     currentPath === '/faq' ||
+    currentPath === '/pricing' ||
     currentPath === '/terms' ||
     currentPath === '/process';
 
@@ -250,6 +259,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() =>
                 setActiveDropdown(activeDropdown === 'services' ? null : 'services')
               }
+              aria-expanded={activeDropdown === 'services'}
+              aria-haspopup="true"
               className={`flex items-center gap-1.5 py-2 px-1 transition-colors cursor-pointer whitespace-nowrap nav-link-hover ${
                 isServicesActive
                   ? 'text-[#006BFF] font-semibold'
@@ -273,6 +284,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() =>
                 setActiveDropdown(activeDropdown === 'about' ? null : 'about')
               }
+              aria-expanded={activeDropdown === 'about'}
+              aria-haspopup="true"
               className={`flex items-center gap-1.5 py-2 px-1 transition-colors cursor-pointer whitespace-nowrap nav-link-hover ${
                 isAboutActive
                   ? 'text-[#006BFF] font-semibold'
@@ -302,6 +315,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
             className="lg:hidden p-2.5 rounded-xl text-[#0A1020] hover:bg-[#F3F7FC] border border-transparent hover:border-[#E6EBF2] transition-colors cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

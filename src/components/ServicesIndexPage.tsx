@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { DIVISIONS } from '../data/siteArchitecture';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
 import { useApp } from '../context/AppContext';
+import { PricingRateCard } from './sections/PricingRateCard';
 
 interface ServicesIndexPageProps {
   onNavigate?: (path: string) => void;
@@ -140,6 +141,13 @@ export const ServicesIndexPage: React.FC<ServicesIndexPageProps> = ({
           </div>
         ))}
       </section>
+
+      {/* GLOBAL 2026 INTERNATIONAL RATE CARD & RATE CALCULATOR */}
+      <PricingRateCard
+        initialDivisionId="web-development"
+        onOpenQuote={onOpenQuote}
+        onNavigate={onNavigate}
+      />
     </div>
   );
 };

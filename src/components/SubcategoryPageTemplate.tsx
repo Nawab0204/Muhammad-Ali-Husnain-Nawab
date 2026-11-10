@@ -11,6 +11,7 @@ import { SUBCATEGORY_PAGES } from '../data/subcategoryPages';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioAndFaqs';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
 import { ServiceVisualDiagram } from './ServiceVisualDiagram';
+import { PricingRateCard } from './sections/PricingRateCard';
 import { useApp } from '../context/AppContext';
 
 interface SubcategoryPageTemplateProps {
@@ -53,7 +54,7 @@ export const SubcategoryPageTemplate: React.FC<SubcategoryPageTemplateProps> = (
       <SeoAndBreadcrumb
         title={page.metaTitle}
         description={page.metaDescription}
-        path={page.path}
+        path={page.canonicalPath || page.path}
         breadcrumbs={[
           { label: 'Home', path: '/' },
           { label: 'Services', path: '/services' },
@@ -216,8 +217,8 @@ export const SubcategoryPageTemplate: React.FC<SubcategoryPageTemplateProps> = (
         </div>
       </section>
 
-      {/* Special Reference Gallery for Web Design & UI/UX Page */}
-      {page.slug === 'web-design-ui-ux' && (
+      {/* Special Reference Gallery for Web Design & UI/UX / Consolidated Web Dev Page */}
+      {(page.slug === 'web-design-ui-ux' || page.slug === 'web-design-ui-ux-development') && (
         <section className="py-20 bg-[#FFFFFF] border-b border-[#E6EBF2]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
@@ -487,6 +488,17 @@ export const SubcategoryPageTemplate: React.FC<SubcategoryPageTemplateProps> = (
           </div>
         </section>
       )}
+
+      {/* Transparent International Pricing Rate Card */}
+      <section className="py-16 bg-[#FFFFFF] border-b border-[#E6EBF2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PricingRateCard 
+            initialDivisionId={page.divisionId} 
+            onOpenQuote={(service) => onOpenQuote(service || page.title)}
+            onNavigate={onNavigate}
+          />
+        </div>
+      </section>
 
       {/* 11. Frequently Asked Questions */}
       <section className="py-20 bg-[#FFFFFF] border-b border-[#E6EBF2]">
