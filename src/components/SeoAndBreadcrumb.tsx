@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import { env } from '../config/env';
+import { CANONICAL_ORIGIN, buildCanonicalUrl } from '../config/routes';
 
 export interface BreadcrumbItem {
   label: string;
@@ -43,6 +43,7 @@ interface SeoAndBreadcrumbProps {
     timezone?: string;
   };
   hideVisualBreadcrumbs?: boolean;
+  noindex?: boolean;
 }
 
 export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
@@ -57,12 +58,13 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
   blogPostingList,
   locationSchema,
   hideVisualBreadcrumbs,
+  noindex = false,
 }) => {
   const { navigate: contextNavigate } = useApp();
   const handleNavigate = propNavigate || contextNavigate;
 
-  const origin = typeof window !== 'undefined' ? window.location.origin : env.appUrl;
-  const canonicalUrl = `${origin}${path === '/' ? '' : path}`;
+  const origin = CANONICAL_ORIGIN;
+  const canonicalUrl = buildCanonicalUrl(path, origin);
 
   useEffect(() => {
     document.title = title;
@@ -83,20 +85,39 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
       el.setAttribute(attr, content);
     };
 
-    // Canonical URL link element
+    const removeMetaTag = (selector: string) => {
+      const el = document.querySelector(selector);
+      if (el) el.remove();
+    };
+
+    // Canonical URL link element: never emit on noindex/404 pages
     let canonicalEl = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!canonicalEl) {
-      canonicalEl = document.createElement('link');
-      canonicalEl.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalEl);
+    if (noindex) {
+      if (canonicalEl) {
+        canonicalEl.remove();
+      }
+    } else {
+      if (!canonicalEl) {
+        canonicalEl = document.createElement('link');
+        canonicalEl.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonicalEl);
+      }
+      canonicalEl.setAttribute('href', canonicalUrl);
     }
-    canonicalEl.setAttribute('href', canonicalUrl);
 
     setMetaTag('meta[name="description"]', 'content', description);
-    setMetaTag('meta[name="robots"]', 'content', 'index, follow, max-image-preview:large');
+    setMetaTag(
+      'meta[name="robots"]',
+      'content',
+      noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'
+    );
     setMetaTag('meta[property="og:title"]', 'content', title);
     setMetaTag('meta[property="og:description"]', 'content', description);
-    setMetaTag('meta[property="og:url"]', 'content', canonicalUrl);
+    if (noindex) {
+      removeMetaTag('meta[property="og:url"]');
+    } else {
+      setMetaTag('meta[property="og:url"]', 'content', canonicalUrl);
+    }
     setMetaTag(
       'meta[property="og:type"]',
       'content',
@@ -135,7 +156,7 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
         setMetaTag('meta[name="keywords"]', 'content', articleSchema.keywords.join(', '));
       }
     }
-  }, [title, description, path, canonicalUrl, articleSchema, origin]);
+  }, [title, description, path, canonicalUrl, articleSchema, origin, noindex]);
 
   const schemaGraph: Record<string, unknown>[] = [
     {
@@ -209,7 +230,7 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
         '@type': 'ListItem',
         position: idx + 1,
         name: item.label,
-        item: item.path ? `${origin}${item.path}` : canonicalUrl,
+        item: item.path ? buildCanonicalUrl(item.path, origin) : canonicalUrl,
       })),
     },
   ];
@@ -318,15 +339,17 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': schemaGraph,
-          }),
-        }}
-      />
+      {!noindex && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': schemaGraph,
+            }),
+          }}
+        />
+      )}
       {!shouldHideVisual && (
         <div className="bg-[#F8FAFC] border-b border-[#E6EBF2]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -337,12 +360,18 @@ export const SeoAndBreadcrumb: React.FC<SeoAndBreadcrumbProps> = ({
                   <React.Fragment key={`${crumb.label}-${idx}`}>
                     {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8] shrink-0" />}
                     {crumb.path && !isLast ? (
-                      <button
-                        onClick={() => handleNavigate(crumb.path!)}
+                      <a
+                        href={crumb.path}
+                        onClick={(e) => {
+                          if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                            e.preventDefault();
+                            handleNavigate(crumb.path!);
+                          }
+                        }}
                         className="hover:text-[#006BFF] transition-colors cursor-pointer font-medium"
                       >
                         {crumb.label}
-                      </button>
+                      </a>
                     ) : (
                       <span className="text-[#0A1020] font-semibold truncate max-w-[260px] sm:max-w-none">
                         {crumb.label}

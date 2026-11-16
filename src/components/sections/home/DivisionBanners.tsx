@@ -42,13 +42,19 @@ export const DivisionBanners: React.FC<DivisionBannersProps> = ({ onNavigate, on
             </p>
           </div>
 
-          <button
-            onClick={() => navigate('/services')}
+          <a
+            href="/services"
+            onClick={(e) => {
+              if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                e.preventDefault();
+                navigate('/services');
+              }
+            }}
             className="px-6 py-3.5 text-xs sm:text-sm font-semibold bg-white text-[#0A1020] border border-[#006BFF] hover:bg-[#F3F7FC] hover:text-[#006BFF] rounded-full self-start md:self-auto flex items-center gap-2 cursor-pointer whitespace-nowrap transition-all shadow-xs"
           >
             <span>View Full Services Directory</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </div>
 
@@ -87,13 +93,19 @@ export const DivisionBanners: React.FC<DivisionBannersProps> = ({ onNavigate, on
                     </p>
 
                     <div className="flex flex-wrap items-center gap-4 pt-2">
-                      <button
-                        onClick={() => navigate(division.path)}
+                      <a
+                        href={division.path}
+                        onClick={(e) => {
+                          if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                            e.preventDefault();
+                            navigate(division.path);
+                          }
+                        }}
                         className="px-6 py-3.5 text-xs sm:text-sm font-semibold bg-[#006BFF] hover:bg-[#087CFF] text-white rounded-full inline-flex items-center gap-2 cursor-pointer shadow-md transition-all"
                       >
                         <span>Explore {division.title}</span>
                         <ArrowRight className="w-4 h-4" />
-                      </button>
+                      </a>
                       <button
                         onClick={() => handleOpenQuote(division.title)}
                         className="px-6 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white border border-white/25 text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
@@ -109,17 +121,15 @@ export const DivisionBanners: React.FC<DivisionBannersProps> = ({ onNavigate, on
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {division.subcategories.map((sub, subIdx) => (
-                    <div
+                    <a
                       key={sub.slug}
-                      onClick={() => navigate(sub.path)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
+                      href={sub.path}
+                      onClick={(e) => {
+                        if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
                           e.preventDefault();
                           navigate(sub.path);
                         }
                       }}
-                      role="link"
-                      tabIndex={0}
                       aria-label={`Explore ${sub.title} under ${division.title}`}
                       className="rounded-2xl bg-white border border-[#E6EBF2] overflow-hidden shadow-xs hover:shadow-xl hover:border-[#0052CC] focus:outline-none focus:ring-2 focus:ring-[#0052CC] focus:ring-offset-2 transition-all duration-300 flex flex-col justify-between cursor-pointer group"
                     >
@@ -167,7 +177,7 @@ export const DivisionBanners: React.FC<DivisionBannersProps> = ({ onNavigate, on
                         <span>Explore {sub.title}</span>
                         <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>

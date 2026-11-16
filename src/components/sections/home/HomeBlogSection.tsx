@@ -32,62 +32,78 @@ export const HomeBlogSection: React.FC<HomeBlogSectionProps> = ({ onNavigate }) 
             </p>
           </div>
 
-          <button
-            onClick={() => navigate('/blog')}
+          <a
+            href="/blog"
+            onClick={(e) => {
+              if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                e.preventDefault();
+                navigate('/blog');
+              }
+            }}
             className="px-6 py-3.5 text-xs sm:text-sm font-semibold bg-[#006BFF] hover:bg-[#087CFF] text-white rounded-full inline-flex items-center gap-2 cursor-pointer shrink-0 transition-all shadow-sm"
           >
             <span>View All Blog Articles</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {BLOG_ARTICLES.slice(0, 3).map((article) => (
             <article
               key={article.slug}
-              onClick={() => navigate(`/blog/${article.slug}`)}
-              className="rounded-2xl bg-white border border-[#E6EBF2] overflow-hidden shadow-xs hover:shadow-xl hover:border-[#0052CC] transition-all duration-300 flex flex-col justify-between cursor-pointer group"
+              className="rounded-2xl bg-white border border-[#E6EBF2] overflow-hidden shadow-xs hover:shadow-xl hover:border-[#0052CC] transition-all duration-300 group"
             >
-              <div>
-                <div className="relative aspect-video bg-slate-100 overflow-hidden border-b border-[#E6EBF2]">
-                  <img
-                    src={article.image}
-                    alt={article.imageAlt}
-                    width={640}
-                    height={360}
-                    loading="lazy"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-md bg-[#07152E]/85 text-[11px] font-mono font-bold text-[#00C8FF]">
-                    {article.category}
+              <a
+                href={`/blog/${article.slug}`}
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                    e.preventDefault();
+                    navigate(`/blog/${article.slug}`);
+                  }
+                }}
+                className="flex flex-col justify-between h-full cursor-pointer"
+              >
+                <div>
+                  <div className="relative aspect-video bg-slate-100 overflow-hidden border-b border-[#E6EBF2]">
+                    <img
+                      src={article.image}
+                      alt={article.imageAlt}
+                      width={640}
+                      height={360}
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3 px-3 py-1 rounded-md bg-[#07152E]/85 text-[11px] font-mono font-bold text-[#00C8FF]">
+                      {article.category}
+                    </div>
+                  </div>
+
+                  <div className="p-6 space-y-3">
+                    <div className="flex items-center justify-between text-xs text-[#5D687A]">
+                      <span>{article.publishedDate}</span>
+                      <span className="inline-flex items-center gap-1 font-medium text-[#0052CC]">
+                        <BookOpen className="w-3.5 h-3.5" />
+                        {article.readingTime}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-bold text-[#0A1020] group-hover:text-[#0052CC] transition-colors leading-snug">
+                      {article.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-[#5D687A] leading-relaxed line-clamp-3">
+                      {article.excerpt}
+                    </p>
                   </div>
                 </div>
 
-                <div className="p-6 space-y-3">
-                  <div className="flex items-center justify-between text-xs text-[#5D687A]">
-                    <span>{article.publishedDate}</span>
-                    <span className="inline-flex items-center gap-1 font-medium text-[#0052CC]">
-                      <BookOpen className="w-3.5 h-3.5" />
-                      {article.readingTime}
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg sm:text-xl font-bold text-[#0A1020] group-hover:text-[#0052CC] transition-colors leading-snug">
-                    {article.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-[#5D687A] leading-relaxed line-clamp-3">
-                    {article.excerpt}
-                  </p>
+                <div className="px-6 py-4 bg-[#F8FAFC] border-t border-[#E6EBF2] flex items-center justify-between text-xs font-bold text-[#0052CC] group-hover:text-[#003E99]">
+                  <span>Read Full Article</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
-              </div>
-
-              <div className="px-6 py-4 bg-[#F8FAFC] border-t border-[#E6EBF2] flex items-center justify-between text-xs font-bold text-[#0052CC] group-hover:text-[#003E99]">
-                <span>Read Full Article</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </div>
+              </a>
             </article>
           ))}
         </div>

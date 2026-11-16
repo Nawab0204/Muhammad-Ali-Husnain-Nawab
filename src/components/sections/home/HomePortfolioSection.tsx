@@ -33,18 +33,30 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
           </div>
 
           <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigate('/portfolio')}
+            <a
+              href="/portfolio"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  navigate('/portfolio');
+                }
+              }}
               className="px-6 py-3.5 text-xs sm:text-sm font-semibold bg-white border border-[#0052CC] text-[#0A1020] hover:bg-[#F3F7FC] hover:text-[#0052CC] rounded-full cursor-pointer whitespace-nowrap transition-all"
             >
               View Full Portfolio
-            </button>
-            <button
-              onClick={() => navigate('/case-studies')}
+            </a>
+            <a
+              href="/case-studies"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  navigate('/case-studies');
+                }
+              }}
               className="px-6 py-3.5 text-xs sm:text-sm font-semibold bg-[#006BFF] hover:bg-[#087CFF] text-white rounded-full cursor-pointer whitespace-nowrap transition-all shadow-sm"
             >
               Read Case Studies
-            </button>
+            </a>
           </div>
         </div>
 
@@ -54,9 +66,16 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
               key={project.id}
               className="rounded-2xl bg-white border border-[#E6EBF2] overflow-hidden shadow-sm hover:shadow-xl hover:border-[#0052CC]/50 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 group"
             >
-              <div
-                onClick={() => navigate(`/portfolio/${project.slug}`)}
-                className={`lg:col-span-7 relative aspect-video bg-slate-100 overflow-hidden cursor-pointer ${
+              <a
+                href={`/portfolio/${project.slug}`}
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                    e.preventDefault();
+                    navigate(`/portfolio/${project.slug}`);
+                  }
+                }}
+                aria-label={`View ${project.name} portfolio project`}
+                className={`lg:col-span-7 relative aspect-video bg-slate-100 overflow-hidden cursor-pointer block ${
                   index % 2 === 1
                     ? 'lg:order-2 border-b lg:border-b-0 lg:border-l border-[#E6EBF2]'
                     : 'border-b lg:border-b-0 lg:border-r border-[#E6EBF2]'
@@ -75,7 +94,7 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
                 <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-md bg-[#07152E]/85 backdrop-blur-xs text-xs font-mono font-bold text-white">
                   0{index + 1} · {project.location}
                 </div>
-              </div>
+              </a>
 
               <div
                 className={`lg:col-span-5 p-7 sm:p-10 flex flex-col justify-between ${
@@ -89,11 +108,19 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
                     <span>{project.categories.join(' / ')}</span>
                   </div>
 
-                  <h3
-                    onClick={() => navigate(`/portfolio/${project.slug}`)}
-                    className="text-2xl sm:text-3xl font-extrabold text-[#0A1020] group-hover:text-[#0052CC] transition-colors cursor-pointer"
-                  >
-                    {project.name}
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0A1020] group-hover:text-[#0052CC] transition-colors">
+                    <a
+                      href={`/portfolio/${project.slug}`}
+                      onClick={(e) => {
+                        if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                          e.preventDefault();
+                          navigate(`/portfolio/${project.slug}`);
+                        }
+                      }}
+                      className="cursor-pointer"
+                    >
+                      {project.name}
+                    </a>
                   </h3>
 
                   <p className="text-sm sm:text-base text-[#5D687A] leading-relaxed">
@@ -126,19 +153,31 @@ export const HomePortfolioSection: React.FC<HomePortfolioSectionProps> = ({ onNa
 
                 <div className="pt-6 mt-6 border-t border-[#E6EBF2] flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
-                    <button
-                      onClick={() => navigate(`/portfolio/${project.slug}`)}
+                    <a
+                      href={`/portfolio/${project.slug}`}
+                      onClick={(e) => {
+                        if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                          e.preventDefault();
+                          navigate(`/portfolio/${project.slug}`);
+                        }
+                      }}
                       className="px-5 py-2.5 text-xs sm:text-sm font-semibold bg-[#006BFF] hover:bg-[#087CFF] text-white rounded-full inline-flex items-center gap-2 cursor-pointer shadow-sm transition-all"
                     >
                       <span>View Project</span>
                       <ArrowRight className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={() => navigate(`/case-studies/${project.slug}`)}
+                    </a>
+                    <a
+                      href={`/case-studies/${project.slug}`}
+                      onClick={(e) => {
+                        if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                          e.preventDefault();
+                          navigate(`/case-studies/${project.slug}`);
+                        }
+                      }}
                       className="text-xs sm:text-sm font-bold text-[#006BFF] hover:underline cursor-pointer"
                     >
                       Case Study
-                    </button>
+                    </a>
                   </div>
 
                   {project.url && (

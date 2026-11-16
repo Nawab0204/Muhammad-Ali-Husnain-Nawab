@@ -102,7 +102,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     relatedServiceLinks: [
       { label: 'SEO, Hosting & Website Care', path: '/services/web-development/seo-hosting-website-care' },
       { label: 'Business Profiles & Local Presence', path: '/services/digital-presence/business-profiles' },
-      { label: 'Web Development', path: '/services/web-development/web-development' },
+      { label: 'Web Design, UI/UX & Web Development', path: '/services/web-development/web-design-ui-ux-development' },
     ],
     sections: [
       {
@@ -206,8 +206,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     metaDescription:
       'Discover how information architecture, mobile-first UI/UX design, fast page speed, and clear CTAs help business websites convert visitors into inquiries.',
     relatedServiceLinks: [
-      { label: 'Web Design & UI/UX', path: '/services/web-development/web-design-ui-ux' },
-      { label: 'Web Development', path: '/services/web-development/web-development' },
+      { label: 'Web Design, UI/UX & Web Development', path: '/services/web-development/web-design-ui-ux-development' },
+      { label: 'Website Maintenance & Care', path: '/services/web-development/website-maintenance' },
       { label: 'E-commerce & Web Applications', path: '/services/web-development/ecommerce-web-applications' },
     ],
     sections: [

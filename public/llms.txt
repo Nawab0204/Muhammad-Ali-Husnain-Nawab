@@ -21,7 +21,7 @@ All services are delivered at approximately one-third the cost of conventional W
 
 ### Division 01: Web Design, UI/UX & Web Development
 - Canonical Path: https://botlytices.com/services/web-development/web-design-ui-ux-development
-- Dedicated Website Maintenance & Management: https://botlytices.com/services/web-development/website-maintenance (alias https://botlytices.com/website-maintenance)
+- Dedicated Website Maintenance & Management: https://botlytices.com/services/web-development/website-maintenance
 - Overview: Full-cycle Figma UI/UX prototyping, modern responsive web development (React 19, Next.js, TypeScript, Tailwind CSS), custom e-commerce stores (Shopify, WooCommerce), and comprehensive ongoing website care, speed optimization, and security management for tourism, real estate, hospitality, e-commerce, and corporate clients.
 - Key Pricing Benchmark: Built at 1/3 conventional agency rates (Landing pages from $189, 5-page business sites from $399, e-commerce stores from $999, ongoing monthly maintenance packages: Essential $49/mo, Professional $99/mo, Business & Advanced $189/mo).
 

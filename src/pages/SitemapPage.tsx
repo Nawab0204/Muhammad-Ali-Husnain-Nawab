@@ -140,9 +140,15 @@ export const SitemapPage: React.FC = () => {
             {filteredRoutes.map((route) => {
               const Icon = getCategoryIcon(route.category);
               return (
-                <div
+                <a
                   key={route.path}
-                  onClick={() => navigate(route.path)}
+                  href={route.path}
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      navigate(route.path);
+                    }
+                  }}
                   className="bg-white border border-[#E6EBF2] rounded-2xl p-5 hover:border-[#006BFF] hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between group"
                 >
                   <div>
@@ -172,7 +178,7 @@ export const SitemapPage: React.FC = () => {
                       {route.changefreq}
                     </span>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>

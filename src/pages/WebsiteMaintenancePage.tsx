@@ -256,7 +256,7 @@ export const WebsiteMaintenancePage: React.FC<WebsiteMaintenancePageProps> = ({
       <SeoAndBreadcrumb
         title="Website Maintenance Services | Security, Support & Optimization | Botlytices"
         description="Professional website maintenance services for businesses. Security updates, backups, speed optimization, technical support and ongoing website management for tourism, real estate and more."
-        path="https://botlytices.com/services/web-development/website-maintenance"
+        path="/services/web-development/website-maintenance"
         breadcrumbs={[
           { label: 'Home', path: '/' },
           { label: 'Services', path: '/services' },
@@ -1125,7 +1125,7 @@ export const WebsiteMaintenancePage: React.FC<WebsiteMaintenancePageProps> = ({
               { title: 'Booking & Reservation Systems', desc: 'Tour, room, or consultation slot selection, calendar synchronization, and notifications.' },
               { title: 'Payment Gateways & Checkout', desc: 'Stripe, PayPal, and merchant gateway connectivity tests and error logs.' },
               { title: 'Broken Links & 404s', desc: 'Automated crawl audits to identify broken hyperlinks and configure 301 redirects.' },
-              { title: 'Redirects & Canonical URLs', desc: 'Validation of non-www to www consistency and canonical tags to prevent duplicate indexing.' },
+              { title: 'Redirects & Canonical URLs', desc: 'Validation of www to non-www consistency and canonical tags to prevent duplicate indexing.' },
               { title: 'Plugin & Software Updates', desc: 'Compatibility verification in staging prior to production deployment.' },
               { title: 'Database Health & Optimization', desc: 'Clearing transient data, post revisions, and optimizing database indexes.' },
               { title: 'Automated Backup Integrity', desc: 'Verifying daily database dumps and off-site cloud storage availability.' },
@@ -1377,7 +1377,7 @@ export const WebsiteMaintenancePage: React.FC<WebsiteMaintenancePageProps> = ({
 
               <div className="p-6 pt-0">
                 <button
-                  onClick={() => onNavigate('/case-studies/ssdn-travels')}
+                  onClick={() => onNavigate('/case-studies/ssdn-travels-platform')}
                   className="w-full py-2.5 text-xs font-semibold btn-secondary-outline rounded-xl cursor-pointer"
                 >
                   View Complete SSDN Case Study
@@ -1452,7 +1452,7 @@ export const WebsiteMaintenancePage: React.FC<WebsiteMaintenancePageProps> = ({
 
               <div className="p-6 pt-0">
                 <button
-                  onClick={() => onNavigate('/case-studies/uk-architex')}
+                  onClick={() => onNavigate('/case-studies/uk-architex-architecture')}
                   className="w-full py-2.5 text-xs font-semibold btn-secondary-outline rounded-xl cursor-pointer"
                 >
                   View Complete Architex Case Study

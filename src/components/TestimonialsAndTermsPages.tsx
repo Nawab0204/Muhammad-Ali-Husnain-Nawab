@@ -401,7 +401,7 @@ export const TermsPage: React.FC<{ onNavigate?: (path: string) => void }> = ({
       <SeoAndBreadcrumb
         title="Terms & Conditions | BOTLYTICES Service Policies"
         description="Company policies, project scope terms, intellectual property, third-party integrations, and support terms for BOTLYTICES services."
-        path="/terms"
+        path="/terms-of-service"
         breadcrumbs={[
           { label: 'Home', path: '/' },
           { label: 'About', path: '/about' },

@@ -14,12 +14,32 @@ export interface RouteDefinition {
   breadcrumbLabel: string;
 }
 
+export const CANONICAL_ORIGIN = 'https://botlytices.com';
+
+export const normalizeRoutePath = (path: string): string => {
+  if (!path) return '/';
+  let clean = path.trim();
+  // Strip origin if mistakenly passed a full URL
+  clean = clean.replace(/^https?:\/\/[^/]+/i, '');
+  // Strip query string and hash
+  clean = clean.split('?')[0].split('#')[0];
+  if (!clean.startsWith('/')) clean = `/${clean}`;
+  clean = clean.replace(/\/+$/, '');
+  return clean || '/';
+};
+
+export const buildCanonicalUrl = (path: string, origin = CANONICAL_ORIGIN): string => {
+  const base = origin.replace(/\/+$/, '');
+  const normalized = normalizeRoutePath(path);
+  return normalized === '/' ? `${base}/` : `${base}${normalized}`;
+};
+
 export const APP_ROUTES: RouteDefinition[] = [
   // Core Top-Level Routes
   {
     path: '/',
-    title: 'BOTLYTICES | Digital Technology, Web & AI Automation Studio',
-    description: 'BOTLYTICES helps modern businesses build high-performance websites, maintain IT hardware & networks, amplify digital search presence, and automate workflows with 24/7 AI.',
+    title: 'BOTLYTICES | Web Development, IT Support & AI Automation',
+    description: 'BOTLYTICES provides web development, IT support, SEO and AI automation to help businesses improve their digital operations and online presence.',
     category: 'core',
     priority: 1.0,
     changefreq: 'weekly',
@@ -27,8 +47,8 @@ export const APP_ROUTES: RouteDefinition[] = [
   },
   {
     path: '/services',
-    title: 'All Technical Services & Divisions | BOTLYTICES',
-    description: 'Explore the 5 core divisions of BOTLYTICES: Web Development, IT Support, Digital Presence, AI Automation, and Security & Surveillance.',
+    title: 'All Technology & Digital Services Directory | BOTLYTICES',
+    description: 'Explore all 5 major divisions and 20 specialized technology services: Web Development, IT Support & Infrastructure, Digital Presence & Branding, AI Automation, and Security & Surveillance.',
     category: 'core',
     priority: 0.9,
     changefreq: 'weekly',
@@ -67,8 +87,8 @@ export const APP_ROUTES: RouteDefinition[] = [
   },
   {
     path: '/portfolio',
-    title: 'Client Work & Engineering Portfolio | BOTLYTICES',
-    description: 'Browse production web applications, e-commerce stores, and digital transformations delivered by BOTLYTICES.',
+    title: 'Portfolio — Selected Work & Digital Solutions | BOTLYTICES',
+    description: 'Explore websites, digital systems, branding and technology projects built to help businesses grow and operate more effectively.',
     category: 'core',
     priority: 0.8,
     changefreq: 'weekly',
@@ -77,8 +97,8 @@ export const APP_ROUTES: RouteDefinition[] = [
   },
   {
     path: '/case-studies',
-    title: 'Technical Case Studies & Quantified Results | BOTLYTICES',
-    description: 'In-depth case studies detailing engineering challenges, architectural solutions, and measurable business outcomes for enterprise clients.',
+    title: 'Case Studies — Real Problems, Practical Solutions & Results | BOTLYTICES',
+    description: 'Explore how we help businesses solve challenges through web development, IT support, digital presence, AI automation and security solutions.',
     category: 'core',
     priority: 0.8,
     changefreq: 'weekly',
@@ -97,8 +117,8 @@ export const APP_ROUTES: RouteDefinition[] = [
   },
   {
     path: '/blog',
-    title: 'Engineering Blog & Technical Insights | BOTLYTICES',
-    description: 'In-depth technical articles on web performance, SEO, AI agents, enterprise cybersecurity, cloud networking, and IT automation.',
+    title: 'Insights, Guides & Technology Updates | BOTLYTICES Blog',
+    description: 'Practical articles on websites, SEO, AI automation, IT systems, digital presence and business technology.',
     category: 'core',
     priority: 0.8,
     changefreq: 'daily',
@@ -128,7 +148,7 @@ export const APP_ROUTES: RouteDefinition[] = [
   {
     path: '/terms-of-service',
     title: 'Terms of Service | Botlytices',
-    description: 'These Terms of Service govern your access to the Botlytices website and the purchase or use of services provided by Botlytices across web development, IT, digital branding, AI automation, and security.',
+    description: 'Official Terms of Service for BOTLYTICES web development, IT support, digital presence, AI automation, and CCTV security installations.',
     category: 'legal',
     priority: 0.5,
     changefreq: 'monthly',
@@ -136,19 +156,9 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'Terms of Service',
   },
   {
-    path: '/terms',
-    title: 'Terms of Service | Botlytices',
-    description: 'Official Terms of Service for BOTLYTICES clients and website visitors.',
-    category: 'legal',
-    priority: 0.4,
-    changefreq: 'monthly',
-    parentPath: '/',
-    breadcrumbLabel: 'Terms & Conditions',
-  },
-  {
     path: '/privacy-policy',
     title: 'Privacy Policy | Botlytices',
-    description: 'Learn what information Botlytices collects, why we collect it, how we protect it, when it may be shared, and what rights individuals have under applicable privacy laws.',
+    description: 'Official Privacy Policy for BOTLYTICES explaining how personal data, technical credentials, and analytics are processed in compliance with GDPR, UK DPA, and international standards.',
     category: 'legal',
     priority: 0.5,
     changefreq: 'monthly',
@@ -158,7 +168,7 @@ export const APP_ROUTES: RouteDefinition[] = [
   {
     path: '/refund-policy',
     title: 'Refund & Cancellation Policy | Botlytices',
-    description: 'Transparent commercial billing policy explaining how cancellations, refunds, project withdrawals, subscription termination, and service-related disputes are handled at Botlytices.',
+    description: 'Official Refund & Cancellation Policy for BOTLYTICES covering milestone payments, custom development, recurring subscriptions, and statutory cooling-off rights.',
     category: 'legal',
     priority: 0.5,
     changefreq: 'monthly',
@@ -177,8 +187,8 @@ export const APP_ROUTES: RouteDefinition[] = [
   },
   {
     path: '/sitemap',
-    title: 'HTML Site Map & Index Directory | BOTLYTICES',
-    description: 'Complete directory of all pages, service categories, case studies, and engineering articles on the BOTLYTICES platform.',
+    title: 'Complete Site Map & Architecture Directory | BOTLYTICES',
+    description: 'Comprehensive directory of all technical pages, service divisions, specialized subcategories, global location hubs, portfolio case studies, and engineering blog articles.',
     category: 'core',
     priority: 0.5,
     changefreq: 'weekly',
@@ -189,8 +199,8 @@ export const APP_ROUTES: RouteDefinition[] = [
   // 5 Major Service Divisions
   {
     path: '/services/web-development',
-    title: 'Web Development Division | BOTLYTICES',
-    description: 'Enterprise web development, Next.js applications, responsive UI/UX systems, e-commerce architectures, and cloud care.',
+    title: 'Web Development, UI/UX, E-Commerce & SEO | BOTLYTICES',
+    description: 'Websites designed to look exceptional and built to perform. Full lifecycle web design, custom development, e-commerce applications, and SEO/AEO care.',
     category: 'service-division',
     priority: 0.9,
     changefreq: 'weekly',
@@ -199,8 +209,8 @@ export const APP_ROUTES: RouteDefinition[] = [
   },
   {
     path: '/services/it-support',
-    title: 'IT Support & Infrastructure Division | BOTLYTICES',
-    description: 'Proactive IT hardware management, managed system support, enterprise Wi-Fi networking, and cybersecurity hardening.',
+    title: 'IT Support, Networking, Hardware & Cybersecurity | BOTLYTICES',
+    description: 'Reliable business IT support covering workstation hardware, Microsoft 365 software, structured Cat6 networking, commercial Wi-Fi, and defensive cybersecurity.',
     category: 'service-division',
     priority: 0.9,
     changefreq: 'weekly',
@@ -209,8 +219,8 @@ export const APP_ROUTES: RouteDefinition[] = [
   },
   {
     path: '/services/digital-presence',
-    title: 'Digital Presence & Branding Division | BOTLYTICES',
-    description: 'Brand identity systems, high-converting social media creative, Google Business Profile local presence, and growth marketing.',
+    title: 'Digital Presence, Brand Identity, Google Maps & Social | BOTLYTICES',
+    description: 'Make your business look professional everywhere customers find you. Brand identity, social media management, Google Business Profile, and local growth.',
     category: 'service-division',
     priority: 0.9,
     changefreq: 'weekly',
@@ -219,8 +229,8 @@ export const APP_ROUTES: RouteDefinition[] = [
   },
   {
     path: '/services/ai-automation',
-    title: 'AI Automation Division | BOTLYTICES',
-    description: 'Autonomous AI voice agents, WhatsApp business bots, intelligent inbound lead qualification, and end-to-end workflow automation.',
+    title: 'AI Automation, Voice Assistants, WhatsApp & Workflows | BOTLYTICES',
+    description: 'Let technology handle the repetitive work. 24/7 AI phone voice assistants, WhatsApp chat automation, automated lead qualification, and CRM workflows.',
     category: 'service-division',
     priority: 0.9,
     changefreq: 'weekly',
@@ -229,8 +239,8 @@ export const APP_ROUTES: RouteDefinition[] = [
   },
   {
     path: '/services/security-surveillance',
-    title: 'Security & Surveillance Division | BOTLYTICES',
-    description: 'Commercial CCTV camera surveillance, biometric access control, 24/7 remote monitoring stations, and security infrastructure maintenance.',
+    title: 'Security & Surveillance: CCTV, Access Control & Monitoring | BOTLYTICES',
+    description: 'Protect your property, people and business with commercial HD/4K IP CCTV systems, biometric access control, remote mobile monitoring, and ongoing maintenance.',
     category: 'service-division',
     priority: 0.9,
     changefreq: 'weekly',
@@ -238,7 +248,27 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'Security & Surveillance',
   },
 
-  // Subcategories — Division 1: Web Development (Consolidated Design, Development & Care)
+  // Subcategories — Division 1: Web Development
+  {
+    path: '/services/web-development/web-design-ui-ux-development',
+    title: 'Web Design, UI/UX, Development & Website Care | BOTLYTICES',
+    description: 'Unified Figma UI/UX design, custom full-stack web development, and proactive business website maintenance at one-third conventional agency rates.',
+    category: 'service-subcategory',
+    priority: 0.9,
+    changefreq: 'monthly',
+    parentPath: '/services/web-development',
+    breadcrumbLabel: 'Web Design, UI/UX & Web Dev',
+  },
+  {
+    path: '/services/web-development/ecommerce-web-applications',
+    title: 'E-Commerce Stores & Custom Web Applications | Shopify, Portals & Dashboards | BOTLYTICES',
+    description: 'High-speed online shopping experiences, custom checkouts, inventory synchronization, and web apps.',
+    category: 'service-subcategory',
+    priority: 0.8,
+    changefreq: 'monthly',
+    parentPath: '/services/web-development',
+    breadcrumbLabel: 'E-commerce & Web Apps',
+  },
   {
     path: '/services/web-development/website-maintenance',
     title: 'Website Maintenance Services | Security, Support & Optimization | Botlytices',
@@ -250,58 +280,8 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'Website Maintenance & Management',
   },
   {
-    path: '/website-maintenance',
-    title: 'Website Maintenance Services | Security, Support & Optimization | Botlytices',
-    description: 'Professional website maintenance services for businesses. Security updates, backups, speed optimization, technical support and ongoing website management for tourism, real estate and more.',
-    category: 'service-subcategory',
-    priority: 0.9,
-    changefreq: 'weekly',
-    parentPath: '/services/web-development',
-    breadcrumbLabel: 'Website Maintenance & Management',
-  },
-  {
-    path: '/services/web-development/web-design-ui-ux-development',
-    title: 'Web Design, UI/UX & Web Development | BOTLYTICES',
-    description: 'Unified Figma UI/UX design, custom full-stack web development, and proactive business website maintenance at one-third conventional agency rates.',
-    category: 'service-subcategory',
-    priority: 0.9,
-    changefreq: 'monthly',
-    parentPath: '/services/web-development',
-    breadcrumbLabel: 'Web Design, UI/UX & Web Dev',
-  },
-  {
-    path: '/services/web-development/web-design-ui-ux',
-    title: 'Web Design & UI/UX Systems | BOTLYTICES',
-    description: 'Design systems, high-converting user interfaces, and wireframes built for maximum engagement and brand authority.',
-    category: 'service-subcategory',
-    priority: 0.8,
-    changefreq: 'monthly',
-    parentPath: '/services/web-development',
-    breadcrumbLabel: 'Web Design & UI/UX',
-  },
-  {
-    path: '/services/web-development/custom-web-development',
-    title: 'Custom Web Development & Engineering | BOTLYTICES',
-    description: 'Performant web applications engineered with modern TypeScript, React, and scalable cloud APIs.',
-    category: 'service-subcategory',
-    priority: 0.8,
-    changefreq: 'monthly',
-    parentPath: '/services/web-development',
-    breadcrumbLabel: 'Custom Web Development',
-  },
-  {
-    path: '/services/web-development/ecommerce-web-applications',
-    title: 'E-commerce & Web Applications | BOTLYTICES',
-    description: 'High-speed online shopping experiences, custom checkouts, inventory synchronization, and web apps.',
-    category: 'service-subcategory',
-    priority: 0.8,
-    changefreq: 'monthly',
-    parentPath: '/services/web-development',
-    breadcrumbLabel: 'E-commerce & Web Apps',
-  },
-  {
     path: '/services/web-development/seo-hosting-website-care',
-    title: 'SEO, Hosting & Website Care | BOTLYTICES',
+    title: 'SEO, AEO/GEO AI Visibility, Managed Hosting & Website Care | BOTLYTICES',
     description: 'Enterprise cloud hosting, automated backups, Core Web Vitals optimization, and 24/7 technical monitoring.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -313,7 +293,7 @@ export const APP_ROUTES: RouteDefinition[] = [
   // Subcategories — Division 2: IT Support
   {
     path: '/services/it-support/hardware-device-support',
-    title: 'Hardware & Device Support | BOTLYTICES',
+    title: 'Hardware & Device Support | Desktops, Laptops, Printers & Upgrades | BOTLYTICES',
     description: 'Workstation maintenance, hardware provisioning, diagnostic repairs, and fleet lifecycle management.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -323,7 +303,7 @@ export const APP_ROUTES: RouteDefinition[] = [
   },
   {
     path: '/services/it-support/software-system-support',
-    title: 'Software & System Support | BOTLYTICES',
+    title: 'Software & System Support | Windows, Microsoft 365 & Email Setup | BOTLYTICES',
     description: 'Operating system configuration, cloud software integration, active directory management, and helpdesk support.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -332,8 +312,8 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'Software & System Support',
   },
   {
-    path: '/services/it-support/networking-wifi-solutions',
-    title: 'Networking & Enterprise Wi-Fi Solutions | BOTLYTICES',
+    path: '/services/it-support/networking-wifi',
+    title: 'Business Networking, Structured Cabling & Commercial Wi-Fi | BOTLYTICES',
     description: 'Commercial mesh Wi-Fi, VLAN segmentation, switch & router configuration, and low-latency network architecture.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -342,8 +322,8 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'Networking & Wi-Fi',
   },
   {
-    path: '/services/it-support/cybersecurity-it-security',
-    title: 'Cybersecurity & IT Infrastructure Protection | BOTLYTICES',
+    path: '/services/it-support/cybersecurity',
+    title: 'Business Cybersecurity & Defensive IT Security | EDR, Firewall & MFA | BOTLYTICES',
     description: 'Endpoint protection, automated vulnerability assessments, zero-trust firewalls, and ransomware prevention.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -354,8 +334,8 @@ export const APP_ROUTES: RouteDefinition[] = [
 
   // Subcategories — Division 3: Digital Presence
   {
-    path: '/services/digital-presence/brand-identity-logo-design',
-    title: 'Brand Identity & Logo Design | BOTLYTICES',
+    path: '/services/digital-presence/brand-identity',
+    title: 'Brand Identity & Logo Design | Guidelines, Kits & Graphics | BOTLYTICES',
     description: 'Visual brand systems, distinctive logo suites, typographic guidelines, and corporate stylebooks.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -364,8 +344,8 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'Brand Identity & Logo Design',
   },
   {
-    path: '/services/digital-presence/social-media-content-creation',
-    title: 'Social Media & Content Creation | BOTLYTICES',
+    path: '/services/digital-presence/social-media-content',
+    title: 'Social Media Setup, Content Design & Management | BOTLYTICES',
     description: 'High-retention social content pipelines, motion graphics, strategic copywriting, and brand storytelling.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -374,18 +354,18 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'Social Media & Content',
   },
   {
-    path: '/services/digital-presence/business-profiles-local-presence',
-    title: 'Business Profiles & Local Presence (Google Maps) | BOTLYTICES',
+    path: '/services/digital-presence/business-profiles',
+    title: 'Google Business Profile, Apple Maps & Local Presence | BOTLYTICES',
     description: 'Google Business Profile optimization, local citation building, and top 3-pack Google Maps rankings.',
     category: 'service-subcategory',
     priority: 0.8,
     changefreq: 'monthly',
     parentPath: '/services/digital-presence',
-    breadcrumbLabel: 'Local Presence & Maps',
+    breadcrumbLabel: 'Business Profiles & Local Presence',
   },
   {
-    path: '/services/digital-presence/digital-marketing-growth',
-    title: 'Digital Marketing & Growth Campaigns | BOTLYTICES',
+    path: '/services/digital-presence/digital-marketing',
+    title: 'Digital Marketing, Local SEO, Landing Pages & Analytics | BOTLYTICES',
     description: 'Performance-driven acquisition channels, multi-touch funnels, and data-backed digital marketing strategies.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -396,8 +376,8 @@ export const APP_ROUTES: RouteDefinition[] = [
 
   // Subcategories — Division 4: AI Automation
   {
-    path: '/services/ai-automation/ai-voice-assistants',
-    title: 'AI Voice Assistants & Call Agents | BOTLYTICES',
+    path: '/services/ai-automation/voice-assistants',
+    title: 'AI Voice Assistants | 24/7 Phone Receptionist & Call Booking | BOTLYTICES',
     description: 'Natural conversational AI voice agents for 24/7 inbound call answering, appointment booking, and dispatch.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -406,8 +386,8 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'AI Voice Assistants',
   },
   {
-    path: '/services/ai-automation/whatsapp-chat-automation',
-    title: 'WhatsApp & Omnichannel Chat Automation | BOTLYTICES',
+    path: '/services/ai-automation/whatsapp-chat',
+    title: 'WhatsApp Business Automation & AI Chatbots | BOTLYTICES',
     description: 'Automated WhatsApp Business chatbots that qualify leads, send follow-ups, and sync with your CRM.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -416,8 +396,8 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'WhatsApp & Chat Automation',
   },
   {
-    path: '/services/ai-automation/ai-lead-generation',
-    title: 'AI Lead Generation & Enrichment | BOTLYTICES',
+    path: '/services/ai-automation/lead-generation',
+    title: 'AI Lead Generation, Qualification & Sales Pipeline Automation | BOTLYTICES',
     description: 'Intelligent lead qualification systems, automated database enrichment, and high-conversion outbound pipelines.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -426,8 +406,8 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'AI Lead Generation',
   },
   {
-    path: '/services/ai-automation/workflow-business-automation',
-    title: 'Workflow & Business Process Automation | BOTLYTICES',
+    path: '/services/ai-automation/workflow-automation',
+    title: 'Workflow & Business Automation | n8n, Make, Zapier & APIs | BOTLYTICES',
     description: 'Zapier, Make, and custom API integrations connecting ERP, CRM, billing, and project operations.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -438,8 +418,8 @@ export const APP_ROUTES: RouteDefinition[] = [
 
   // Subcategories — Division 5: Security & Surveillance
   {
-    path: '/services/security-surveillance/cctv-video-surveillance',
-    title: 'CCTV & Video Surveillance Systems | BOTLYTICES',
+    path: '/services/security-surveillance/cctv',
+    title: 'Commercial & Residential CCTV Installation | 4K IP Cameras & NVR | BOTLYTICES',
     description: 'Commercial IP cameras, 4K night-vision NVR systems, smart perimeter detection, and secure local storage.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -448,8 +428,8 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'CCTV & Video Surveillance',
   },
   {
-    path: '/services/security-surveillance/access-control-biometrics',
-    title: 'Access Control & Biometric Security | BOTLYTICES',
+    path: '/services/security-surveillance/access-control',
+    title: 'Access Control & Biometric Door Systems | Fingerprint, Face & RFID | BOTLYTICES',
     description: 'Keycard access, mobile credentialing, biometric facial recognition, and unified entryway audit logs.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -458,8 +438,8 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'Access Control & Biometrics',
   },
   {
-    path: '/services/security-surveillance/remote-monitoring-security-systems',
-    title: 'Remote Monitoring & Security Operations | BOTLYTICES',
+    path: '/services/security-surveillance/remote-monitoring',
+    title: 'Remote CCTV Monitoring, Intrusion Alerts & Video Management | BOTLYTICES',
     description: 'Live mobile video streaming, automated intrusion alerts, off-site cloud recording, and centralized security consoles.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -468,8 +448,8 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'Remote Security Monitoring',
   },
   {
-    path: '/services/security-surveillance/security-maintenance-upgrades',
-    title: 'Security Maintenance, Audits & Upgrades | BOTLYTICES',
+    path: '/services/security-surveillance/maintenance',
+    title: 'CCTV & Security System Maintenance, Repairs & Upgrades | BOTLYTICES',
     description: 'Preventative firmware patching, lens cleaning, storage health audits, and legacy system modernization.',
     category: 'service-subcategory',
     priority: 0.8,
@@ -478,21 +458,21 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'Security Maintenance & Upgrades',
   },
 
-  // Individual Portfolio Projects
+  // Individual Portfolio Projects (Synced 1:1 with PORTFOLIO_PROJECTS)
   {
     path: '/portfolio/aza-kitchens-and-bedrooms',
-    title: 'AZA Kitchens & Bedrooms E-commerce Showcase | BOTLYTICES',
-    description: 'Custom React & Next.js luxury showroom web platform with interactive 3D cabinet visualization and booking.',
+    title: 'AZA Kitchens & Bedrooms — Portfolio Project | BOTLYTICES',
+    description: 'A custom showroom website and local search presence built to showcase fitted kitchens and bedrooms and capture home design consultation requests.',
     category: 'portfolio',
     priority: 0.7,
     changefreq: 'monthly',
     parentPath: '/portfolio',
-    breadcrumbLabel: 'AZA Kitchens',
+    breadcrumbLabel: 'AZA Kitchens & Bedrooms',
   },
   {
-    path: '/portfolio/ssdn-travels',
-    title: 'SSDN Travels Booking & CRM Platform | BOTLYTICES',
-    description: 'High-speed international flight & tour reservation engine with real-time currency pricing and WhatsApp updates.',
+    path: '/portfolio/ssdn-travels-platform',
+    title: 'SSDN Travels — Portfolio Project | BOTLYTICES',
+    description: 'A responsive travel and flight inquiry platform combining structured route discovery with direct WhatsApp lead capture.',
     category: 'portfolio',
     priority: 0.7,
     changefreq: 'monthly',
@@ -500,21 +480,51 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'SSDN Travels',
   },
   {
-    path: '/portfolio/uk-architex',
-    title: 'UK Architex Architectural Studio Web Platform | BOTLYTICES',
-    description: 'Minimalist editorial architectural portfolio featuring dynamic CAD blueprints and client proposal portal.',
+    path: '/portfolio/uk-architex-architecture',
+    title: 'UK Architex — Portfolio Project | BOTLYTICES',
+    description: 'An architectural digital platform presenting residential and commercial building design, planning permission, and structural services.',
     category: 'portfolio',
     priority: 0.7,
     changefreq: 'monthly',
     parentPath: '/portfolio',
     breadcrumbLabel: 'UK Architex',
   },
+  {
+    path: '/portfolio/meridian-commercial-network-and-it',
+    title: 'Commercial Office & Warehouse Network Infrastructure — Portfolio Project | BOTLYTICES',
+    description: 'Structured Cat6 cabling, managed PoE switching, commercial Wi-Fi roaming, workstation SSD upgrades, and defensive endpoint security.',
+    category: 'portfolio',
+    priority: 0.7,
+    changefreq: 'monthly',
+    parentPath: '/portfolio',
+    breadcrumbLabel: 'Commercial Network & IT',
+  },
+  {
+    path: '/portfolio/service-business-ai-voice-and-whatsapp-automation',
+    title: '24/7 AI Voice Assistant, WhatsApp & CRM Workflow System — Portfolio Project | BOTLYTICES',
+    description: 'An integrated inbound phone voice assistant and WhatsApp Business automation workflow connected to live calendar booking and CRM records.',
+    category: 'portfolio',
+    priority: 0.7,
+    changefreq: 'monthly',
+    parentPath: '/portfolio',
+    breadcrumbLabel: 'AI Voice & WhatsApp System',
+  },
+  {
+    path: '/portfolio/commercial-4k-cctv-and-biometric-access',
+    title: 'Commercial 4K IP CCTV & Biometric Door Access Deployment — Portfolio Project | BOTLYTICES',
+    description: 'High-definition 4K PoE IP surveillance cameras, NVR storage, facial/RFID door access control, and encrypted mobile monitoring.',
+    category: 'portfolio',
+    priority: 0.7,
+    changefreq: 'monthly',
+    parentPath: '/portfolio',
+    breadcrumbLabel: '4K CCTV & Biometric Access',
+  },
 
-  // Individual Case Studies
+  // Individual Case Studies (Synced 1:1 with PORTFOLIO_PROJECTS)
   {
     path: '/case-studies/aza-kitchens-and-bedrooms',
-    title: 'Case Study: AZA Kitchens 182% Conversion Increase | BOTLYTICES',
-    description: 'How modernizing from WordPress to headless Next.js boosted page load speed by 3.2x and increased showroom inquiries by 182%.',
+    title: 'AZA Kitchens & Bedrooms — Case Study | BOTLYTICES',
+    description: 'Structured showroom product galleries, mobile-first consultation booking, and verified UK local search presence.',
     category: 'case-study',
     priority: 0.7,
     changefreq: 'monthly',
@@ -522,9 +532,9 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'AZA Kitchens Case Study',
   },
   {
-    path: '/case-studies/ssdn-travels',
-    title: 'Case Study: SSDN Travels Automated Booking Pipeline | BOTLYTICES',
-    description: 'Deploying automated WhatsApp ticket delivery and cloud caching to handle 45,000 monthly travelers with zero downtime.',
+    path: '/case-studies/ssdn-travels-platform',
+    title: 'SSDN Travels — Case Study | BOTLYTICES',
+    description: 'Streamlined mobile flight inquiry capture connected directly to travel agents via WhatsApp and web forms.',
     category: 'case-study',
     priority: 0.7,
     changefreq: 'monthly',
@@ -532,76 +542,116 @@ export const APP_ROUTES: RouteDefinition[] = [
     breadcrumbLabel: 'SSDN Travels Case Study',
   },
   {
-    path: '/case-studies/uk-architex',
-    title: 'Case Study: UK Architex Premium Brand Re-platforming | BOTLYTICES',
-    description: 'Transforming an architectural firm digital presence into a luxury client acquisition engine with high-retention visuals.',
+    path: '/case-studies/uk-architex-architecture',
+    title: 'UK Architex — Case Study | BOTLYTICES',
+    description: 'Clear architectural service hierarchy, project showcase galleries, and structured client consultation intake.',
     category: 'case-study',
     priority: 0.7,
     changefreq: 'monthly',
     parentPath: '/case-studies',
     breadcrumbLabel: 'UK Architex Case Study',
   },
+  {
+    path: '/case-studies/meridian-commercial-network-and-it',
+    title: 'Commercial Office & Warehouse Network Infrastructure — Case Study | BOTLYTICES',
+    description: 'Reorganized patch rack, segmented VLANs, full-premises commercial Wi-Fi coverage, and standardized Microsoft 365 workstations.',
+    category: 'case-study',
+    priority: 0.7,
+    changefreq: 'monthly',
+    parentPath: '/case-studies',
+    breadcrumbLabel: 'Commercial Network & IT Case Study',
+  },
+  {
+    path: '/case-studies/service-business-ai-voice-and-whatsapp-automation',
+    title: '24/7 AI Voice Assistant, WhatsApp & CRM Workflow System — Case Study | BOTLYTICES',
+    description: 'Instant 24/7 response to phone and WhatsApp inquiries, automated lead qualification, and direct calendar synchronization.',
+    category: 'case-study',
+    priority: 0.7,
+    changefreq: 'monthly',
+    parentPath: '/case-studies',
+    breadcrumbLabel: 'AI Voice & WhatsApp Case Study',
+  },
+  {
+    path: '/case-studies/commercial-4k-cctv-and-biometric-access',
+    title: 'Commercial 4K IP CCTV & Biometric Door Access Deployment — Case Study | BOTLYTICES',
+    description: 'Eliminated perimeter blind spots with 4K day/night cameras, secured entry doors with biometric/RFID readers, and enabled mobile viewing.',
+    category: 'case-study',
+    priority: 0.7,
+    changefreq: 'monthly',
+    parentPath: '/case-studies',
+    breadcrumbLabel: '4K CCTV & Biometrics Case Study',
+  },
 
-  // Individual Blog Articles
+  // Individual Blog Articles (Synced 1:1 with BLOG_ARTICLES)
   {
-    path: '/blog/why-modern-businesses-need-speed-seo-and-aeo-in-2026',
-    title: 'Why Modern Businesses Need Speed, SEO & AEO in 2026 | BOTLYTICES',
-    description: 'A deep architectural dive into optimizing for AI Answer Engines (Perplexity, SearchGPT, Gemini) alongside traditional Google SEO.',
+    path: '/blog/practical-guide-to-seo-and-aeo-ai-search-visibility',
+    title: 'Practical Guide to SEO & AEO (AI Search Visibility) | BOTLYTICES Blog',
+    description: 'Learn how Technical SEO, Local SEO, and Answer Engine Optimization (AEO/GEO) help your business appear on Google, ChatGPT, and Perplexity.',
     category: 'blog',
     priority: 0.7,
     changefreq: 'monthly',
     parentPath: '/blog',
-    breadcrumbLabel: 'SEO & AEO Guide',
+    breadcrumbLabel: 'Practical Guide to SEO & AEO',
   },
   {
-    path: '/blog/how-ai-voice-assistants-and-whatsapp-automation-drive-revenue',
-    title: 'How AI Voice Assistants & WhatsApp Automation Drive Revenue | BOTLYTICES',
-    description: 'Learn how modern service businesses capture 38% more inbound revenue with sub-second voice AI and WhatsApp triage.',
+    path: '/blog/what-makes-a-high-converting-business-website',
+    title: 'What Makes a High-Converting Business Website | BOTLYTICES Blog',
+    description: 'Discover how information architecture, mobile-first UI/UX design, fast page speed, and clear CTAs help business websites convert visitors into inquiries.',
     category: 'blog',
     priority: 0.7,
     changefreq: 'monthly',
     parentPath: '/blog',
-    breadcrumbLabel: 'Voice AI & WhatsApp',
+    breadcrumbLabel: 'High-Converting Business Website',
   },
   {
-    path: '/blog/why-proactive-it-support-saves-thousands-in-downtime',
-    title: 'Why Proactive IT Support Saves Thousands in Downtime | BOTLYTICES',
-    description: 'The real mathematical cost of unmonitored hardware failure and how proactive maintenance contracts eliminate crisis expenses.',
+    path: '/blog/automating-inbound-leads-with-ai-voice-and-whatsapp',
+    title: 'Automating Leads with AI Voice Assistants & WhatsApp | BOTLYTICES Blog',
+    description: 'Learn how 24/7 AI phone voice assistants, WhatsApp Business automation, and n8n/Make CRM workflows help businesses capture and qualify every lead.',
     category: 'blog',
     priority: 0.7,
     changefreq: 'monthly',
     parentPath: '/blog',
-    breadcrumbLabel: 'Proactive IT Support',
+    breadcrumbLabel: 'AI Voice & WhatsApp Automation',
   },
   {
-    path: '/blog/enterprise-cybersecurity-in-the-age-of-remote-work-and-cloud',
-    title: 'Enterprise Cybersecurity in the Age of Remote Work & Cloud | BOTLYTICES',
-    description: 'Essential security postures, multi-factor hardware keys, endpoint detection, and disaster recovery blueprints.',
+    path: '/blog/office-networking-structured-cabling-and-commercial-wifi',
+    title: 'Office Networking: Structured Cabling, VLANs & Commercial Wi-Fi | BOTLYTICES',
+    description: 'A practical guide to business LAN networks, Cat6 structured cabling, managed PoE switches, VLAN segmentation, and commercial roaming Wi-Fi.',
     category: 'blog',
     priority: 0.7,
     changefreq: 'monthly',
     parentPath: '/blog',
-    breadcrumbLabel: 'Cybersecurity Blueprint',
+    breadcrumbLabel: 'Office Networking & Wi-Fi',
   },
   {
-    path: '/blog/local-seo-and-google-business-profile-domination-playbook',
-    title: 'Local SEO & Google Business Profile Domination Playbook | BOTLYTICES',
-    description: 'Step-by-step strategy for winning top positions in the Google Local 3-Pack and driving steady phone calls.',
+    path: '/blog/defensive-cybersecurity-checklist-for-small-and-midsize-businesses',
+    title: 'Defensive Cybersecurity Checklist for Businesses | BOTLYTICES Blog',
+    description: 'Protect your business with practical defensive cybersecurity: Multi-Factor Authentication (MFA), Endpoint Detection (EDR), firewalls, and 3-2-1 backups.',
     category: 'blog',
     priority: 0.7,
     changefreq: 'monthly',
     parentPath: '/blog',
-    breadcrumbLabel: 'Local SEO Playbook',
+    breadcrumbLabel: 'Defensive Cybersecurity Checklist',
   },
   {
-    path: '/blog/the-future-of-smart-surveillance-ai-cctv-and-biometric-access',
-    title: 'The Future of Smart Surveillance: AI CCTV & Biometric Access | BOTLYTICES',
-    description: 'How modern neural camera vision, license plate recognition, and biometric entryway readers safeguard commercial facilities.',
+    path: '/blog/google-business-profile-apple-maps-and-local-presence',
+    title: 'Google Business Profile, Apple Maps & Local Presence Guide | BOTLYTICES',
+    description: 'Learn how optimizing Google Business Profile, Apple Business Connect, Bing Places, and local directories improves local search visibility.',
     category: 'blog',
     priority: 0.7,
     changefreq: 'monthly',
     parentPath: '/blog',
-    breadcrumbLabel: 'Smart Surveillance',
+    breadcrumbLabel: 'Google & Apple Maps Guide',
+  },
+  {
+    path: '/blog/choosing-4k-ip-cctv-and-biometric-access-control-for-business',
+    title: 'Guide to 4K IP CCTV & Biometric Access Control for Business | BOTLYTICES',
+    description: 'Learn how to choose 4K IP CCTV cameras, NVR storage, biometric/RFID door access control, and remote mobile monitoring for your property.',
+    category: 'blog',
+    priority: 0.7,
+    changefreq: 'monthly',
+    parentPath: '/blog',
+    breadcrumbLabel: '4K IP CCTV & Access Control Guide',
   },
 ];
 
@@ -609,6 +659,6 @@ export const APP_ROUTES: RouteDefinition[] = [
  * Helper lookup to get route metadata by exact path
  */
 export const getRouteByPath = (path: string): RouteDefinition | undefined => {
-  const normalized = path === '' ? '/' : path.replace(/\/+$/, '') || '/';
+  const normalized = normalizeRoutePath(path);
   return APP_ROUTES.find((r) => r.path === normalized);
 };

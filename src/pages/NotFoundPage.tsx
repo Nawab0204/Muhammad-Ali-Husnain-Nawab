@@ -9,7 +9,7 @@ import { SeoAndBreadcrumb } from '../components/SeoAndBreadcrumb';
 import { ArrowLeft, Home, Compass, MessageSquare, Search } from 'lucide-react';
 
 export const NotFoundPage: React.FC = () => {
-  const { navigate, openQuoteModal } = useApp();
+  const { navigate } = useApp();
 
   return (
     <div className="bg-[#FFFFFF] min-h-[70vh] flex flex-col justify-center">
@@ -17,6 +17,7 @@ export const NotFoundPage: React.FC = () => {
         title="404 Page Not Found | BOTLYTICES"
         description="The page you requested could not be located. Browse our technical service divisions or return to the home page."
         path="/404"
+        noindex={true}
         breadcrumbs={[
           { label: 'Home', path: '/' },
           { label: '404 Page Not Found' },
@@ -37,29 +38,41 @@ export const NotFoundPage: React.FC = () => {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
-          <button
-            onClick={() => navigate('/')}
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/');
+            }}
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#006BFF] hover:bg-[#087CFF] text-white font-semibold rounded-xl transition-all shadow-sm"
           >
             <Home className="w-4 h-4" />
             Back to Home
-          </button>
+          </a>
 
-          <button
-            onClick={() => navigate('/services')}
+          <a
+            href="/services"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/services');
+            }}
             className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#E6EBF2] hover:bg-slate-50 text-[#0A1020] font-semibold rounded-xl transition-all"
           >
             <Compass className="w-4 h-4" />
             Browse All Services
-          </button>
+          </a>
 
-          <button
-            onClick={() => navigate('/sitemap')}
+          <a
+            href="/sitemap"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/sitemap');
+            }}
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#F7F9FC] hover:bg-slate-100 text-[#5D687A] font-semibold rounded-xl transition-all"
           >
             <Search className="w-4 h-4" />
             View Site Map
-          </button>
+          </a>
         </div>
 
         {/* Quick Service Links */}
@@ -75,13 +88,17 @@ export const NotFoundPage: React.FC = () => {
               { label: 'AI Automation', path: '/services/ai-automation' },
               { label: 'Security & Surveillance', path: '/services/security-surveillance' },
             ].map((s) => (
-              <button
+              <a
                 key={s.path}
-                onClick={() => navigate(s.path)}
+                href={s.path}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate(s.path);
+                }}
                 className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-[#006BFF] text-slate-700 hover:text-white transition-colors"
               >
                 {s.label}
-              </button>
+              </a>
             ))}
           </div>
         </div>

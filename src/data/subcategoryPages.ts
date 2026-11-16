@@ -574,7 +574,7 @@ export const SUBCATEGORY_PAGES: Record<string, SubcategoryPageData> = {
       },
     ],
     technologies: ['Shopify Plus', 'WooCommerce', 'Stripe API', 'React / Next.js', 'PostgreSQL', 'REST Webhooks', 'Customer Portals'],
-    relatedSlugs: ['web-development', 'seo-hosting-website-care', 'workflow-automation'],
+    relatedSlugs: ['web-design-ui-ux-development', 'seo-hosting-website-care', 'workflow-automation'],
     faqs: [
       {
         question: 'Can you build a product catalog where customers request a quote instead of paying online?',
@@ -692,7 +692,7 @@ export const SUBCATEGORY_PAGES: Record<string, SubcategoryPageData> = {
       },
     ],
     technologies: ['Google Search Console', 'Schema.org JSON-LD', 'Cloudflare CDN', 'AEO / GEO Entity Structuring', 'Automated Daily Backups', 'SPF / DKIM / DMARC'],
-    relatedSlugs: ['web-development', 'business-profiles', 'digital-marketing'],
+    relatedSlugs: ['web-design-ui-ux-development', 'business-profiles', 'digital-marketing'],
     faqs: [
       {
         question: 'What is the difference between SEO and AEO / GEO?',
@@ -1316,7 +1316,7 @@ export const SUBCATEGORY_PAGES: Record<string, SubcategoryPageData> = {
       },
     ],
     technologies: ['Adobe Illustrator', 'Figma Design Systems', 'SVG / Vector Mastering', 'CMYK & RGB Color Profiles', 'Brand Style Guides'],
-    relatedSlugs: ['web-design-ui-ux', 'social-media-content', 'business-profiles'],
+    relatedSlugs: ['web-design-ui-ux-development', 'social-media-content', 'business-profiles'],
     faqs: [
       {
         question: 'What file formats will I receive with my logo and brand kit?',

@@ -76,6 +76,30 @@ function AppContent() {
     link.href = tabLogo;
   }, []);
 
+  // Canonicalize legacy SPA paths & trailing slashes client-side
+  useEffect(() => {
+    const rawPath = currentPath === '' ? '/' : currentPath;
+    const stripped = rawPath.length > 1 ? rawPath.replace(/\/+$/, '') : rawPath;
+    const SPA_CANONICAL_ALIASES: Record<string, string> = {
+      '/terms': '/terms-of-service',
+      '/terms-and-conditions': '/terms-of-service',
+      '/privacy': '/privacy-policy',
+      '/cookies': '/cookie-policy',
+      '/refunds': '/refund-policy',
+      '/cancellation-policy': '/refund-policy',
+      '/process': '/about/process',
+      '/website-maintenance': '/services/web-development/website-maintenance',
+      '/services/web-development/web-design-ui-ux': '/services/web-development/web-design-ui-ux-development',
+      '/services/web-development/web-development': '/services/web-development/web-design-ui-ux-development',
+      '/services/web-development/web-design': '/services/web-development/web-design-ui-ux-development',
+      '/services/web-development/custom-web-development': '/services/web-development/web-design-ui-ux-development',
+    };
+    const canonicalTarget = SPA_CANONICAL_ALIASES[stripped] || stripped;
+    if (canonicalTarget !== rawPath) {
+      navigate(canonicalTarget, { replace: true, scrollBehavior: 'instant' as ScrollBehavior });
+    }
+  }, [currentPath, navigate]);
+
   // Route Resolver
   const renderCurrentRoute = () => {
     const normalized = currentPath === '' ? '/' : currentPath.replace(/\/+$/, '') || '/';

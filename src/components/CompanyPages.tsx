@@ -1883,9 +1883,9 @@ export const ContactPage: React.FC<{ onNavigate: (path: string) => void }> = ({
                 path: '/services/web-development',
               },
               {
-                title: 'Data & Analytics',
-                sub: 'Power BI, Microsoft Fabric & Dashboards',
-                path: '/services/data-analytics',
+                title: 'Digital Presence & SEO',
+                sub: 'Google Maps, Brand Identity & Local Search',
+                path: '/services/digital-presence',
               },
               {
                 title: 'AI Automation',

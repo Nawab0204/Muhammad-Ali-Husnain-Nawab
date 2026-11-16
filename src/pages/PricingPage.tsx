@@ -204,7 +204,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({
       <SeoAndBreadcrumb
         title="Pricing | Website Development, IT Support & AI Automation | Botlytices"
         description="Explore Botlytices pricing for website development, maintenance, IT support, SEO, digital branding, AI automation, CCTV and business technology services worldwide."
-        path="https://botlytices.com/pricing"
+        path="/pricing"
         breadcrumbs={[
           { label: 'Home', path: '/' },
           { label: 'About', path: '/about' },

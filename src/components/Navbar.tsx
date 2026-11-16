@@ -209,6 +209,13 @@ export const Navbar: React.FC<NavbarProps> = ({
     onNavigate(path);
   };
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+      e.preventDefault();
+      handleRoute(path);
+    }
+  };
+
   const isHomeActive = currentPath === '/' || currentPath === '';
 
   const isServicesActive =
@@ -258,8 +265,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* CENTER: Only Home | Services ▼ | About ▼ */}
         <nav className="hidden lg:flex items-center gap-8 xl:gap-10 text-sm font-medium text-[#5D687A]">
-          <button
-            onClick={() => handleRoute('/')}
+          <a
+            href="/"
+            onClick={(e) => handleLinkClick(e, '/')}
             onMouseEnter={() => setActiveDropdown(null)}
             className={`py-2 px-1 transition-colors cursor-pointer whitespace-nowrap nav-link-hover ${
               isHomeActive
@@ -268,7 +276,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             Home
-          </button>
+          </a>
 
           <div
             className="relative"
@@ -323,13 +331,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* RIGHTMOST: Only Contact Us button (+ Mobile Menu Button on mobile) */}
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => handleRoute('/contact')}
+          <a
+            href="/contact"
+            onClick={(e) => handleLinkClick(e, '/contact')}
             className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 text-xs sm:text-sm font-semibold btn-primary-gradient cursor-pointer whitespace-nowrap group shadow-xs hover:shadow-md transition-all rounded-xl"
           >
             <span>Contact Us</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-          </button>
+          </a>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -359,8 +368,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                     className="space-y-3.5 border-r border-[#E6EBF2] pr-5 last:border-r-0 last:pr-0 flex flex-col justify-between"
                   >
                     <div>
-                      <button
-                        onClick={() => handleRoute(div.path)}
+                      <a
+                        href={div.path}
+                        onClick={(e) => handleLinkClick(e, div.path)}
                         className="group flex items-start gap-2.5 pb-3 border-b border-[#E6EBF2] w-full text-left cursor-pointer"
                       >
                         <div className="w-8 h-8 rounded-lg bg-[#F3F7FC] group-hover:bg-[#006BFF] border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] group-hover:text-white shrink-0 transition-colors mt-0.5">
@@ -374,31 +384,33 @@ export const Navbar: React.FC<NavbarProps> = ({
                             {div.title}
                           </div>
                         </div>
-                      </button>
+                      </a>
 
                       <ul className="mt-3 space-y-2">
                         {div.subcategories.map((sub) => (
                           <li key={sub.slug}>
-                            <button
-                              onClick={() => handleRoute(sub.path)}
+                            <a
+                              href={sub.path}
+                              onClick={(e) => handleLinkClick(e, sub.path)}
                               className="w-full text-left py-1.5 px-2 rounded-lg hover:bg-[#F8FAFC] text-xs font-medium text-[#5D687A] hover:text-[#006BFF] transition-colors flex items-center justify-between gap-2 cursor-pointer group"
                             >
                               <span className="leading-snug">{sub.title}</span>
                               <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 text-[#006BFF] shrink-0 transition-opacity" />
-                            </button>
+                            </a>
                           </li>
                         ))}
                       </ul>
                     </div>
 
                     <div className="pt-2">
-                      <button
-                        onClick={() => handleRoute(div.path)}
+                      <a
+                        href={div.path}
+                        onClick={(e) => handleLinkClick(e, div.path)}
                         className="text-[11px] font-semibold text-[#006BFF] hover:underline flex items-center gap-1 cursor-pointer"
                       >
                         <span>Explore {div.shortTitle}</span>
                         <ArrowRight className="w-3 h-3" />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 );
@@ -414,19 +426,21 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span>20 Specialized Technical Services</span>
               </div>
               <div className="flex items-center gap-6">
-                <button
-                  onClick={() => handleRoute('/services')}
+                <a
+                  href="/services"
+                  onClick={(e) => handleLinkClick(e, '/services')}
                   className="font-semibold text-[#0A1020] hover:text-[#006BFF] flex items-center gap-1 cursor-pointer"
                 >
                   <span>View Full Services Directory</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  onClick={() => handleRoute('/contact')}
+                </a>
+                <a
+                  href="/contact"
+                  onClick={(e) => handleLinkClick(e, '/contact')}
                   className="font-semibold text-[#006BFF] hover:underline cursor-pointer"
                 >
                   Contact Us →
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -450,21 +464,23 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </h3>
               </div>
               <div className="flex items-center gap-4">
-                <button
-                  onClick={() => handleRoute('/locations')}
+                <a
+                  href="/locations"
+                  onClick={(e) => handleLinkClick(e, '/locations')}
                   className="text-xs font-semibold text-[#006BFF] hover:underline inline-flex items-center gap-1.5 cursor-pointer"
                 >
                   <span>Explore 39 Locations</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </a>
                 <span className="text-slate-300">·</span>
-                <button
-                  onClick={() => handleRoute('/about')}
+                <a
+                  href="/about"
+                  onClick={(e) => handleLinkClick(e, '/about')}
                   className="text-xs font-semibold text-[#5D687A] hover:text-[#0A1020] inline-flex items-center gap-1.5 cursor-pointer"
                 >
                   <span>Company Overview</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </a>
               </div>
             </div>
 
@@ -484,9 +500,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                         currentPath === item.path ||
                         (item.path !== '/about' && item.path !== '/locations' && currentPath.startsWith(item.path));
                       return (
-                        <button
-                          key={item.number}
-                          onClick={() => handleRoute(item.path)}
+                        <a
+                          key={item.path}
+                          href={item.path}
+                          onClick={(e) => handleLinkClick(e, item.path)}
                           className={`w-full text-left p-3 rounded-xl border transition-all flex items-start gap-3 cursor-pointer group ${
                             isActive
                               ? 'bg-[#F3F7FC] border-[#006BFF]/30'
@@ -512,7 +529,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                               {item.description}
                             </p>
                           </div>
-                        </button>
+                        </a>
                       );
                     })}
                   </div>
@@ -526,19 +543,21 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <span>3 Continental Hubs · 11 Countries · 25 Divisions · 39 Cities</span>
               </div>
               <div className="flex items-center gap-4">
-                <button
-                  onClick={() => handleRoute('/locations')}
+                <a
+                  href="/locations"
+                  onClick={(e) => handleLinkClick(e, '/locations')}
                   className="font-semibold text-[#006BFF] hover:underline cursor-pointer"
                 >
                   Browse Global Directory →
-                </button>
+                </a>
                 <span className="text-slate-300">·</span>
-                <button
-                  onClick={() => handleRoute('/contact')}
+                <a
+                  href="/contact"
+                  onClick={(e) => handleLinkClick(e, '/contact')}
                   className="font-semibold text-[#0A1020] hover:text-[#006BFF] cursor-pointer"
                 >
                   Start Project Consultation →
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -550,8 +569,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="lg:hidden fixed inset-x-0 top-[61px] sm:top-[69px] bg-white border-b border-[#E6EBF2] shadow-2xl max-h-[calc(100vh-69px)] overflow-y-auto z-50">
           <div className="px-4 sm:px-6 pt-4 pb-8 space-y-4">
             {/* Mobile Home Link */}
-            <button
-              onClick={() => handleRoute('/')}
+            <a
+              href="/"
+              onClick={(e) => handleLinkClick(e, '/')}
               className={`w-full p-3.5 rounded-xl border text-left text-xs sm:text-sm font-bold flex items-center justify-between cursor-pointer ${
                 isHomeActive
                   ? 'bg-[#F3F7FC] border-[#006BFF]/40 text-[#006BFF]'
@@ -560,7 +580,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <span>Home</span>
               <ArrowRight className="w-4 h-4 text-[#006BFF]" />
-            </button>
+            </a>
 
             {/* Mobile Section Switcher Tabs */}
             <div className="grid grid-cols-2 gap-2 p-1 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2]">
@@ -617,21 +637,23 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                       {isExpanded && (
                         <div className="px-3.5 pb-3 pt-1 bg-white border-t border-[#E6EBF2] space-y-1">
-                          <button
-                            onClick={() => handleRoute(div.path)}
+                          <a
+                            href={div.path}
+                            onClick={(e) => handleLinkClick(e, div.path)}
                             className="w-full text-left py-1.5 text-xs font-bold text-[#006BFF] flex items-center justify-between"
                           >
                             <span>{div.title} Overview Page</span>
                             <ArrowRight className="w-3.5 h-3.5" />
-                          </button>
+                          </a>
                           {div.subcategories.map((sub) => (
-                            <button
+                            <a
                               key={sub.slug}
-                              onClick={() => handleRoute(sub.path)}
+                              href={sub.path}
+                              onClick={(e) => handleLinkClick(e, sub.path)}
                               className="w-full text-left py-1.5 pl-2 text-xs text-[#5D687A] hover:text-[#0A1020] block"
                             >
                               · {sub.title}
-                            </button>
+                            </a>
                           ))}
                         </div>
                       )}
@@ -646,9 +668,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {ABOUT_MEGA_GROUPS.flatMap((g) => g.items).map((item) => {
                   const ItemIcon = item.icon;
                   return (
-                    <button
-                      key={item.number}
-                      onClick={() => handleRoute(item.path)}
+                    <a
+                      key={item.path}
+                      href={item.path}
+                      onClick={(e) => handleLinkClick(e, item.path)}
                       className="w-full p-3 rounded-xl bg-[#F8FAFC] border border-[#E6EBF2] text-left flex items-start gap-3 cursor-pointer hover:border-[#006BFF]"
                     >
                       <div className="w-8 h-8 rounded-lg bg-white border border-[#E6EBF2] flex items-center justify-center text-[#006BFF] shrink-0 mt-0.5">
@@ -667,7 +690,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           {item.description}
                         </p>
                       </div>
-                    </button>
+                    </a>
                   );
                 })}
               </div>
@@ -675,13 +698,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Mobile Contact Button Only - No WhatsApp or Phone in Menu */}
             <div className="pt-3 border-t border-[#E6EBF2]">
-              <button
-                onClick={() => handleRoute('/contact')}
+              <a
+                href="/contact"
+                onClick={(e) => handleLinkClick(e, '/contact')}
                 className="w-full py-3.5 px-6 text-sm font-semibold btn-primary-gradient flex items-center justify-center gap-2 cursor-pointer rounded-xl shadow-xs"
               >
                 <span>Contact Us</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

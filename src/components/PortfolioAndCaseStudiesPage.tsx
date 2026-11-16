@@ -16,6 +16,7 @@ import {
   PortfolioFilterTag,
 } from '../data/portfolioAndFaqs';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
+import { NotFoundPage } from '../pages/NotFoundPage';
 import { useApp } from '../context/AppContext';
 
 interface PortfolioPageProps {
@@ -52,8 +53,11 @@ export const PortfolioAndCaseStudiesPage: React.FC<PortfolioPageProps> = ({
   // DETAIL PAGE 1: INDIVIDUAL PORTFOLIO PROJECT PAGE (/portfolio/[project])
   // ============================================================================
   if (mode === 'portfolio' && selectedSlug) {
-    const project: PortfolioProject =
-      PORTFOLIO_PROJECTS.find((p) => p.slug === selectedSlug) || PORTFOLIO_PROJECTS[0];
+    const project: PortfolioProject | undefined =
+      PORTFOLIO_PROJECTS.find((p) => p.slug === selectedSlug);
+    if (!project) {
+      return <NotFoundPage />;
+    }
 
     return (
       <div className="bg-[#FFFFFF]">
@@ -345,8 +349,11 @@ export const PortfolioAndCaseStudiesPage: React.FC<PortfolioPageProps> = ({
   // DETAIL PAGE 2: INDIVIDUAL CASE STUDY PAGE (/case-studies/[case-study])
   // ============================================================================
   if (mode === 'case-studies' && selectedSlug) {
-    const study: PortfolioProject =
-      PORTFOLIO_PROJECTS.find((p) => p.slug === selectedSlug) || PORTFOLIO_PROJECTS[0];
+    const study: PortfolioProject | undefined =
+      PORTFOLIO_PROJECTS.find((p) => p.slug === selectedSlug);
+    if (!study) {
+      return <NotFoundPage />;
+    }
 
     return (
       <div className="bg-[#FFFFFF]">

@@ -650,7 +650,7 @@ export const CATEGORIZED_FAQS: CategorizedFaqItem[] = [
     question: 'Can you redesign an existing website?',
     answer:
       'Yes. We can modernize your existing website’s design, mobile responsiveness, speed, and structure while keeping your domain name, brand identity, and search rankings intact.',
-    relatedLink: { label: 'Explore Web Design & UI/UX', path: '/services/web-development/web-design-ui-ux' },
+    relatedLink: { label: 'Explore Web Design, UI/UX & Development', path: '/services/web-development/web-design-ui-ux-development' },
   },
   {
     category: 'Web Development',

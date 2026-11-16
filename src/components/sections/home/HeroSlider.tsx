@@ -171,13 +171,19 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ onNavigate, onOpenQuote 
 
           {/* CTA Action Row */}
           <div className="flex flex-wrap items-center gap-4">
-            <button
-              onClick={() => navigate(currentSlide.path)}
+            <a
+              href={currentSlide.path}
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  navigate(currentSlide.path);
+                }
+              }}
               className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#006BFF] hover:bg-[#087CFF] text-white font-semibold rounded-full shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-[1.02] transition-all text-sm sm:text-base cursor-pointer"
             >
               <span>{currentSlide.cta}</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
 
             <button
               onClick={() => handleOpenQuote(currentSlide.label)}

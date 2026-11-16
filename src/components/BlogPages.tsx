@@ -19,6 +19,7 @@ import {
   BlogCategory,
 } from '../data/blogArticles';
 import { SeoAndBreadcrumb } from './SeoAndBreadcrumb';
+import { NotFoundPage } from '../pages/NotFoundPage';
 import { useApp } from '../context/AppContext';
 
 interface BlogPagesProps {
@@ -49,8 +50,11 @@ export const BlogPages: React.FC<BlogPagesProps> = ({
       return;
     }
 
-    const article =
-      BLOG_ARTICLES.find((a) => a.slug === selectedSlug) || BLOG_ARTICLES[0];
+    const article = BLOG_ARTICLES.find((a) => a.slug === selectedSlug);
+    if (!article) {
+      setReadingProgress(0);
+      return;
+    }
     if (article.sections.length > 0) {
       setActiveSectionId(article.sections[0].id);
     }
@@ -85,7 +89,10 @@ export const BlogPages: React.FC<BlogPagesProps> = ({
   // ============================================================================
   if (selectedSlug) {
     const currentIndex = BLOG_ARTICLES.findIndex((a) => a.slug === selectedSlug);
-    const resolvedIndex = currentIndex >= 0 ? currentIndex : 0;
+    if (currentIndex === -1) {
+      return <NotFoundPage />;
+    }
+    const resolvedIndex = currentIndex;
     const article: BlogArticle = BLOG_ARTICLES[resolvedIndex];
 
     const prevArticle =

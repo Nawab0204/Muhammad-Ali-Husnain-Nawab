@@ -1,29 +1,43 @@
 # Robots.txt for BOTLYTICES Digital Solutions (https://botlytices.com/)
-# Allows full indexing for Google Search Console, Bingbot, Applebot, and AI Search Crawlers
+# Allows full indexing of all public pages, CSS, JS, and media assets
 
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /*?p=
 
 # Explicit Search Engine Rules
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /*?p=
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /*?p=
 
 User-agent: Applebot
 Allow: /
+Disallow: /api/
+Disallow: /*?p=
 
 # Explicit AI Search & Assistant Crawlers
 User-agent: GPTBot
 Allow: /
+Disallow: /api/
+Disallow: /*?p=
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /api/
+Disallow: /*?p=
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/
+Disallow: /*?p=
 
-# Sitemaps & LLM Reference
+# Canonical XML Sitemap & LLM Manifest
 Sitemap: https://botlytices.com/sitemap.xml
 # LLM Manifest: https://botlytices.com/llms.txt

@@ -170,23 +170,29 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpen
             </div>
           </div>
 
-          {/* About the Company (01 - 08) */}
+          {/* About the Company (01 - 12) */}
           <div className="lg:col-span-4">
             <div className="text-xs font-bold text-[#0A1020] uppercase tracking-wider mb-3">
               About the Company
             </div>
             <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-xs text-[#5D687A]">
               {ABOUT_FOOTER_LINKS.map((item) => (
-                <button
+                <a
                   key={item.path}
-                  onClick={() => onNavigate(item.path)}
+                  href={item.path}
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate(item.path);
+                    }
+                  }}
                   className="text-left hover:text-[#006BFF] transition-colors cursor-pointer flex items-center gap-1.5"
                 >
                   <span className="font-mono-code text-[11px] font-bold text-[#006BFF]">
                     {item.number}
                   </span>
                   <span>{item.label}</span>
-                </button>
+                </a>
               ))}
             </div>
           </div>
@@ -201,13 +207,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpen
                 Need a website, IT infrastructure, local presence, AI automation, or CCTV?
               </p>
             </div>
-            <button
-              onClick={() => onNavigate('/contact')}
+            <a
+              href="/contact"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  onNavigate('/contact');
+                }
+              }}
               className="mt-4 w-full py-2.5 px-4 text-xs font-semibold btn-primary-gradient inline-flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <span>Contact Us</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
         </div>
 
@@ -222,120 +234,210 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpen
                 Global Service Locations
               </h4>
             </div>
-            <button
-              onClick={() => onNavigate('/locations')}
+            <a
+              href="/locations"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  onNavigate('/locations');
+                }
+              }}
               className="text-xs font-semibold text-[#006BFF] hover:underline inline-flex items-center gap-1 cursor-pointer"
             >
               <span>Explore All Locations</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs">
             <div>
-              <button
-                onClick={() => onNavigate('/locations/americas')}
+              <a
+                href="/locations/americas"
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                    e.preventDefault();
+                    onNavigate('/locations/americas');
+                  }
+                }}
                 className="font-bold text-[#0A1020] hover:text-[#006BFF] transition-colors cursor-pointer block mb-2"
               >
                 Americas Hub →
-              </button>
+              </a>
               <div className="flex flex-wrap gap-x-3 gap-y-1 text-[#5D687A]">
-                <button
-                  onClick={() => onNavigate('/locations/americas/united-states/new-york/new-york-city')}
+                <a
+                  href="/locations/americas/united-states/new-york/new-york-city"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/americas/united-states/new-york/new-york-city');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   New York
-                </button>
+                </a>
                 <span>·</span>
-                <button
-                  onClick={() => onNavigate('/locations/americas/united-states/california/los-angeles')}
+                <a
+                  href="/locations/americas/united-states/california/los-angeles"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/americas/united-states/california/los-angeles');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   Los Angeles
-                </button>
+                </a>
                 <span>·</span>
-                <button
-                  onClick={() => onNavigate('/locations/americas/canada/ontario/toronto')}
+                <a
+                  href="/locations/americas/canada/ontario/toronto"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/americas/canada/ontario/toronto');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   Toronto
-                </button>
+                </a>
               </div>
             </div>
 
             <div>
-              <button
-                onClick={() => onNavigate('/locations/europe')}
+              <a
+                href="/locations/europe"
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                    e.preventDefault();
+                    onNavigate('/locations/europe');
+                  }
+                }}
                 className="font-bold text-[#0A1020] hover:text-[#006BFF] transition-colors cursor-pointer block mb-2"
               >
                 Europe Hub →
-              </button>
+              </a>
               <div className="flex flex-wrap gap-x-3 gap-y-1 text-[#5D687A]">
-                <button
-                  onClick={() => onNavigate('/locations/europe/united-kingdom/england/london')}
+                <a
+                  href="/locations/europe/united-kingdom/england/london"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/europe/united-kingdom/england/london');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   London
-                </button>
+                </a>
                 <span>·</span>
-                <button
-                  onClick={() => onNavigate('/locations/europe/italy/veneto/venice')}
+                <a
+                  href="/locations/europe/italy/veneto/venice"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/europe/italy/veneto/venice');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   Venice
-                </button>
+                </a>
                 <span>·</span>
-                <button
-                  onClick={() => onNavigate('/locations/europe/italy/lazio/rome')}
+                <a
+                  href="/locations/europe/italy/lazio/rome"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/europe/italy/lazio/rome');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   Rome
-                </button>
+                </a>
                 <span>·</span>
-                <button
-                  onClick={() => onNavigate('/locations/europe/ireland/leinster/dublin')}
+                <a
+                  href="/locations/europe/ireland/leinster/dublin"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/europe/ireland/leinster/dublin');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   Dublin
-                </button>
+                </a>
               </div>
             </div>
 
             <div>
-              <button
-                onClick={() => onNavigate('/locations/oceania')}
+              <a
+                href="/locations/oceania"
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                    e.preventDefault();
+                    onNavigate('/locations/oceania');
+                  }
+                }}
                 className="font-bold text-[#0A1020] hover:text-[#006BFF] transition-colors cursor-pointer block mb-2"
               >
                 Oceania Hub →
-              </button>
+              </a>
               <div className="flex flex-wrap gap-x-3 gap-y-1 text-[#5D687A]">
-                <button
-                  onClick={() => onNavigate('/locations/oceania/australia/new-south-wales/sydney')}
+                <a
+                  href="/locations/oceania/australia/new-south-wales/sydney"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/oceania/australia/new-south-wales/sydney');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   Sydney
-                </button>
+                </a>
                 <span>·</span>
-                <button
-                  onClick={() => onNavigate('/locations/oceania/australia/victoria/melbourne')}
+                <a
+                  href="/locations/oceania/australia/victoria/melbourne"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/oceania/australia/victoria/melbourne');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   Melbourne
-                </button>
+                </a>
                 <span>·</span>
-                <button
-                  onClick={() => onNavigate('/locations/oceania/new-zealand/auckland-region/auckland')}
+                <a
+                  href="/locations/oceania/new-zealand/auckland-region/auckland"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/oceania/new-zealand/auckland-region/auckland');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   Auckland
-                </button>
+                </a>
                 <span>·</span>
-                <button
-                  onClick={() => onNavigate('/locations/oceania/new-zealand/wellington-region/wellington')}
+                <a
+                  href="/locations/oceania/new-zealand/wellington-region/wellington"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                      e.preventDefault();
+                      onNavigate('/locations/oceania/new-zealand/wellington-region/wellington');
+                    }
+                  }}
                   className="hover:text-[#006BFF] transition-colors cursor-pointer"
                 >
                   Wellington
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -364,40 +466,70 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpen
               <span>WhatsApp: +92 355 7181347</span>
             </a>
             <span aria-hidden="true" className="text-slate-300">·</span>
-            <button
-              onClick={() => onNavigate('/services')}
+            <a
+              href="/services"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  onNavigate('/services');
+                }
+              }}
               className="hover:text-[#006BFF] transition-colors cursor-pointer"
             >
               Services
-            </button>
+            </a>
             <span aria-hidden="true" className="text-slate-300">·</span>
-            <button
-              onClick={() => onNavigate('/terms-of-service')}
+            <a
+              href="/terms-of-service"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  onNavigate('/terms-of-service');
+                }
+              }}
               className="hover:text-[#0052CC] transition-colors cursor-pointer"
             >
               Terms of Service
-            </button>
+            </a>
             <span aria-hidden="true" className="text-slate-300">·</span>
-            <button
-              onClick={() => onNavigate('/privacy-policy')}
+            <a
+              href="/privacy-policy"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  onNavigate('/privacy-policy');
+                }
+              }}
               className="hover:text-[#0052CC] transition-colors cursor-pointer"
             >
               Privacy Policy
-            </button>
+            </a>
             <span aria-hidden="true" className="text-slate-300">·</span>
-            <button
-              onClick={() => onNavigate('/refund-policy')}
+            <a
+              href="/refund-policy"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  onNavigate('/refund-policy');
+                }
+              }}
               className="hover:text-[#0052CC] transition-colors cursor-pointer"
             >
               Refund Policy
-            </button>
+            </a>
             <span aria-hidden="true" className="text-slate-300">·</span>
-            <button
-              onClick={() => onNavigate('/cookie-policy')}
+            <a
+              href="/cookie-policy"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  onNavigate('/cookie-policy');
+                }
+              }}
               className="hover:text-[#0052CC] transition-colors cursor-pointer"
             >
               Cookie Policy
-            </button>
+            </a>
             <span aria-hidden="true" className="text-slate-300">·</span>
             <button
               onClick={() => window.dispatchEvent(new CustomEvent('open-cookie-preferences'))}
@@ -407,19 +539,31 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate: propNavigate, onOpen
               Cookie Settings
             </button>
             <span aria-hidden="true" className="text-slate-300">·</span>
-            <button
-              onClick={() => onNavigate('/sitemap')}
+            <a
+              href="/sitemap"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  onNavigate('/sitemap');
+                }
+              }}
               className="hover:text-[#0052CC] transition-colors cursor-pointer"
             >
               Site Map
-            </button>
+            </a>
             <span aria-hidden="true" className="text-slate-300">·</span>
-            <button
-              onClick={() => onNavigate('/contact')}
+            <a
+              href="/contact"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+                  e.preventDefault();
+                  onNavigate('/contact');
+                }
+              }}
               className="hover:text-[#006BFF] transition-colors cursor-pointer"
             >
               Contact Us
-            </button>
+            </a>
           </div>
           <button
             onClick={scrollToTop}
